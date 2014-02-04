@@ -10,6 +10,7 @@ public class Inscreen : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position.x += 2;
+		Touch
+		transform.Translate(Vector3(1,0,0) * Time.deltaTime);
 	}
 }
