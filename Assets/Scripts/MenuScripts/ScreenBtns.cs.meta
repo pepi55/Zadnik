@@ -2,7 +2,10 @@ fileFormatVersion: 2
 guid: d7fb58b67a2ab46a2890b61b56d89d5a
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - guiSkin: {instanceID: 0}
+  - background: {fileID: 2800000, guid: a30ef3ad1a70e483fab4ba6d5fb78a82, type: 3}
+  - LOGO: {fileID: 2800000, guid: a30ef3ad1a70e483fab4ba6d5fb78a82, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
