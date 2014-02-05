@@ -4,7 +4,7 @@ using System.Collections;
 public class ScreenBtns : MonoBehaviour {
 
 	public GUISkin guiSkin;
-	public Texture2D background, LOGO;
+	public Texture2D background, LOGO,startBtn;
 	public string LvlName = "";
 	public string[] AboutTextLines = new string[0];
 	
@@ -33,6 +33,9 @@ public class ScreenBtns : MonoBehaviour {
 		if (clicked == "")
 		{
 			WindowRect = GUI.Window(0, WindowRect, menuFunc, "Main Menu");
+		}
+		else if(clicked == "howToPlay"){
+			WindowRect = GUI.Window(1, WindowRect, menuFunc, "howToPlay");
 		}
 		else if (clicked == "options")
 		{
@@ -79,10 +82,13 @@ public class ScreenBtns : MonoBehaviour {
 	private void menuFunc(int id)
 	{
 		//buttons 
-		if (GUILayout.Button("Play Game"))
+		if (GUILayout.Button(startBtn))
 		{
-			//play game is clicked
 			Application.LoadLevel(LvlName);
+		}
+		if (GUILayout.Button("How to play"))
+		{
+			clicked = "howToPlay";
 		}
 		if (GUILayout.Button("Options"))
 		{
