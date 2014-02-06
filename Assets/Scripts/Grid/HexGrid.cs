@@ -3,7 +3,9 @@ using System.Collections;
 
 public class HexGrid : MonoBehaviour {
 	/*--- PRIVATES ---*/
-	private GameObject hexGridCell;
+	//floats
+	private float hexHeight;
+	private float hexWidth;
 	/*--- END PRIVATES ---*/
 
 	/*--- PUBLICS ---*/
@@ -11,19 +13,54 @@ public class HexGrid : MonoBehaviour {
 	public int gridLength = 16;
 	public int gridHeight = 16;
 
-	//floats
-	public float gridOffsetX = 0.5f;
-	public float gridOffsetY = 0.5f;
+	//gameobjects
+	public GameObject hexGridCell;
 	/*-- END PUBLICS ---*/
-	
-	// Use this for initialization
+
 	void Start () {
-		for (int x = 0; x < gridLength; x++) {
-			gridOffsetX += x;
-			for (int y = 0; y < gridHeight; y++) {
-				hexGridCell = Instantiate(Resources.Load<GameObject>("Grid/HexTile"), new Vector2(x + gridOffsetX, y), Quaternion.identity) as GameObject;
-				hexGridCell.name = GlobalValues.cellName + x + y;
+		setSizes();
+		createGrid();
+	}
+
+	void setSizes () {
+		hexWidth = hexGridCell.renderer.bounds.size.x;
+		hexHeight = hexGridCell.renderer.bounds.size.y;
+	}
+
+	void createGrid () {
+		GameObject hexGrid = new GameObject ("HexGrid");
+
+		for (int y = 0; y < gridHeight; y++) {
+			for (int x = 0; x < gridLength; x++) {
+				GameObject hexCell = (GameObject)Instantiate(Resources.Load("Grid/HexTile"));
+				Vector2 gridPos = new Vector2(x, y);
+
+				hexCell.transform.position = getWorldPos(gridPos);
+				hexCell.transform.parent = hexGrid.transform;
 			}
 		}
+	}
+
+	Vector2 getInitPos () {
+		Vector2 initPos;
+
+		initPos = new Vector2 (-hexWidth * gridLength / 2f + hexWidth / 2, gridHeight / 2f * hexHeight - hexHeight / 2);
+
+		return initPos;
+	}
+
+	Vector2 getWorldPos (Vector2 gridPos) {
+		Vector2 initPos = getInitPos();
+		float offset = 0;
+		float x, y;
+
+		if (gridPos.y % 2 != 0) {
+			offset = hexWidth / 2;
+		}
+
+		x = initPos.x + offset + gridPos.x * hexWidth;
+		y = initPos.y - gridPos.y * hexHeight * 0.75f;
+
+		return new Vector2(x, y);
 	}
 }
