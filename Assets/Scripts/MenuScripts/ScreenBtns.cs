@@ -10,7 +10,7 @@ public class ScreenBtns : MonoBehaviour {
 	
 	
 	private string clicked = "", MessageDisplayOnAbout = "This game is made by Team Zadnik \n ";
-	private Rect WindowRect = new Rect((Screen.width / 2) - 100, 0, 200, 200);
+	private Rect WindowRect = new Rect((Screen.width / 3) - 100, 0, Screen.width / 2, Screen.height);
 	private float volume = 1.0f;
 	
 	private void Start()
@@ -26,7 +26,7 @@ public class ScreenBtns : MonoBehaviour {
 	{
 		if (background != null)
 			GUI.DrawTexture(new Rect(0,0,Screen.width , Screen.height),background);
-		if (LOGO != null && clicked != "about")
+		if (LOGO != null && clicked != "credits")
 			GUI.DrawTexture(WindowRect, LOGO);
 		
 		GUI.skin = guiSkin;
@@ -37,11 +37,14 @@ public class ScreenBtns : MonoBehaviour {
 		else if(clicked == "howToPlay"){
 			WindowRect = GUI.Window(1, WindowRect, menuFunc, "howToPlay");
 		}
+		else if(clicked == "stat"){
+			WindowRect = GUI.Window(1, WindowRect, menuFunc, "Your Stats");
+		}
 		else if (clicked == "options")
 		{
 			WindowRect = GUI.Window(1, WindowRect, optionsFunc, "Options");
 		}
-		else if (clicked == "about")
+		else if (clicked == "credits")
 		{
 			GUI.Box(new Rect (0,0,Screen.width,Screen.height), MessageDisplayOnAbout);
 		}else if (clicked == "resolution")
@@ -86,6 +89,10 @@ public class ScreenBtns : MonoBehaviour {
 		{
 			Application.LoadLevel(LvlName);
 		}
+		if (GUILayout.Button("Stat"))
+		{
+			clicked = "stat";
+		}
 		if (GUILayout.Button("How to play"))
 		{
 			clicked = "howToPlay";
@@ -94,9 +101,9 @@ public class ScreenBtns : MonoBehaviour {
 		{
 			clicked = "options";
 		}
-		if (GUILayout.Button("About"))
+		if (GUILayout.Button("Credits"))
 		{
-			clicked = "about";
+			clicked = "credits";
 		}
 		if (GUILayout.Button("Quit Game"))
 		{
@@ -106,7 +113,7 @@ public class ScreenBtns : MonoBehaviour {
 	
 	private void Update()
 	{
-		if (clicked == "about" && Input.touchCount == 2)
+		if (clicked == "credits" && Input.touchCount == 2)
 			clicked = "";
 	}
 }
