@@ -6,7 +6,7 @@ public static class GlobalValues{
 	public static string cellName = "hexGridCell";
 	public static float SFXvol = 1;
 	public static float MAINvol = 1;
-	public static int KillCount;
+	public static int KillCount = 909;
 	public static int ExpCount;
 	public static int GoldCount;
 

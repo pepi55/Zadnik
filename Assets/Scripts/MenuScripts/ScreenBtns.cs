@@ -35,14 +35,14 @@ public class ScreenBtns : MonoBehaviour {
 			WindowRect = GUI.Window(0, WindowRect, menuFunc, "Main Menu");
 		}
 		else if(clicked == "howToPlay"){
-			WindowRect = GUI.Window(1, WindowRect, menuFunc, "howToPlay");
+			WindowRect = GUI.Window(1, WindowRect, HowToFunc, "howToPlay");
 		}
 		else if(clicked == "stat"){
-			WindowRect = GUI.Window(1, WindowRect, menuFunc, "Your Stats");
+			WindowRect = GUI.Window(2, WindowRect, StatFunc, "Your Stats");
 		}
 		else if (clicked == "options")
 		{
-			WindowRect = GUI.Window(1, WindowRect, optionsFunc, "Options");
+			WindowRect = GUI.Window(3, WindowRect, optionsFunc, "Options");
 		}
 		else if (clicked == "credits")
 		{
@@ -66,7 +66,9 @@ public class ScreenBtns : MonoBehaviour {
 			GUILayout.EndHorizontal();
 		}
 	}
-	
+
+
+	//-------De option field------//
 	private void optionsFunc(int id)
 	{
 		if (GUILayout.Button("Resolution"))
@@ -81,7 +83,23 @@ public class ScreenBtns : MonoBehaviour {
 			clicked = "";
 		}
 	}
-	
+
+	//------How to play Scherm-------//
+	private void HowToFunc(int id){
+		if (GUILayout.Button(startBtn))
+		{
+			Application.LoadLevel(LvlName);
+		}
+		if (GUILayout.Button("Back"))
+		{
+			clicked = "";
+		}
+	}
+	private void StatFunc(int id){
+		GUILayout.Box("KillCount =");
+		string kills = GlobalValues.KillCount.ToString();
+		GUILayout.Box(kills);
+	}
 	private void menuFunc(int id)
 	{
 		//buttons 
