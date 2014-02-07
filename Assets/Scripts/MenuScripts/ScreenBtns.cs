@@ -4,20 +4,22 @@ using System.Collections;
 public class ScreenBtns : MonoBehaviour {
 
 	public GUISkin guiSkin;
-	public Texture2D background, LOGO,startBtn;
-	public string LvlName = "";
+	public Texture2D background, LOGO, startBtn, howtoBtn, statBtn, controllsBtn;
+	public Texture2D optionBtn, creditBtn, quitbtn, volumeBox, brightBox, backBtn;
+	public Texture2D controlBtn,tutBtn;
+	public string LvlName = "" , TutName = "";
 	public string[] AboutTextLines = new string[0];
 	
 	
 	private string clicked = "", MessageDisplayOnAbout = "This game is made by Team Zadnik \n ";
-	private Rect WindowRect = new Rect((Screen.width / 3) - 100, 0, Screen.width / 2, Screen.height);
+	private Rect WindowRect = new Rect(0, 0, Screen.width, Screen.height);
 	private float volume = 1.0f;
 	
 	private void Start()
 	{
-		for (int x = 0; x < AboutTextLines.Length;x++ )
-		{
+		for (int x = 0; x < AboutTextLines.Length;x++ ){
 			MessageDisplayOnAbout += AboutTextLines[x] + " \n ";
+
 		}
 		MessageDisplayOnAbout += "Use two fingers to return to main";
 	}
@@ -30,40 +32,25 @@ public class ScreenBtns : MonoBehaviour {
 			GUI.DrawTexture(WindowRect, LOGO);
 		
 		GUI.skin = guiSkin;
-		if (clicked == "")
-		{
-			WindowRect = GUI.Window(0, WindowRect, menuFunc, "Main Menu");
+		if (clicked == ""){
+			WindowRect = GUI.Window(0, WindowRect, menuFunc, "Main Menu" ,GUIStyle.none);
+
 		}
 		else if(clicked == "howToPlay"){
-			WindowRect = GUI.Window(1, WindowRect, HowToFunc, "howToPlay");
+			WindowRect = GUI.Window(1, WindowRect, HowToFunc, "howToPlay" ,GUIStyle.none);
+
 		}
 		else if(clicked == "stat"){
-			WindowRect = GUI.Window(2, WindowRect, StatFunc, "Your Stats");
+			WindowRect = GUI.Window(2, WindowRect, StatFunc, "Your Stats" ,GUIStyle.none);
+
 		}
-		else if (clicked == "options")
-		{
-			WindowRect = GUI.Window(3, WindowRect, optionsFunc, "Options");
+		else if (clicked == "options"){
+			WindowRect = GUI.Window(3, WindowRect, optionsFunc, "Options" ,GUIStyle.none);
+
 		}
-		else if (clicked == "credits")
-		{
+		else if (clicked == "credits"){
 			GUI.Box(new Rect (0,0,Screen.width,Screen.height), MessageDisplayOnAbout);
-		}else if (clicked == "resolution")
-		{
-			GUILayout.BeginVertical();
-			for (int x = 0; x < Screen.resolutions.Length;x++ )
-			{
-				if (GUILayout.Button(Screen.resolutions[x].width + "X" + Screen.resolutions[x].height))
-				{
-					Screen.SetResolution(Screen.resolutions[x].width,Screen.resolutions[x].height,true);
-				}
-			}
-			GUILayout.EndVertical();
-			GUILayout.BeginHorizontal();
-			if (GUILayout.Button("Back"))
-			{
-				clicked = "options";
-			}
-			GUILayout.EndHorizontal();
+
 		}
 	}
 
@@ -71,61 +58,83 @@ public class ScreenBtns : MonoBehaviour {
 	//-------De option field------//
 	private void optionsFunc(int id)
 	{
-		if (GUILayout.Button("Resolution"))
-		{
-			clicked = "resolution";
-		}
-		GUILayout.Box("Volume");
+		GUILayout.Box(volumeBox,GUIStyle.none);
 		volume = GUILayout.HorizontalSlider(volume ,0.0f,1.0f);
 		AudioListener.volume = volume;
-		if (GUILayout.Button("Back"))
-		{
+
+		if (GUILayout.Button(brightBox,GUIStyle.none)){
+			Debug.Log("Brightness");
+			
+		}
+
+		if (GUILayout.Button(controlBtn,GUIStyle.none)){
+			Debug.Log("Controlls");
+				
+		}
+
+
+		if (GUILayout.Button(backBtn,GUIStyle.none)){
 			clicked = "";
+
 		}
 	}
 
 	//------How to play Scherm-------//
 	private void HowToFunc(int id){
-		if (GUILayout.Button(startBtn))
-		{
-			Application.LoadLevel(LvlName);
+		GUILayout.Box(startBtn);
+
+		if(GUILayout.Button(tutBtn,GUIStyle.none)){
+			Application.LoadLevel("");
 		}
-		if (GUILayout.Button("Back"))
-		{
+		if (GUILayout.Button(backBtn,GUIStyle.none)){
 			clicked = "";
+
 		}
 	}
+
+	//-------Stat Scherm--------//
 	private void StatFunc(int id){
-		GUILayout.Box("KillCount =");
-		string kills = GlobalValues.KillCount.ToString();
-		GUILayout.Box(kills);
+		string killPoints 	= GlobalValues.KillCount.ToString();
+		string expPoints 	= GlobalValues.ExpCount.ToString();
+		string goldPoints 	= GlobalValues.ExpCount.ToString();
+
+		GUILayout.Box("KillCount = " 	+ killPoints);
+		GUILayout.Box("Exp earned = " 	+ expPoints);
+		GUILayout.Box("Gold earned = " 	+ goldPoints);
+		if (GUILayout.Button(backBtn,GUIStyle.none)){
+			clicked = "";
+
+		}
 	}
+
+	//------Main Menu Scherm-------//
 	private void menuFunc(int id)
 	{
 		//buttons 
-		if (GUILayout.Button(startBtn))
-		{
+		if (GUILayout.Button(startBtn,GUIStyle.none)){
 			Application.LoadLevel(LvlName);
+
 		}
-		if (GUILayout.Button("Stat"))
-		{
-			clicked = "stat";
-		}
-		if (GUILayout.Button("How to play"))
-		{
+		if (GUILayout.Button(howtoBtn,GUIStyle.none)){
 			clicked = "howToPlay";
+			
 		}
-		if (GUILayout.Button("Options"))
-		{
+		if (GUILayout.Button(statBtn,GUIStyle.none)){
+			clicked = "stat";
+
+		}
+
+		if (GUILayout.Button(optionBtn,GUIStyle.none)){
 			clicked = "options";
+
 		}
-		if (GUILayout.Button("Credits"))
-		{
+		if (GUILayout.Button(creditBtn,GUIStyle.none)){
 			clicked = "credits";
+
 		}
-		if (GUILayout.Button("Quit Game"))
-		{
+		if (GUILayout.Button(quitbtn,GUIStyle.none)){
 			Application.Quit();
+
 		}
 	}
 	
