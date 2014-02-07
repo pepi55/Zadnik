@@ -50,7 +50,7 @@ public class PublicClasses : MonoBehaviour {
 		}
 	}
 
-	public class Tile : GridObject, IHasNeighbours<Tile> {
+	/*public class Tile : GridObject, IHasNeighbours<Tile> {
 		public bool passable;
 
 		public Tile (int x, int y) : base(x, y) {
@@ -67,7 +67,7 @@ public class PublicClasses : MonoBehaviour {
 				return allNeighbours.Where(o => o.passable);
 			}
 		}
-	}
+	}*/
 
 	public class Path<N> : IEnumerable<N> {
 		public N LastStep {
