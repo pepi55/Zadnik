@@ -24,32 +24,6 @@ public class PublicClasses : MonoBehaviour {
 	/*--- END STRUCTS ---*/
 
 	/*--- CLASSES ---*/
-	public abstract class GridObject {
-		public Point Location;
-
-		public int X {
-			get {
-				return Location.X;
-			}
-		}
-
-		public int Y {
-			get {
-				return Location.Y;
-			}
-		}
-
-		public GridObject (Point location) {
-			Location = location;
-		}
-
-		public GridObject (int x, int y) : this(new Point(x, y)) {}
-
-		public override string ToString () {
-			return string.Format ("({0}, {1})", X, Y);
-		}
-	}
-
 	public class Tile : GridObject, IHasNeighbours<Tile> {
 		public bool passable;
 
@@ -107,5 +81,69 @@ public class PublicClasses : MonoBehaviour {
 			return this.GetEnumerator();
 		}
 	}
+
+	//abstract
+	public abstract class GridObject {
+		public Point Location;
+		
+		public int X {
+			get {
+				return Location.X;
+			}
+		}
+		
+		public int Y {
+			get {
+				return Location.Y;
+			}
+		}
+		
+		public GridObject (Point location) {
+			Location = location;
+		}
+		
+		public GridObject (int x, int y) : this(new Point(x, y)) {}
+		
+		public override string ToString () {
+			return string.Format ("({0}, {1})", X, Y);
+		}
+	}
+
+	//static
+
 	/*--- END CLASSES ---*/
+
+	/*--- PRIVATES ---*/
+	class priorityQueue {
+		private SortedDictionary<P, Queue<V>> list = new SortedDictionary<P, Queue<V>>();
+
+		public void Enqueue (P priority, V value) {
+			Queue<V> q;
+
+			if (!list.TryGetValue(priority, out q)) {
+				q = new Queue<V>();
+				list.Add(priority, q);
+			}
+
+			q.Enqueue(value);
+		}
+
+		public V Dequeue () {
+			var pair = list.First();
+			var v = pair.Value.Dequeue();
+
+			if (pair.Value.Count == 0) {
+				list.Remove(pair.Key);
+			}
+
+			return v;
+		}
+
+		public bool IsEmpty {
+			get {
+				return !list.Any();
+			}
+		}
+	}
+	/*--- END PRIVATES ---*/
 }
