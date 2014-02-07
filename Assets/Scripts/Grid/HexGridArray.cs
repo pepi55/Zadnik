@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class HexGridArray : MonoBehaviour {
 	/*--- PUBLICS ---*/
@@ -21,8 +22,8 @@ public class HexGridArray : MonoBehaviour {
 	//float
 	private float offsetX, offsetY;
 
-	//array
-	private ArrayList hexes = new ArrayList();
+	//list
+	private List<List<Transform>> grid = new List<List<Transform>>();
 	/*--- END PRIVATES ---*/
 
 	// Use this for initialization
@@ -36,6 +37,7 @@ public class HexGridArray : MonoBehaviour {
 			for (int y = 0; y < gridHeight; y++) {
 				Vector2 hexPos = HexOffset(x, y);
 				Instantiate(hex, hexPos, Quaternion.identity);
+				hex.name = "hex " + x + y;
 			}
 		}
 	}
