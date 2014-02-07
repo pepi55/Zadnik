@@ -10,7 +10,7 @@ public static class GlobalValues{
 	public static float MAINvol = 1;
 
 	//ints
-	public static int KillCount = 909;
+	public static int KillCount;
 	public static int ExpCount;
 	public static int GoldCount;
 }
