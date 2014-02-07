@@ -10,7 +10,7 @@ public class ScreenBtns : MonoBehaviour {
 	
 	
 	private string clicked = "", MessageDisplayOnAbout = "This game is made by Team Zadnik \n ";
-	private Rect WindowRect = new Rect((Screen.width / 3) - 100, 0, Screen.width / 2, Screen.height);
+	private Rect WindowRect = new Rect(0, 0, Screen.width, Screen.height);
 	private float volume = 1.0f;
 	
 	private void Start()
@@ -99,6 +99,10 @@ public class ScreenBtns : MonoBehaviour {
 		GUILayout.Box("KillCount =");
 		string kills = GlobalValues.KillCount.ToString();
 		GUILayout.Box(kills);
+		if (GUILayout.Button("Back"))
+		{
+			clicked = "";
+		}
 	}
 	private void menuFunc(int id)
 	{
