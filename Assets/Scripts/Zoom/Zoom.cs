@@ -17,7 +17,9 @@ public class Zoom : MonoBehaviour {
 			touch0 = Input.GetTouch(0).position;
 			touch1 = Input.GetTouch(1).position;
 			
-			distance = Vector2.Distance(touch0, touch1);
+			distance =  Vector2.Distance(touch0, touch1) / 100;
+			camera.farClipPlane = distance;
+			Debug.Log(distance);
 		}
 	}
 }
