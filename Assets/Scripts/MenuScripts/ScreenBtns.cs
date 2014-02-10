@@ -12,7 +12,8 @@ public class ScreenBtns : MonoBehaviour {
 	
 	
 	private string clicked = "", MessageDisplayOnAbout = "This game is made by Team Zadnik \n ";
-	private Rect WindowRect = new Rect(0, 0, Screen.width, Screen.height);
+	private Rect WindowRect = new Rect(Screen.width / 2, Screen.height / 10, Screen.width / 4, Screen.height);
+	private Rect HugeRect = new Rect(0, 0, Screen.width, Screen.height);
 	private float volume = 1.0f;
 	
 	private void Start()
@@ -33,11 +34,11 @@ public class ScreenBtns : MonoBehaviour {
 		
 		GUI.skin = guiSkin;
 		if (clicked == ""){
-			WindowRect = GUI.Window(0, WindowRect, menuFunc, "Main Menu" ,GUIStyle.none);
+			WindowRect = GUI.Window(0, HugeRect, menuFunc, "Main Menu" ,GUIStyle.none);
 
 		}
 		else if(clicked == "howToPlay"){
-			WindowRect = GUI.Window(1, WindowRect, HowToFunc, "howToPlay" ,GUIStyle.none);
+			WindowRect = GUI.Window(1, HugeRect, HowToFunc, "howToPlay" ,GUIStyle.none);
 
 		}
 		else if(clicked == "stat"){
@@ -97,10 +98,16 @@ public class ScreenBtns : MonoBehaviour {
 		string killPoints 	= GlobalValues.KillCount.ToString();
 		string expPoints 	= GlobalValues.ExpCount.ToString();
 		string goldPoints 	= GlobalValues.ExpCount.ToString();
+		string widthPoints 	= Screen.width.ToString();
+		string heightPoints 	= Screen.height.ToString();
+
 
 		GUILayout.Box("KillCount = " 	+ killPoints);
 		GUILayout.Box("Exp earned = " 	+ expPoints);
 		GUILayout.Box("Gold earned = " 	+ goldPoints);
+		GUILayout.Box("Screenwidth = " 	+ widthPoints);
+		GUILayout.Box("screenheight = " + heightPoints);
+
 		if (GUILayout.Button(backBtn,GUIStyle.none)){
 			clicked = "";
 
