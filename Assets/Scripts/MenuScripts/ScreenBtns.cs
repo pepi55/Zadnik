@@ -34,7 +34,7 @@ public class ScreenBtns : MonoBehaviour {
 		
 		GUI.skin = guiSkin;
 		if (clicked == ""){
-			WindowRect = GUI.Window(0, HugeRect, menuFunc, "Main Menu" ,GUIStyle.none);
+			WindowRect = GUI.Window(0, WindowRect, menuFunc, "Main Menu" ,GUIStyle.none);
 
 		}
 		else if(clicked == "howToPlay"){
