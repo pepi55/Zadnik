@@ -5,6 +5,9 @@ public class Grid : MonoBehaviour {
 	/*--- PUBLICS ---*/
 	//int
 	public int hexSize = 64;
+
+	//gameobject
+	public GameObject hexagonicalCell;
 	/*--- END PUBLICS ---*/
 
 	/*--- PRIVATES ---*/
@@ -16,6 +19,13 @@ public class Grid : MonoBehaviour {
 
 	private float verticalSpacing;
 	private float horizontalSpacing;
+
+	//class
+	private class HexTile {
+		public GameObject hexCell;
+		public Vector2 position;
+		public int value;
+	}
 	/*--- END PRIVATES ---*/
 	
 	void Start () {
@@ -24,6 +34,8 @@ public class Grid : MonoBehaviour {
 
 		verticalSpacing = 3 / 4 * hexHeight;
 		horizontalSpacing = hexWidth;
+
+		DrawGrid (hexSize);
 	}
 
 	void Update () {
@@ -31,7 +43,23 @@ public class Grid : MonoBehaviour {
 	}
 
 	void DrawGrid (int size) {
+		HexTile hexagon = new HexTile();
+		Vector3 [] neighbours = new Vector3[] {
+			new Vector3(+1f, -1f, 0f), new Vector3(+1f, 0f, -1f), new Vector3(0f, +1f, -1f),
+			new Vector3(-1f, +1f, 0f), new Vector3(-1f, 0f, +1f), new Vector3(0f, -1f, +1f)
+		};
 
+		/*int[,] neighbours = new int[,] {
+			{ +1, -1, 0 }, { +1, 0, -1 }, { 0, +1, -1 },
+			{ -1, +1, 0 }, { -1, 0, +1 }, { 0, -1, +1 }
+		};*/
+
+		for (int i = 0; i < neighbours.Length; i++) {
+			hexagon.position = neighbours [i];
+			hexagon.hexCell = (GameObject)Instantiate(hexagonicalCell, hexagon.position, Quaternion.identity);
+			hexagon.hexCell.name = GlobalValues.cellName;
+			hexagon.hexCell.tag = GlobalValues.cellTag;
+		}
 	}
 
 	private Vector2 CubeToAxis (Vector3 cube) {
@@ -50,14 +78,14 @@ public class Grid : MonoBehaviour {
 	}
 
 	private Vector2 CubeToEvenR (Vector3 cube) {
-		float x = cube.x + (cube.z + (cube.z >> 1)) / 2;
+		float x = cube.x + (cube.z + ((int)cube.z & 1)) / 2;
 		float y = cube.z;
 
 		return new Vector2 (x, y);
 	}
 
 	private Vector3 EvenRToCube (Vector2 EvenR) {
-		float x = EvenR.x - (EvenR.y + (EvenR.y >> 1)) / 2;
+		float x = EvenR.x - (EvenR.y + ((int)EvenR.y & 1)) / 2;
 		float z = EvenR.y;
 		float y = -x - z;
 
