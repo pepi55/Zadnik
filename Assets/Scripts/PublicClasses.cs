@@ -50,7 +50,7 @@ public class PublicClasses : MonoBehaviour {
 		}
 	}
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 	/*public class Tile : GridObject, IHasNeighbours<Tile> {
 =======
 //<<<<<<< HEAD
