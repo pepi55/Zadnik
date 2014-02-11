@@ -36,8 +36,6 @@ public class HexGrid : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		DrawGrid();
-
-		Debug.Log(r[0][9]);
 	}
 
 	private void DrawGrid () {
@@ -62,6 +60,9 @@ public class HexGrid : MonoBehaviour {
 			}
 
 			r.Add(q);
+			Debug.Log(q[8].x);
+			Debug.Log(q[8].y);
+			Debug.Log(q[8].z);
 		}
 	}
 
