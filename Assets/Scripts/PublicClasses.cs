@@ -50,7 +50,15 @@ public class PublicClasses : MonoBehaviour {
 		}
 	}
 
+<<<<<<< HEAD
 	/*public class Tile : GridObject, IHasNeighbours<Tile> {
+=======
+//<<<<<<< HEAD
+	/*public class Tile : GridObject, IHasNeighbours<Tile> {
+=======
+/*	public class Tile : GridObject, IHasNeighbours<Tile> {
+>>>>>>> master
+>>>>>>> Zoom
 		public bool passable;
 
 		public Tile (int x, int y) : base(x, y) {
