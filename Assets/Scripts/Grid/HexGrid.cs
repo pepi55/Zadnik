@@ -12,7 +12,7 @@ public class HexGrid : MonoBehaviour {
 	public int gridLength = 16;
 
 	//float
-	public float rad = 0.22f;
+	public float rad = 0.55f;
 
 	//bool
 	public bool innerCircleRad = true;
@@ -51,7 +51,8 @@ public class HexGrid : MonoBehaviour {
 
 				hexCell.position = HexOffset(x, y);
 				hexCell.tile = (GameObject)Instantiate(hex, hexCell.position, Quaternion.identity);
-				hexCell.tile.name = "hexagon";
+				hexCell.tile.name = GlobalValues.cellName;
+				hexCell.tile.tag = GlobalValues.cellTag;
 			}
 		}
 	}

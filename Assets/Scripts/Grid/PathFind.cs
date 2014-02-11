@@ -1,8 +1,7 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 using System.Collections;
 
 public class PathFind : MonoBehaviour {
-	/*
 	// Use this for initialization
 	void Start () {
 	
@@ -13,10 +12,15 @@ public class PathFind : MonoBehaviour {
 	
 	}
 
-	void FindPath (GameObject start, GameObject goal) {
-		GameObject [] evaluated = new GameObject[];
-		GameObject [] path = new GameObject[];
+	void OnTriggerEnter2D (Collider2D trigger) {
+		if (trigger.tag == "gridCell") {
 
-		int value = 0;
-	}*/
-}
+		}
+	}
+
+	private void FindPath (GameObject start, GameObject goal) {
+		int distance = 0;
+		int moved = 0;
+		int value = distance + moved;
+	}
+}*/

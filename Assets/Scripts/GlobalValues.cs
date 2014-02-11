@@ -4,6 +4,7 @@ using System.Collections;
 public static class GlobalValues{
 	//strings
 	public static string cellName = "hexGridCell";
+	public static string cellTag = "gridCell";
 
 	//floats
 	public static float SFXvol = 1;
