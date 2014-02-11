@@ -48,14 +48,13 @@ public class Grid : MonoBehaviour {
 			new Vector3(+1f, -1f, 0f), new Vector3(+1f, 0f, -1f), new Vector3(0f, +1f, -1f),
 			new Vector3(-1f, +1f, 0f), new Vector3(-1f, 0f, +1f), new Vector3(0f, -1f, +1f)
 		};
+		Vector2 [] neighbours2d = new Vector2[] {
+			new Vector2(+1f, 0f), new Vector2(+1f, -1f), new Vector2(0f, -1f),
+			new Vector2(-1f, 0f), new Vector2(-1f, +1f), new Vector2(0f, +1f)
+		};
 
-		/*int[,] neighbours = new int[,] {
-			{ +1, -1, 0 }, { +1, 0, -1 }, { 0, +1, -1 },
-			{ -1, +1, 0 }, { -1, 0, +1 }, { 0, -1, +1 }
-		};*/
-
-		for (int i = 0; i < neighbours.Length; i++) {
-			hexagon.position = neighbours [i];
+		for (int i = 0; i < neighbours2d.Length; i++) {
+			hexagon.position = neighbours2d [i];
 			hexagon.hexCell = (GameObject)Instantiate(hexagonicalCell, hexagon.position, Quaternion.identity);
 			hexagon.hexCell.name = GlobalValues.cellName;
 			hexagon.hexCell.tag = GlobalValues.cellTag;
@@ -89,6 +88,6 @@ public class Grid : MonoBehaviour {
 		float z = EvenR.y;
 		float y = -x - z;
 
-		return new Vector3 ();
+		return new Vector3 (x, y, z);
 	}
 }
