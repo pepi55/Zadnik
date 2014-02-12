@@ -36,6 +36,8 @@ public class HexGrid : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		DrawGrid();
+
+		Debug.Log(GetDistance(r[1][6], r[8][11]));
 	}
 
 	private void DrawGrid () {
@@ -60,9 +62,6 @@ public class HexGrid : MonoBehaviour {
 			}
 
 			r.Add(q);
-			Debug.Log(q[8].x);
-			Debug.Log(q[8].y);
-			Debug.Log(q[8].z);
 		}
 	}
 
@@ -81,6 +80,10 @@ public class HexGrid : MonoBehaviour {
 		pos.y = yp;
 
 		return pos;
+	}
+
+	private float GetDistance (Vector3 a, Vector3 b) {
+		return (Mathf.Abs(a.x - b.x) + Mathf.Abs(a.z - b.z) + Mathf.Abs(a.x + a.z - b.x - b.z) / 2);
 	}
 
 	private Vector2 CubeToAxis (Vector3 cube) {
