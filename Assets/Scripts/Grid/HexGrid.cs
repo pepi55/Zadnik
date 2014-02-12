@@ -24,7 +24,6 @@ public class HexGrid : MonoBehaviour {
 
 	//list
 	private List<List<Vector3>> r = new List<List<Vector3>>();
-	private List<Vector3> q = new List<Vector3>();
 
 	//class
 	private class HexTile {
@@ -37,7 +36,9 @@ public class HexGrid : MonoBehaviour {
 	void Start () {
 		DrawGrid();
 
-		Debug.Log(GetDistance(r[1][6], r[8][11]));
+		Debug.Log(GetDistance(r[1][6], r[11][4]));
+		Debug.Log(r[1][6]);
+		Debug.Log(r[11][4]);
 	}
 
 	private void DrawGrid () {
@@ -47,6 +48,7 @@ public class HexGrid : MonoBehaviour {
 		offsetY = unitLength * 1.5f;
 		
 		for (int x = 0; x < gridLength; x++) {
+			List<Vector3> q = new List<Vector3>();
 			for (int y = 0; y < gridHeight; y++) {
 				HexTile hexCell = new HexTile();
 				Vector3 column;
