@@ -2,17 +2,21 @@
 using System.Collections;
 
 public class Movement : MonoBehaviour {
+	//hexgrid
+	private HexGrid grid;
+
+	//int
 	private int x;
 	private int y;
 
 	// Use this for initialization
 	void Start () {
+		grid.DrawGrid();
+
 		x = 2; //(int)transform.position.x;
 		y = 4; //(int)transform.position.y;
 
 		transform.position = GlobalValues.hexCells[2][2].transform.position;
-
-		HexGrid.DrawGrid();
 	}
 	
 	// Update is called once per frame
