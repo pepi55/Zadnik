@@ -10,9 +10,6 @@ public class GameControler : MonoBehaviour {
 	public int gridHeight = 16;
 	public int gridLength = 16;
 	
-	//float
-	public float radius = 0.64f;
-	
 	//bool
 	public bool innerCircleRad = false;
 	/*--- END PUBLICS ---*/
@@ -31,9 +28,6 @@ public class GameControler : MonoBehaviour {
 		//int
 		gridHeight = 16;
 		gridLength = 16;
-
-		//float
-		//rad = 0.64f;
 
 		//bool
 		innerCircleRad = false;
