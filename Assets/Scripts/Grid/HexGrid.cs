@@ -23,7 +23,7 @@ public class HexGrid : MonoBehaviour {
 	private float offsetX, offsetY;
 
 	//list
-	private List<List<Vector3>> r = new List<List<Vector3>>();
+	//private List<List<Vector3>> r = new List<List<Vector3>>();
 
 	//class
 	private class HexTile {
@@ -32,12 +32,7 @@ public class HexGrid : MonoBehaviour {
 	}
 	/*--- END PRIVATES ---*/
 
-	// Use this for initialization
-	void Start () {
-		DrawGrid();
-	}
-
-	private void DrawGrid () {
+	public void DrawGrid () {
 		float unitLength = (innerCircleRad) ? (rad / (Mathf.Sqrt(3) / 2)) : rad;
 		
 		offsetX = unitLength * Mathf.Sqrt(3);
@@ -45,6 +40,7 @@ public class HexGrid : MonoBehaviour {
 		
 		for (int x = 0; x < gridLength; x++) {
 			List<Vector3> q = new List<Vector3>();
+			List<GameObject> hexagon = new List<GameObject>();
 			for (int y = 0; y < gridHeight; y++) {
 				HexTile hexCell = new HexTile();
 				Vector3 column;
@@ -55,11 +51,13 @@ public class HexGrid : MonoBehaviour {
 				hexCell.tile.name = GlobalValues.cellName;
 				hexCell.tile.tag = GlobalValues.cellTag;
 
+				hexagon.Add(hexCell.tile);
 				column = AxisToCube(hexCell.position);
 				q.Add(column);
 			}
 
-			r.Add(q);
+			GlobalValues.hexCells.Add(hexagon);
+			GlobalValues.r.Add(q);
 		}
 	}
 
