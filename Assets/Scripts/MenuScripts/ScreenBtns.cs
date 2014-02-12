@@ -2,11 +2,12 @@
 using System.Collections;
 
 public class ScreenBtns : MonoBehaviour {
-
-	public GUISkin guiSkin;
+	
 	public Texture2D background, LOGO, startBtn, howtoBtn, statBtn, controllsBtn;
 	public Texture2D optionBtn, creditBtn, quitbtn, volumeBox, brightBox, backBtn;
 	public Texture2D controlBtn,tutBtn;
+
+	public GUISkin guiSkin;
 	public string LvlName = "" , TutName = "";
 	public string[] AboutTextLines = new string[0];
 	
@@ -18,13 +19,15 @@ public class ScreenBtns : MonoBehaviour {
 	
 	private void Start()
 	{
+		//---------------------de credits worden hierin gestopt zodat het al klaar staat---------------------//
 		for (int x = 0; x < AboutTextLines.Length;x++ ){
 			MessageDisplayOnAbout += AboutTextLines[x] + " \n ";
 
 		}
 		MessageDisplayOnAbout += "Use two fingers to return to main";
 	}
-	
+
+	//---------------------de function om bij een click een andere te kiezen------------------------------------------//
 	private void OnGUI()
 	{
 		if (background != null)
@@ -56,7 +59,7 @@ public class ScreenBtns : MonoBehaviour {
 	}
 
 
-	//-------De option field------//
+	//-----------------------De option field----------------------//
 	private void optionsFunc(int id)
 	{
 		GUILayout.Box(volumeBox,GUIStyle.none);
@@ -80,7 +83,7 @@ public class ScreenBtns : MonoBehaviour {
 		}
 	}
 
-	//------How to play Scherm-------//
+	//------------------------------------------------How to play Scherm----------------------------//
 	private void HowToFunc(int id){
 		GUILayout.Box(startBtn);
 
@@ -93,12 +96,12 @@ public class ScreenBtns : MonoBehaviour {
 		}
 	}
 
-	//-------Stat Scherm--------//
+	//-------------------------------------------------Stat Scherm--------//
 	private void StatFunc(int id){
-		string killPoints 	= GlobalValues.KillCount.ToString();
-		string expPoints 	= GlobalValues.ExpCount.ToString();
-		string goldPoints 	= GlobalValues.ExpCount.ToString();
-		string widthPoints 	= Screen.width.ToString();
+		string killPoints 		= GlobalValues.KillCount.ToString();
+		string expPoints 		= GlobalValues.ExpCount.ToString();
+		string goldPoints 		= GlobalValues.ExpCount.ToString();
+		string widthPoints 		= Screen.width.ToString();
 		string heightPoints 	= Screen.height.ToString();
 
 
@@ -114,10 +117,9 @@ public class ScreenBtns : MonoBehaviour {
 		}
 	}
 
-	//------Main Menu Scherm-------//
+	//------------------------------------------------Main Menu Scherm----------------------------//
 	private void menuFunc(int id)
 	{
-		//buttons 
 		if (GUILayout.Button(startBtn,GUIStyle.none)){
 			Application.LoadLevel(LvlName);
 
@@ -144,7 +146,7 @@ public class ScreenBtns : MonoBehaviour {
 
 		}
 	}
-	
+	//----------------------------------------overige functies die buiten de menu gebeuren-----------------------//
 	private void Update()
 	{
 		if (clicked == "credits" && Input.touchCount == 2)

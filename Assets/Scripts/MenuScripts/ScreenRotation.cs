@@ -15,8 +15,8 @@ public class ScreenRotation : MonoBehaviour {
 	void Update () {
 		float newSpeed = speed * Time.deltaTime;
 
-		screenRotation.x = Input.acceleration.x;
-		screenRotation.y = Input.acceleration.y;
+		screenRotation.x = Input.acceleration.x * newSpeed;
+		screenRotation.y = Input.acceleration.y * newSpeed;
 
 		Debug.Log(screenRotation.x);
 		transform.rotation = screenRotation;
