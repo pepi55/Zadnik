@@ -35,10 +35,6 @@ public class HexGrid : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		DrawGrid();
-
-		Debug.Log(GetDistance(r[1][6], r[11][4]));
-		Debug.Log(r[1][6]);
-		Debug.Log(r[11][4]);
 	}
 
 	private void DrawGrid () {
