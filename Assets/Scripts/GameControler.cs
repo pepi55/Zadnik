@@ -7,11 +7,8 @@ public class GameControler : MonoBehaviour {
 	public GameObject hex;
 	
 	//int
-	public int gridHeight = 16;
-	public int gridLength = 16;
-	
-	//bool
-	public bool innerCircleRad = false;
+	public int gridHeight;
+	public int gridLength;
 	/*--- END PUBLICS ---*/
 	
 	/*--- PRIVATES ---*/
@@ -29,14 +26,11 @@ public class GameControler : MonoBehaviour {
 		gridHeight = 16;
 		gridLength = 16;
 
-		//bool
-		innerCircleRad = false;
-			
 		//class
 		grid = GetComponent<HexGrid>();
 		/*--- END INIT ---*/
 
-		grid.DrawGrid(hex);
+		grid.DrawGrid(hex, gridHeight, gridLength);
 	}
 	
 	// Update is called once per frame

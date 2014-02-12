@@ -3,44 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class HexGrid : MonoBehaviour {
-<<<<<<< HEAD
-	/*--- PUBLICS ---*/
-	//transform
-	public GameObject hex;
-
-	//int
-	public int gridHeight = 16;
-	public int gridLength = 16;
-
-	//float
-	public float rad = 0.55f;
-
-	//bool
-	public bool innerCircleRad = true;
-	/*--- END PUBLICS ---*/
-
-	/*--- PRIVATES ---*/
-	//float
-	private float offsetX, offsetY;
-
-=======
->>>>>>> master
 	//class
 	private class HexTile {
 		public GameObject tile;
 		public Vector2 position;
 	}
-
-<<<<<<< HEAD
-	public void DrawGrid () {
-		Grid();
-	}
-
-	private void Grid () {
-=======
+	
 	public void DrawGrid (GameObject hex, int gridHeight = 16, int gridLength = 16, float rad = 0.64f, bool innerCircleRad = false) {
 		float offsetX, offsetY;
->>>>>>> master
 		float unitLength = (innerCircleRad) ? (rad / (Mathf.Sqrt(3) / 2)) : rad;
 		
 		offsetX = unitLength * Mathf.Sqrt(3);
