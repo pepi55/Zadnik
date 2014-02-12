@@ -23,8 +23,8 @@ public class GameControler : MonoBehaviour {
 	void Start () {
 		/*--- INIT ---*/
 		//int
-		gridHeight = 16;
-		gridLength = 16;
+		gridHeight = 16; GlobalValues.gridH = gridHeight;
+		gridLength = 16; GlobalValues.gridW = gridLength;
 
 		//class
 		grid = GetComponent<HexGrid>();

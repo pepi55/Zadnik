@@ -20,6 +20,9 @@ public static class GlobalValues{
 	public static int ExpCount;
 	public static int GoldCount;
 
+	public static int gridH;
+	public static int gridW;
+
 	//lists
 	public static List<List<GameObject>> hexCells = new List<List<GameObject>>();
 	public static List<List<Vector3>> row = new List<List<Vector3>>();
