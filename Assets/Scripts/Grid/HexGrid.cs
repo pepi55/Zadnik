@@ -1,66 +1,72 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class HexGrid : MonoBehaviour {
+	/*--- PUBLICS ---*/
+	//transform
+	public GameObject hex;
+
+	//int
+	public int gridHeight = 16;
+	public int gridLength = 16;
+
+	//float
+	public float rad = 0.22f;
+
+	//bool
+	public bool innerCircleRad = true;
+	/*--- END PUBLICS ---*/
+
 	/*--- PRIVATES ---*/
-	//floats
-	private float hexHeight;
-	private float hexWidth;
+	//float
+	private float offsetX, offsetY;
+
+	//array
+	//>>> total amount of tiles <<<//
+
+	//class
+	private class HexTile {
+		public GameObject tile;
+		public Vector2 position;
+	}
 	/*--- END PRIVATES ---*/
 
-	/*--- PUBLICS ---*/
-	//ints
-	public int gridLength = 16;
-	public int gridHeight = 16;
-
-	//gameobjects
-	public GameObject hexGridCell;
-	/*-- END PUBLICS ---*/
-
+	// Use this for initialization
 	void Start () {
-		setSizes();
-		createGrid();
-	}
+		float unitLength = (innerCircleRad) ? (rad / (Mathf.Sqrt (3) / 2)) : rad;
 
-	void setSizes () {
-		hexWidth = hexGridCell.renderer.bounds.size.x;
-		hexHeight = hexGridCell.renderer.bounds.size.y;
-	}
+		offsetX = unitLength * Mathf.Sqrt (3);
+		offsetY = unitLength * 1.5f;
 
-	void createGrid () {
-		GameObject hexGrid = new GameObject ("HexGrid");
+		for (int x = 0; x < gridLength; x++) {
+			for (int y = 0; y < gridHeight; y++) {
+				/*
+				Vector2 hexPos = HexOffset(x, y);
+				Instantiate(hex, hexPos, Quaternion.identity);
+				hex.name = "hex"; // " + x + y;
+				*/
 
-		for (int y = 0; y < gridHeight; y++) {
-			for (int x = 0; x < gridLength; x++) {
-				GameObject hexCell = (GameObject)Instantiate(Resources.Load("Grid/HexTile"));
-				Vector2 gridPos = new Vector2(x, y);
+				HexTile hexCell = new HexTile();
 
-				hexCell.transform.position = getWorldPos(gridPos);
-				hexCell.transform.parent = hexGrid.transform;
+				hexCell.position = HexOffset(x, y);
+				hexCell.tile = (GameObject)Instantiate(hex, hexCell.position, Quaternion.identity);
+				hexCell.tile.name = "hexagon";
 			}
 		}
 	}
 
-	Vector2 getInitPos () {
-		Vector2 initPos;
+	Vector2 HexOffset (int x, int y) {
+		Vector2 pos = Vector2.zero;
 
-		initPos = new Vector2 (-hexWidth * gridLength / 2f + hexWidth / 2, gridHeight / 2f * hexHeight - hexHeight / 2);
-
-		return initPos;
-	}
-
-	Vector2 getWorldPos (Vector2 gridPos) {
-		Vector2 initPos = getInitPos();
-		float offset = 0;
-		float x, y;
-
-		if (gridPos.y % 2 != 0) {
-			offset = hexWidth / 2;
+		if (y % 2 == 0) {
+			pos.x = x * offsetX;
+			pos.y = y * offsetY;
+		} else {
+			pos.x = (x + 0.5f) * offsetX;
+			pos.y = y * offsetY;
 		}
 
-		x = initPos.x + offset + gridPos.x * hexWidth;
-		y = initPos.y - gridPos.y * hexHeight * 0.75f;
-
-		return new Vector2(x, y);
+		return pos;
 	}
 }
