@@ -17,7 +17,7 @@ public class HexGrid : MonoBehaviour {
 				HexTile hexCell = new HexTile();
 				Vector2 pos = HexOffset(x, y);
 
-				hexCell.hexagon = (GameObject)MonoBehaviour.Instantiate(Resources.Load(GlobalValues.cellPath), pos, Quaternion.identity);
+				hexCell.hexagon = (GameObject)Instantiate(Resources.Load(GlobalValues.cellPath), pos, Quaternion.identity);
 				hexCell.hexagon.transform.parent = transform;
 				hexCell.hexagon.name = GlobalValues.cellName;
 				hexCell.hexagon.tag = GlobalValues.cellTag;
