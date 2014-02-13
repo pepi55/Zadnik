@@ -14,58 +14,8 @@ public class Movement : MonoBehaviour {
 		grid = gameController.GetComponent<HexGrid>();
 	}
 
-	void Update () {
-		if (Input.GetKeyDown(KeyCode.W)) {
-			if (x < GlobalValues.gridH - 1) {
-				x += 1;
-			}
-
-			transform.position = GetPosition(GlobalValues.row[x][y]);
-
-			Debug.Log("vector: " + GlobalValues.row[x][y]);
-			Debug.Log("position: " + transform.position);
-			Debug.Log("x: " + x);
-			Debug.Log("y: " + y);
-		}
-
-		if (Input.GetKeyDown(KeyCode.S)) {
-			if (x >= 1 && x <= GlobalValues.gridH) {
-				x -= 1;
-			}
-
-			transform.position = GetPosition(GlobalValues.row[x][y]);
-
-			Debug.Log("vector: " + GlobalValues.row[x][y]);
-			Debug.Log("position: " + transform.position);
-			Debug.Log("x: " + x);
-			Debug.Log("y: " + y);
-		}
-
-		if (Input.GetKeyDown(KeyCode.A)) {
-			if (y < GlobalValues.gridW - 1) {
-				y += 1;
-			}
-
-			transform.position = GetPosition(GlobalValues.row[x][y]);
-
-			Debug.Log("vector: " + GlobalValues.row[x][y]);
-			Debug.Log("position: " + transform.position);
-			Debug.Log("x: " + x);
-			Debug.Log("y: " + y);
-		}
-
-		if (Input.GetKeyDown(KeyCode.D)) {
-			if (y >= 1 && y <= GlobalValues.gridW) {
-				y -= 1;
-			}
-
-			transform.position = GetPosition(GlobalValues.row[x][y]);
-			
-			Debug.Log("vector: " + GlobalValues.row[x][y]);
-			Debug.Log("position: " + transform.position);
-			Debug.Log("x: " + x);
-			Debug.Log("y: " + y);
-		}
+	public void MoveTo (Vector3 position) {
+		transform.position = position;
 	}
 
 	private Vector3 GetPosition (Vector3 coordinates) {
