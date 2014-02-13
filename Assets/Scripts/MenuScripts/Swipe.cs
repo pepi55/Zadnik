@@ -14,8 +14,8 @@ public class Swipe : MonoBehaviour {
 	void Update () {
 		//----leest af hoeveel vingers er op het scherm zitten zovaak gaat het hierdoorheen
 		for (var i = 0; i < Input.touchCount; ++i) {
-			Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
-			RaycastHit hit;
+			//Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
+			//RaycastHit hit;
 			if (Input.GetTouch(i).phase == TouchPhase.Began){
 				yStart = Input.GetTouch(0).position.y;
 				Began = true;
