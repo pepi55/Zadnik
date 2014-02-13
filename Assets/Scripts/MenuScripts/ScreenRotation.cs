@@ -18,7 +18,12 @@ public class ScreenRotation : MonoBehaviour {
 		screenRotation.x = Input.acceleration.x * newSpeed;
 		screenRotation.y = Input.acceleration.y * newSpeed;
 
-		Debug.Log(screenRotation.x);
+
+	
+		//Debug.Log("ScreenY = " + Mathf.Round(screenRotation.y));	//Y = 10 - 16 || -10 -16
+		//Debug.Log("ScreenX = " + screenRotation.x);
+		//Debug.Log("ScreenZ = " + screenRotation.z);
+
 		transform.rotation = screenRotation;
 
 	}
