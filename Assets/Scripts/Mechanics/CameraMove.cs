@@ -11,14 +11,21 @@ public class CameraMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.touchCount >= 1){
+		if (Input.touchCount == 2){
+			Vector2 touch;
+			Vector2 touchBegin;
+			if(Input.GetTouch(0).phase == TouchPhase.Began){
+				touchBegin = Input.GetTouch(0).position;
 
-			Debug.Log("hoi");
-			Vector2 touch1;
-			touch1 = Input.GetTouch(1);
-			if(touch1.x > 0){
-				Debug.Log("hoi");
-				transform.Translate(1 * Time.deltaTime ,0,0);
+			}
+			if(Input.GetTouch(0).phase == TouchPhase.Moved){
+				touch = Input.GetTouch(0).position;
+				if(touchBegin.x < touch.x){
+					transform.Translate(1,0,0);
+				}else{
+					transform.Translate(-1,0,0);
+				}
+
 			}
 		}
 	}
