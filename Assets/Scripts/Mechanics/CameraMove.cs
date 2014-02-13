@@ -16,6 +16,8 @@ public class CameraMove : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		if (Input.touchCount == 2){
+			Vector2 touch = new Vector2();
+			Vector2 touchBegin = new Vector2();
 			//---------------------- De begin van de aanraking op het scherm----------------------------//
 			if(Input.GetTouch(0).phase == TouchPhase.Began){
 				touchBegin = Input.GetTouch(0).position;

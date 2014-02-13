@@ -3,52 +3,44 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class HexGrid : MonoBehaviour {
-	//class
-	private class HexTile {
-		public GameObject tile;
-		public Vector2 position;
-	}
-	
-	public void DrawGrid (GameObject hex, int gridHeight = 16, int gridLength = 16, float rad = 0.64f, bool innerCircleRad = false) {
-		float offsetX, offsetY;
+	public void DrawGrid (int gridHeight = 16, int gridLength = 16) {
+		/*float offsetX, offsetY;
 		float unitLength = (innerCircleRad) ? (rad / (Mathf.Sqrt(3) / 2)) : rad;
 		
 		offsetX = unitLength * Mathf.Sqrt(3);
-		offsetY = unitLength * 1.5f;
+		offsetY = unitLength * 1.5f;*/
 		
 		for (int x = 0; x < gridLength; x++) {
-			List<Vector3> q = new List<Vector3>();
-			List<GameObject> hexagon = new List<GameObject>();
+			List<HexTile> column = new List<HexTile>();
+			//List<GameObject> hexagon = new List<GameObject>();
 			for (int y = 0; y < gridHeight; y++) {
 				HexTile hexCell = new HexTile();
-				Vector3 column;
-				
-				hexCell.position = HexOffset(x, y, offsetX, offsetY);
-				hexCell.tile = (GameObject)Instantiate(hex, hexCell.position, Quaternion.identity);
-				hexCell.tile.transform.parent = transform;
-				hexCell.tile.name = GlobalValues.cellName;
-				hexCell.tile.tag = GlobalValues.cellTag;
+				Vector2 pos = HexOffset(x, y);
 
-				hexagon.Add(hexCell.tile);
-				column = AxisToCube(hexCell.position);
-				q.Add(column);
+				hexCell.hexagon = (GameObject)Instantiate(Resources.Load(GlobalValues.cellPath), pos, Quaternion.identity);
+				hexCell.hexagon.transform.parent = transform;
+				hexCell.hexagon.name = GlobalValues.cellName;
+				hexCell.hexagon.tag = GlobalValues.cellTag;
 			}
 
-			GlobalValues.hexCells.Add(hexagon);
-			GlobalValues.row.Add(q);
+			GlobalValues.row.Add(column);
 		}
 	}
 
-	private Vector2 HexOffset (int x, int y, float offsetX, float offsetY) {
-		float xp = y * offsetX;
+	private Vector2 HexOffset (int x, int y) {
+		/*float xp = y * offsetX;
 
 		if (x % 2 != 0) {
 			xp += offsetX / 2;
 		}
 
-		float yp = x * offsetY;
+		float yp = x * offsetY;*/
+		float xPos, yPos;
 
-		return new Vector2(xp, yp);
+		xPos = y + (GlobalValues.radius * x);
+		yPos = x * (Mathf.Sqrt((Mathf.Pow(GlobalValues.radius * 2, 2)) - (Mathf.Sqrt(GlobalValues.radius))));
+
+		return new Vector2(xPos, yPos);
 	}
 
 	public float GetDistance (Vector3 a, Vector3 b) {
@@ -58,8 +50,17 @@ public class HexGrid : MonoBehaviour {
 	public Vector2 HexToPixel (Vector2 hexLocation, float rad) {
 		float x, y;
 
-		x = rad * Mathf.Sqrt(3) * (hexLocation.x + hexLocation.y / 2);
-		y = rad * 3 / 2 * hexLocation.y;
+		x = hexLocation.x + (hexLocation.y / 2); //rad * Mathf.Sqrt(3) * (hexLocation.x + hexLocation.y / 2);
+		y = hexLocation.y * Mathf.Sqrt(rad); //rad * 3 / 2 * hexLocation.y;
+
+		return new Vector2(x, y);
+	}
+
+	public Vector2 PixelToHex (Vector2 location, float rad) {
+		float x, y;
+
+		x = (1 / 3 * Mathf.Sqrt(3) * location.x - 1 / 3 * location.y) / rad;
+		y = 2 / 3 * location.y / rad;
 
 		return new Vector2(x, y);
 	}

@@ -30,7 +30,7 @@ public class GameControler : MonoBehaviour {
 		grid = GetComponent<HexGrid>();
 		/*--- END INIT ---*/
 
-		grid.DrawGrid(hex, gridHeight, gridLength);
+		grid.DrawGrid(gridHeight, gridLength);
 	}
 	
 	// Update is called once per frame
