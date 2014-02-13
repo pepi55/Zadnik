@@ -14,6 +14,12 @@ public class Movement : MonoBehaviour {
 		grid = gameController.GetComponent<HexGrid>();
 	}
 
+	void FixedUpdate () {
+		if (Input.GetMouseButtonDown(0)) {
+
+		}
+	}
+
 	public void MoveTo (Vector3 position) {
 		transform.position = position;
 	}

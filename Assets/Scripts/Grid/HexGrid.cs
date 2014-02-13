@@ -40,8 +40,6 @@ public class HexGrid : MonoBehaviour {
 	}
 
 	private Vector2 HexOffset (int x, int y, float offsetX, float offsetY) {
-		Vector2 pos = new Vector2();
-
 		float xp = y * offsetX;
 
 		if (x % 2 != 0) {
@@ -50,10 +48,7 @@ public class HexGrid : MonoBehaviour {
 
 		float yp = x * offsetY;
 
-		pos.x = xp;
-		pos.y = yp;
-
-		return pos;
+		return new Vector2(xp, yp);
 	}
 
 	public float GetDistance (Vector3 a, Vector3 b) {
