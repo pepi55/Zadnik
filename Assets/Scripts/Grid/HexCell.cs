@@ -14,8 +14,14 @@ public class HexCell : MonoBehaviour {
 	}
 
 	void OnMouseDown () {
-		Debug.Log(grid.GetDistance(player.transform.position, transform.position));
+		/*Debug.Log(grid.GetDistance(player.transform.position, transform.position));
 		Debug.Log(Mathf.Floor(grid.GetDistance(player.transform.position, transform.position)));
-		player.MoveTo(transform.position);
+		player.MoveTo(transform.position);*/
+	}
+
+	public Vector3 GetPos () {
+		Vector2 currentPosition = grid.CubeToAxis(transform.position);
+
+		return grid.PixelToHex(currentPosition, GlobalValues.radius);
 	}
 }

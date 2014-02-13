@@ -58,8 +58,17 @@ public class HexGrid : MonoBehaviour {
 	public Vector2 HexToPixel (Vector2 hexLocation, float rad) {
 		float x, y;
 
-		x = rad * Mathf.Sqrt(3) * (hexLocation.x + hexLocation.y / 2);
-		y = rad * 3 / 2 * hexLocation.y;
+		x = hexLocation.x + (hexLocation.y / 2); //rad * Mathf.Sqrt(3) * (hexLocation.x + hexLocation.y / 2);
+		y = hexLocation.y * Mathf.Sqrt(rad); //rad * 3 / 2 * hexLocation.y;
+
+		return new Vector2(x, y);
+	}
+
+	public Vector2 PixelToHex (Vector2 location, float rad) {
+		float x, y;
+
+		x = (1 / 3 * Mathf.Sqrt(3) * location.x - 1 / 3 * location.y) / rad;
+		y = 2 / 3 * location.y / rad;
 
 		return new Vector2(x, y);
 	}

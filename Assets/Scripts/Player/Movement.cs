@@ -4,20 +4,32 @@ using System.Collections;
 public class Movement : MonoBehaviour {
 	//hexgrid
 	private HexGrid grid = null;
+	private HexCell cell = null;
 
 	//int
-	private int x;
-	private int y;
+	int x, y;
 
 	void Start () {
 		GameObject gameController = GameObject.FindGameObjectWithTag(GlobalValues.gameControllerTag);
 		grid = gameController.GetComponent<HexGrid>();
 	}
 
-	void FixedUpdate () {
+	/*void FixedUpdate () {
 		if (Input.GetMouseButtonDown(0)) {
+			x += 1;
+			y = 1;
 
+			Vector2 coordinates = grid.CubeToAxis(GlobalValues.row[x][y]);
+			Vector2 newPos = grid.HexToPixel(coordinates, GlobalValues.radius);
+
+			transform.position = newPos;
+
+			Debug.Log(GlobalValues.row[x][y]);
 		}
+	}*/
+
+	void OnMouseDown () {
+
 	}
 
 	public void MoveTo (Vector3 position) {
