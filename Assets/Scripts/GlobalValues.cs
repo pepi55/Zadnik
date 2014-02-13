@@ -2,10 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public static class GlobalValues{
+public static class GlobalValues {
 	//strings
 	public static string cellName = "hexGridCell";
 	public static string cellTag = "gridCell";
+	public static string cellPath = "Grid/HexTile";
 
 	public static string gameControllerTag = "GameController";
 	public static string playerTag = "Player";
@@ -25,6 +26,6 @@ public static class GlobalValues{
 	public static int gridW;
 
 	//lists
-	public static List<List<GameObject>> hexCells = new List<List<GameObject>>();
-	public static List<List<Vector3>> row = new List<List<Vector3>>();
+	//public static List<List<GameObject>> hexCells = new List<List<GameObject>>();
+	public static List<List<HexTile>> row = new List<List<HexTile>>();
 }

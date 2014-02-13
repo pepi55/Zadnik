@@ -13,7 +13,7 @@ public class ScreenRotation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		float newSpeed = speed * Time.deltaTime;
+		//float newSpeed = speed * Time.deltaTime;
 
 		screenRotation.x = Input.acceleration.x;
 		screenRotation.y = Input.acceleration.y;

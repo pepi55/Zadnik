@@ -4,7 +4,6 @@ using System.Collections;
 public class Movement : MonoBehaviour {
 	//hexgrid
 	private HexGrid grid = null;
-	private HexCell cell = null;
 
 	//int
 	int x, y;
