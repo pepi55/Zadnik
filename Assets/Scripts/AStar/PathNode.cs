@@ -140,9 +140,9 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 
 					if (AStar.InvalidNode(thisConnection)) {
 						continue;
-					} else {
-						thisNode.Connections.Add(thisConnection);
 					}
+
+					thisNode.Connections.Add(thisConnection);
 				}
 			}
 
