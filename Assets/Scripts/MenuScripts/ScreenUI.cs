@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ScreenUI : MonoBehaviour {
 	
-	public Texture2D background, LOGO, startBtn, howtoBtn, statBtn, controllsBtn;
+	public Texture2D background, LOGO, ActionMenuBtn, howtoBtn, statBtn, controllsBtn;
 	public Texture2D optionBtn, creditBtn, quitbtn, volumeBox, brightBox, backBtn;
 	public Texture2D controlBtn,tutBtn;
 
@@ -13,7 +13,7 @@ public class ScreenUI : MonoBehaviour {
 	
 	
 	private string clicked = "", MessageDisplayOnAbout = "This game is made by Team Zadnik \n ";
-	private Rect WindowRect = new Rect(Screen.width / 2, Screen.height / 10, Screen.width / 4, Screen.height);
+	private Rect WindowRect = new Rect(0, Screen.height - 20, Screen.width, Screen.height);
 	private Rect HugeRect = new Rect(0, 0, Screen.width, Screen.height);
 	private float volume = 1.0f;
 	
@@ -85,7 +85,6 @@ public class ScreenUI : MonoBehaviour {
 
 	//------------------------------------------------How to play Scherm----------------------------//
 	private void HowToFunc(int id){
-		GUILayout.Box(startBtn);
 
 		if(GUILayout.Button(tutBtn,GUIStyle.none)){
 			Application.LoadLevel("");
@@ -120,29 +119,8 @@ public class ScreenUI : MonoBehaviour {
 	//------------------------------------------------Main Menu Scherm----------------------------//
 	private void menuFunc(int id)
 	{
-		if (GUILayout.Button(startBtn,GUIStyle.none)){
+		if (GUILayout.Button(ActionMenuBtn,GUIStyle.none)){
 			Application.LoadLevel(LvlName);
-
-		}
-		if (GUILayout.Button(howtoBtn,GUIStyle.none)){
-			clicked = "howToPlay";
-			
-		}
-		if (GUILayout.Button(statBtn,GUIStyle.none)){
-			clicked = "stat";
-
-		}
-
-		if (GUILayout.Button(optionBtn,GUIStyle.none)){
-			clicked = "options";
-
-		}
-		if (GUILayout.Button(creditBtn,GUIStyle.none)){
-			clicked = "credits";
-
-		}
-		if (GUILayout.Button(quitbtn,GUIStyle.none)){
-			Application.Quit();
 
 		}
 	}
