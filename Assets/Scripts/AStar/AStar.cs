@@ -6,7 +6,7 @@ public static class AStar {
 
 	//Check valid nodes
 	public static bool InvalidNode<T>(T inNode) where T : IPathNode<T> {
-		if (inNode == null || inNode.invalid) {
+		if (inNode == null || inNode.Invalid) {
 			return true;
 		} else {
 			return false;
@@ -18,7 +18,7 @@ public static class AStar {
 		if (InvalidNode(start) || InvalidNode(goal)) {
 			return float.MaxValue;
 		} else {
-			return Vector2.Distance(start.position, goal.position);
+			return Vector2.Distance(start.Position, goal.Position);
 		}
 	}
 
@@ -84,7 +84,7 @@ public static class AStar {
 			openset.Remove(x);
 			closedset.Add(x);
 
-			foreach (T y in x.connections) {
+			foreach (T y in x.Connections) {
 				if (AStar.InvalidNode(y) || closedset.Contains(y)) {
 					continue;
 				}

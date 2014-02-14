@@ -37,8 +37,8 @@ public class HexGrid : MonoBehaviour {
 		float yp = x * offsetY;*/
 		float xPos, yPos;
 
-		xPos = y + (GlobalValues.radius * x);
-		yPos = x * (Mathf.Sqrt((Mathf.Pow(GlobalValues.radius * 2, 2)) - (Mathf.Sqrt(GlobalValues.radius))));
+		xPos = (GlobalValues.radius * x);
+		yPos = (Mathf.Sqrt((Mathf.Pow(GlobalValues.radius * 2, 2)) - (Mathf.Sqrt(GlobalValues.radius))));
 
 		return new Vector2(xPos, yPos);
 	}
