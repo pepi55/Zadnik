@@ -3,10 +3,21 @@ guid: d7fb58b67a2ab46a2890b61b56d89d5a
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
-  - guiSkin: {instanceID: 0}
   - background: {fileID: 2800000, guid: a30ef3ad1a70e483fab4ba6d5fb78a82, type: 3}
   - LOGO: {fileID: 2800000, guid: a30ef3ad1a70e483fab4ba6d5fb78a82, type: 3}
-  - startBtn: {fileID: 2800000, guid: 00e4425b355024284a94b1ab81b6631a, type: 3}
+  - startBtn: {fileID: 2800000, guid: bfadae63983954a778216263ec52130e, type: 3}
+  - howtoBtn: {fileID: 2800000, guid: d321426a4ed704613b9ae6dbeb01adcc, type: 3}
+  - statBtn: {fileID: 2800000, guid: c0a7e974ebdb64087a453589c1ee2d69, type: 3}
+  - controllsBtn: {fileID: 2800000, guid: bf388a411d0fb4ed0842b44995605f80, type: 3}
+  - optionBtn: {fileID: 2800000, guid: 0521e6f762e5b40e8aa52cbb86d95c9f, type: 3}
+  - creditBtn: {fileID: 2800000, guid: e13ec68a16d2a4eae9b98ee1821726ba, type: 3}
+  - quitbtn: {fileID: 2800000, guid: b44f9977f232f4ccb933fc0035348130, type: 3}
+  - volumeBox: {fileID: 2800000, guid: d7da2dc344c5948f48225e8c154d5c03, type: 3}
+  - brightBox: {instanceID: 0}
+  - backBtn: {fileID: 2800000, guid: ae60ca5946e034bb1870cc6a4816818b, type: 3}
+  - controlBtn: {fileID: 2800000, guid: bf388a411d0fb4ed0842b44995605f80, type: 3}
+  - tutBtn: {fileID: 2800000, guid: 42bf2691c3d2e46aba4f11c3a4c29e61, type: 3}
+  - guiSkin: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
