@@ -20,7 +20,6 @@ public class DummyAnimation : MonoBehaviour {
 		}
 		if(Input.GetKey(KeyCode.Space)){
 			if(Alive){
-				Debug.Log("hoi");
 				Alive = false;
 			}else{
 				Alive = true;
