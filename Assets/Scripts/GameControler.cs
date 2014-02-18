@@ -3,8 +3,8 @@ using System.Collections;
 
 public class GameControler : MonoBehaviour {
 	/*--- PUBLICS ---*/
-	//gameobject
-	//public GameObject hex;
+	//transform
+	public GameObject hex;
 	
 	//int
 	public int gridHeight;
@@ -13,9 +13,10 @@ public class GameControler : MonoBehaviour {
 	
 	/*--- PRIVATES ---*/
 	//float
+	private float offsetX, offsetY;
 	
 	//class
-	//private HexGrid grid = null;
+	private HexGrid grid = null;
 	/*--- END PRIVATES ---*/
 
 	// Use this for initialization
@@ -26,10 +27,10 @@ public class GameControler : MonoBehaviour {
 		gridLength = 16; GlobalValues.gridW = gridLength;
 
 		//class
-		//grid = GetComponent<HexGrid>();
+		grid = GetComponent<HexGrid>();
 		/*--- END INIT ---*/
 
-		//grid.DrawGrid(gridHeight, gridLength);
+		grid.DrawGrid(gridHeight, gridLength);
 	}
 	
 	// Update is called once per frame
