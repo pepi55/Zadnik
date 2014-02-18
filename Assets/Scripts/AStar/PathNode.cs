@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 	public List<PathNode> connections;
+	public Color nodeColor = Color.cyan;
 	public static int index;
 	
 	void Awake () {
@@ -13,7 +14,7 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 	}
 	
 	void Update () {
-		Draw.DrawCube(transform.position, Vector2.one, Color.red);
+		Draw.DrawCube(transform.position, Vector2.one, nodeColor);
 		
 		if (connections == null) {
 			return;
@@ -22,7 +23,7 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 				if (connections[i] == null) {
 					continue;
 				} else {
-					Debug.DrawLine(transform.position, connections[i].Position, Color.cyan);
+					Debug.DrawLine(transform.position, connections[i].Position, nodeColor);
 				}
 			}
 		}
@@ -145,10 +146,8 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 					thisNode.Connections.Add(thisConnection);
 				}
 			}
-
-			return result;
 		}
 
-		return null;
+		return result;
 	}
 }
