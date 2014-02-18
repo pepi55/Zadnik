@@ -110,7 +110,7 @@ public class HexGrid : MonoBehaviour {
 				return;
 			}
 
-			Debug.DrawLine(solvedPath[i].Position, solvedPath[i + 1].Position, Color.green * new Color(1.0f, 1.0f 1.0f, 0.5f));
+			Debug.DrawLine(solvedPath[i].Position, solvedPath[i + 1].Position, Color.green * new Color(1.0f, 1.0f, 1.0f, 0.5f));
 		}
 	}
 }
