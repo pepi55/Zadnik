@@ -60,7 +60,7 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 		return newNode;
 	}
 
-	public static List<PathNode> CreateGrid (Vector2 center, Vector2 spacing, int[] dim, float randomSpace) {
+	public static List<PathNode> CreateGrid (Vector2 center, Vector2 spacing, int[] dim/*, float randomSpace*/) {
 		GameObject gridObject = new GameObject("grid");
 
 		int xCount = dim[0];
@@ -73,21 +73,24 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 
 		List<PathNode> result = new List<PathNode>();
 
-		Random.seed = 1337;
+		//Random.seed = 1337;
 
 		for (int x = 0; x < xCount; x++) {
 			float xPos = (x * spacing.x) + xStart;
 
 			for (int y = 0; y < yCount; y++) {
-				if (randomSpace < 0.0f) {
+				/*if (randomSpace < 0.0f) {
 					if (Random.value <= randomSpace) {
 						result.Add(null);
 						continue;
 					}
-				}
+				}*/
 
 				float yPos = (y * spacing.y) + yStart;
-				PathNode newNode = Spawn(new Vector2(xPos, yPos));
+				float offset = (y % 2.0f == 0.0f) ? spacing.x * 0.5f : 0.0f;
+				Vector2 newPos = new Vector2(xPos + offset, yPos);
+
+				PathNode newNode = Spawn(newPos); //generateHexAt(i - floor(j/2), j);
 
 				result.Add(newNode);
 				newNode.transform.parent = gridObject.transform;
@@ -104,36 +107,70 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 					continue;
 				}
 
-				if (x != 0) {
-					connectedIndicies.Add(((x - 1) * yCount) + y);
-				}
+				if (y % 2.0f == 0.0f) {
+					if (x != 0) {
+						connectedIndicies.Add(((x - 1) * yCount) + y);
+					}
+					
+					if (x != xCount - 1) {
+						connectedIndicies.Add(((x + 1) * yCount) + y);
+					}
 
-				if (x != xCount - 1) {
-					connectedIndicies.Add(((x + 1) * yCount) + y);
-				}
+					if (y != 0) {
+						connectedIndicies.Add((x * yCount) + (y - 1));
+					}
+					
+					if (y != yCount - 1) {
+						connectedIndicies.Add((x * yCount) + (y + 1));
+					}
 
-				if (y != 0) {
-					connectedIndicies.Add((x * yCount) + (y - 1));
-				}
-
-				if (y != yCount - 1) {
-					connectedIndicies.Add((x * yCount) + (y + 1));
-				}
-
-				if (x != 0 && y != 0) {
-					connectedIndicies.Add(((x - 1) * yCount) + (y - 1));
-				}
-
-				if (x != xCount - 1 && y != yCount - 1) {
-					connectedIndicies.Add(((x + 1) * yCount) + (y + 1));
-				}
-
-				if (x != 0 && y != yCount - 1) {
-					connectedIndicies.Add(((x - 1) * yCount) + (y + 1));
-				}
-
-				if (x != xCount - 1 && y != 0) {
-					connectedIndicies.Add(((x + 1) * yCount) + (y - 1));
+					/*if (x != 0 && y != 0) {
+						connectedIndicies.Add(((x - 1) * yCount) + (y - 1));
+					}*/
+					
+					if (x != xCount - 1 && y != yCount - 1) {
+						connectedIndicies.Add(((x + 1) * yCount) + (y + 1));
+					}
+					
+					/*if (x != 0 && y != yCount - 1) {
+						connectedIndicies.Add(((x - 1) * yCount) + (y + 1));
+					}*/
+					
+					if (x != xCount - 1 && y != 0) {
+						connectedIndicies.Add(((x + 1) * yCount) + (y - 1));
+					}
+				} else {
+					if (x != 0) {
+						connectedIndicies.Add(((x - 1) * yCount) + y);
+					}
+					
+					if (x != xCount - 1) {
+						connectedIndicies.Add(((x + 1) * yCount) + y);
+					}
+					
+					if (y != 0) {
+						connectedIndicies.Add((x * yCount) + (y - 1));
+					}
+					
+					if (y != yCount - 1) {
+						connectedIndicies.Add((x * yCount) + (y + 1));
+					}
+					
+					if (x != 0 && y != 0) {
+						connectedIndicies.Add(((x - 1) * yCount) + (y - 1));
+					}
+					
+					/*if (x != xCount - 1 && y != yCount - 1) {
+						connectedIndicies.Add(((x + 1) * yCount) + (y + 1));
+					}*/
+					
+					if (x != 0 && y != yCount - 1) {
+						connectedIndicies.Add(((x - 1) * yCount) + (y + 1));
+					}
+					
+					/*if (x != xCount - 1 && y != 0) {
+						connectedIndicies.Add(((x + 1) * yCount) + (y - 1));
+					}*/
 				}
 
 				for (int i = 0; i < connectedIndicies.Count; i++) {
