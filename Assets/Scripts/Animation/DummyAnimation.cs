@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class DummyAnimation : MonoBehaviour {
+	public AudioClip dummyHit;
+	public AudioClip dummyDeath;
 	private float radius;
 	private Animator animator;
 	private int HitAnim = 0;
@@ -16,7 +18,8 @@ public class DummyAnimation : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		animator.SetInteger("Lives",HitPoints);
-		if(HitPoints == 0){
+		if(HitPoints == 0){	
+			//AudioSource.PlayClipAtPoint(dummyDeath, transform.position, 1);
 			animator.SetBool("Alive",false);
 		}
 		if(HitAnim != 0){
@@ -29,9 +32,13 @@ public class DummyAnimation : MonoBehaviour {
 			float dist = Mathf.Pow(MousePos.x - transform.position.x,2) + Mathf.Pow(MousePos.y - transform.position.y,2);
 			dist = Mathf.Sqrt(dist);
 			if(dist < radius){
+				AudioSource.PlayClipAtPoint(dummyHit, transform.position, 1);
 				HitPoints -= 1;
 				HitAnim = 50;
 				animator.SetInteger("Hit",HitAnim);
+				if(HitPoints == 0){
+					AudioSource.PlayClipAtPoint(dummyDeath, transform.position, 1);
+				}
 			}
 		}
 	}
