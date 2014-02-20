@@ -9,7 +9,7 @@ public class HexGrid : MonoBehaviour {
 	public GameObject end;
 
 	public Color nodeColor = new Color(0.05f, 0.3f, 0.05f, 0.1f);
-	public Color connectionColor = new Color(1.0f, 0.2f, 0.05f, 1.5f);
+	public Color connectionColor = Color.cyan; //new Color(1.0f, 0.2f, 0.05f, 1.5f);
 	public Color pathColor = new Color(0.5f, 0.03f, 0.3f, 1.0f);
 
 	public bool reset;
