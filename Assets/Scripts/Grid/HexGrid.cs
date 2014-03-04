@@ -32,7 +32,7 @@ public class HexGrid : MonoBehaviour {
 	public void PulsePoint (int index) {
 		if (AStar.InvalidNode(sources[index])) return;
 
-		Draw.DrawCube(sources[index].Position, Vector2.one * 2.0f, connectionColor);
+		Draw.DrawCube(sources[index].Position, Vector2.one * 1.0f, connectionColor);
 	}
 
 	public void DrawConnections (int startPoint, int endPoint, Color inColor) {
