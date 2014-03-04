@@ -66,17 +66,22 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 		int xCount = dim[0];
 		int yCount = dim[1];
 
+		float radius = 0.64f;
+
 		float xWidth = spacing.x * xCount;
 		float yWidth = spacing.y * yCount;
 		float xStart = center.x - (xWidth / 2.0f) + (spacing.x / 2.0f);
 		float yStart = center.y - (yWidth / 2.0f) + (spacing.y / 2.0f);
+
+		float offsetX = radius * Mathf.Sqrt(3);
+		float offsetY = radius * 1.5f;
 
 		List<PathNode> result = new List<PathNode>();
 
 		//Random.seed = 1337;
 
 		for (int x = 0; x < xCount; x++) {
-			float xPos = (x * spacing.x) + xStart;
+			float xPos = (x * offsetX/*spacing.x*/) + xStart;
 
 			for (int y = 0; y < yCount; y++) {
 				/*if (randomSpace < 0.0f) {
@@ -86,8 +91,8 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 					}
 				}*/
 
-				float yPos = (y * spacing.y) + yStart;
-				float offset = (y % 2.0f == 0.0f) ? spacing.x * 0.5f : 0.0f;
+				float yPos = (y * offsetY/*spacing.y*/) + yStart;
+				float offset = (y % 2.0f == 0.0f) ? spacing.x * 0.56f : 0.0f;
 				Vector2 newPos = new Vector2(xPos + offset, yPos);
 
 				PathNode newNode = Spawn(newPos); //generateHexAt(i - floor(j/2), j);
