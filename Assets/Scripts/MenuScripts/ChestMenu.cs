@@ -4,9 +4,10 @@ using System.Collections;
 public class ChestMenu : MonoBehaviour {
 
 	private float radius;
+	public Texture2D Item, Empty;
 	public bool PopBool = false;
 	public bool doWindow0 = true;
-	private Rect PopMenu = new Rect(Screen.width - 120 ,0,120,100);
+	private Rect PopMenu = new Rect(Screen.width - 200 ,0,200,100);
 	// Use this for initialization
 	void Start(){
 		radius = transform.localScale.x;
@@ -22,7 +23,14 @@ public class ChestMenu : MonoBehaviour {
 		}
 	}
 	void DoWindow0(int windowID) {
-		if(GUI.Button(new Rect(10, 30, 80, 20), "Leave")){
+		GUI.Button(new Rect(0,30, 50,50), Item,GUIStyle.none);
+		GUI.Button(new Rect(50,30, 50,50), Empty,GUIStyle.none);
+		GUI.Button(new Rect(50,30, 50,50), Empty,GUIStyle.none);
+		if(GUI.Button(new Rect(10, 80, 100, 20), "Leave")){
+			Destroy(gameObject);
+			PopBool = false;
+		}
+		if(GUI.Button(new Rect(200 - 20, 0, 20, 20), "X",GUIStyle.none)){
 			Destroy(gameObject);
 			PopBool = false;
 		}
@@ -30,7 +38,7 @@ public class ChestMenu : MonoBehaviour {
 	void OnGUI() {
 		//doWindow0 = GUI.Toggle(new Rect(10, 10, 100, 20), doWindow0, "Window 0");
 		if (PopBool)
-			GUI.Window(0, PopMenu, DoWindow0, "Chest");
+			GUI.Window(0, PopMenu, DoWindow0, "Chest",GUIStyle.none);
 		
 	}
 }
