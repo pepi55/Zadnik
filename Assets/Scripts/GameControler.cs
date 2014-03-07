@@ -31,9 +31,4 @@ public class GameControler : MonoBehaviour {
 
 		//grid.DrawGrid(gridHeight, gridLength);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
