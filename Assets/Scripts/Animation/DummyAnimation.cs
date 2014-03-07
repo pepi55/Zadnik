@@ -23,7 +23,6 @@ public class DummyAnimation : MonoBehaviour {
 			animator.SetBool("Alive",false);
 		}
 		if(HitAnim != 0){
-			Debug.Log("SEEEEEE");
 			HitAnim -= 1;
 			animator.SetInteger("Hit",HitAnim);
 		}
