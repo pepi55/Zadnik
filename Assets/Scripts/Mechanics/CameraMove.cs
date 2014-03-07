@@ -19,17 +19,17 @@ public class CameraMove : MonoBehaviour {
 		if (Input.touchCount == 2){
 			Vector2 touch = new Vector2();
 			Vector2 touchBegin = new Vector2();
+
 			//---------------------- De begin van de aanraking op het scherm----------------------------//
 			if(Input.GetTouch(0).phase == TouchPhase.Began){
 				mousePos = Input.GetTouch(0).position;
-
-
 			}
+
 			//---------------------Als de touch een halve seconde stilstaat-----------------------------//
 			if(Input.GetTouch(0).phase == TouchPhase.Stationary){
 				mousePos = Input.GetTouch(0).position;
-
 			}
+
 			//----------------------- Wanneer de beweging gebeurt ---------------------------//
 			if(Input.GetTouch(0).phase == TouchPhase.Moved){
 				touchBegin = mousePos;

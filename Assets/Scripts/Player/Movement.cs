@@ -10,20 +10,12 @@ public class Movement : MonoBehaviour {
 	}
 
 	/*void FixedUpdate () {
-		if (Input.GetMouseButtonDown(0)) {
-			x += 1;
-			y = 1;
+		if (GlobalValues.active) {
 
-			Vector2 coordinates = grid.CubeToAxis(GlobalValues.row[x][y]);
-			Vector2 newPos = grid.HexToPixel(coordinates, GlobalValues.radius);
-
-			transform.position = newPos;
-
-			Debug.Log(GlobalValues.row[x][y]);
 		}
 	}*/
 
-	void OnMouseDown () {
+	public static void OnMove () {
 
 	}
 

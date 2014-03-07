@@ -18,7 +18,6 @@ public class GameControler : MonoBehaviour {
 	//private HexGrid grid = null;
 	/*--- END PRIVATES ---*/
 
-	// Use this for initialization
 	void Start () {
 		/*--- INIT ---*/
 		//int
@@ -30,5 +29,19 @@ public class GameControler : MonoBehaviour {
 		/*--- END INIT ---*/
 
 		//grid.DrawGrid(gridHeight, gridLength);
+	}
+
+	void OnMouseDown () {
+		if (Input.touches.Length == 1) {
+			if (GlobalValues.active) {
+				RaycastHit2D selectHexRay = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position), Vector2.zero);
+
+				if (selectHexRay.collider != null) {
+					Debug.Log("huehuehuehuehuehuehuehuehuehuehuehuehuehuehuehuehue");
+				}
+
+				//Movement.OnMove();
+			}
+		}
 	}
 }

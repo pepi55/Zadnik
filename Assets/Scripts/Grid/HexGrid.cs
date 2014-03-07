@@ -93,6 +93,9 @@ public class HexGrid : MonoBehaviour {
 
 		if (!pathDone) {
 			solvedPath = AStar.CalculatePath(sources[lastStartIndex], sources[lastEndIndex]);
+			/*for (int i = 0; i < solvedPath.Count; i++) {
+				Debug.Log(solvedPath[i]);
+			}*/
 			pathDone = true;
 		}
 
