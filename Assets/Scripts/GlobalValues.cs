@@ -27,5 +27,6 @@ public static class GlobalValues {
 	public static int gridW;
 
 	//bools
+	public static bool Death = false;
 	public static bool active = false;
 }
