@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class PathNode : MonoBehaviour, IPathNode<PathNode> {
+	public Movement movement;
 	public List<PathNode> connections;
 	public Color nodeColor = Color.cyan;
 	public static int index;

@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class HexGrid : MonoBehaviour {
+	public static List<PathNode> solvedPath = new List<PathNode>();
+
 	public List<PathNode> sources;
-	public List<PathNode> solvedPath = new List<PathNode>();
 	public GameObject start;
 	public GameObject end;
 

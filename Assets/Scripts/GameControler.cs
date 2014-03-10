@@ -30,18 +30,4 @@ public class GameControler : MonoBehaviour {
 
 		//grid.DrawGrid(gridHeight, gridLength);
 	}
-
-	void OnMouseDown () {
-		if (Input.touches.Length == 1) {
-			if (GlobalValues.active) {
-				RaycastHit2D selectHexRay = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position), Vector2.zero);
-
-				if (selectHexRay.collider != null) {
-					Debug.Log("huehuehuehuehuehuehuehuehuehuehuehuehuehuehuehuehue");
-				}
-
-				//Movement.OnMove();
-			}
-		}
-	}
 }
