@@ -26,12 +26,7 @@ public static class GlobalValues {
 	public static int gridH;
 	public static int gridW;
 
-	public static int Live = 14;
-
 	//lists
 	//public static List<List<GameObject>> hexCells = new List<List<GameObject>>();
-	public static List<List<HexTile>> row = new List<List<HexTile>>();
-
-	//Bool
-	public static bool Death;
+	//public static List<List<HexTile>> row = new List<List<HexTile>>();
 }
