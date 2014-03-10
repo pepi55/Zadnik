@@ -4,12 +4,12 @@ using System;
 
 public class Items : IComparable<Items> {
 
-	private string name, Descr;
-	private float Power;
+	private string name, descr;
+	private int power;
 	public Items(string newName, string newDescr, int newPower){
-		name = NewName;
-		Descr = newDescr;
-		Power = newPower;
+		name = newName;
+		descr = newDescr;
+		power = newPower;
 
 	}
 	public int CompareTo(Items other)

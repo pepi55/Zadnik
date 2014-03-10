@@ -29,4 +29,7 @@ public static class GlobalValues {
 	//lists
 	//public static List<List<GameObject>> hexCells = new List<List<GameObject>>();
 	//public static List<List<HexTile>> row = new List<List<HexTile>>();
+
+	//Bool
+	public static bool Death;
 }
