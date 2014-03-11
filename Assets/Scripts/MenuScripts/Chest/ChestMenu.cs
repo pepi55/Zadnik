@@ -18,7 +18,7 @@ public class ChestMenu : MonoBehaviour {
 	public bool doWindow0 = true;
 	private bool ChestReady = false;
 
-	private Rect PopMenu = new Rect(Screen.width - 200 ,0,200,100);
+	private Rect PopMenu = new Rect(Screen.width - 200 ,0,Screen.width / 100,Screen.height / 4);
 
 	void Start(){
 		Luck = Mathf.Round(Random.Range(1,2));
@@ -48,6 +48,7 @@ public class ChestMenu : MonoBehaviour {
 		Texture2D ItemRandom3 = Items[index3];
 
 		Debug.Log(Items.Count);
+		Debug.Log(ItemRandom1 +" "+ ItemRandom2 +" "+ ItemRandom3);
 		//Debug.Log("1e = " + index1 + " 2e = "  + index2 + " 3e = " + index3);
 
 		/*
@@ -95,7 +96,7 @@ public class ChestMenu : MonoBehaviour {
 		//doWindow0 = GUI.Toggle(new Rect(10, 10, 100, 20), doWindow0, "Window 0");
 		if(ChestReady){
 			if (PopBool){
-				GUI.Window(0, PopMenu, DoWindow0, "Chest",GUIStyle.none);
+				GUI.Window(0, PopMenu, DoWindow0, "Chest"/*,GUIStyle.none*/);
 			}
 		}
 
