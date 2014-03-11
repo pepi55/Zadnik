@@ -5,9 +5,10 @@ using System.Collections.Generic;
 public class HexGrid : MonoBehaviour {
 	public static List<PathNode> solvedPath = new List<PathNode>();
 
+	public static GameObject start;
+	public static GameObject end;
+
 	public List<PathNode> sources;
-	public GameObject start;
-	public GameObject end;
 
 	public Color nodeColor = new Color(0.05f, 0.3f, 0.05f, 0.1f);
 	public Color connectionColor = Color.blue; //new Color(1.0f, 0.2f, 0.05f, 1.5f);
