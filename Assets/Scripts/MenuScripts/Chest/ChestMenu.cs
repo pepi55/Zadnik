@@ -18,7 +18,7 @@ public class ChestMenu : MonoBehaviour {
 	public bool doWindow0 = true;
 	private bool ChestReady = false;
 
-	private Rect PopMenu = new Rect(Screen.width - 200 ,0,Screen.width / 100,Screen.height / 4);
+	private Rect PopMenu = new Rect(Screen.width - 200 ,0,200,100);
 
 	void Start(){
 		Luck = Mathf.Round(Random.Range(1,2));
@@ -73,6 +73,7 @@ public class ChestMenu : MonoBehaviour {
 			float dist = Mathf.Pow(MousePos.x - transform.position.x,2) + Mathf.Pow(MousePos.y - transform.position.y,2);
 			dist = Mathf.Sqrt(dist);
 			if(dist < radius){
+				GlobalValues.bug = "Chest Clicked";
 				PopBool = true;
 			}
 		}
@@ -96,7 +97,7 @@ public class ChestMenu : MonoBehaviour {
 		//doWindow0 = GUI.Toggle(new Rect(10, 10, 100, 20), doWindow0, "Window 0");
 		if(ChestReady){
 			if (PopBool){
-				GUI.Window(0, PopMenu, DoWindow0, "Chest"/*,GUIStyle.none*/);
+				GUI.Window(0, PopMenu, DoWindow0, "Chest",GUIStyle.none);
 			}
 		}
 

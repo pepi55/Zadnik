@@ -12,13 +12,14 @@ public class ScreenBtns : MonoBehaviour {
 	public string[] AboutTextLines = new string[0];
 	
 	
-	private string clicked = "", MessageDisplayOnAbout = "This game is made by Team Zadnik \n ";
+	private string clicked = "", MessageDisplayOnAbout = "This game is made by Team Oink \n ";
 	private Rect WindowRect = new Rect(Screen.width / 2, Screen.height / 10, Screen.width / 4, Screen.height);
 	private Rect HugeRect = new Rect(0, 0, Screen.width, Screen.height);
 	private float volume = 1.0f;
 	
 	private void Start()
 	{
+		Screen.orientation = ScreenOrientation.Portrait;
 		//---------------------de credits worden hierin gestopt zodat het al klaar staat---------------------//
 		for (int x = 0; x < AboutTextLines.Length;x++ ){
 			MessageDisplayOnAbout += AboutTextLines[x] + " \n ";
@@ -30,6 +31,11 @@ public class ScreenBtns : MonoBehaviour {
 	//---------------------de function om bij een click een andere te kiezen------------------------------------------//
 	private void OnGUI()
 	{
+		if(Screen.orientation == ScreenOrientation.LandscapeLeft){
+			Rect HugeRect = new Rect(0, 0, Screen.height, Screen.width);
+		}else{
+			Rect HugeRect = new Rect(0, 0, Screen.width, Screen.height);
+		}
 		if (background != null)
 			GUI.DrawTexture(new Rect(0,0,Screen.width , Screen.height),background);
 		if (LOGO != null && clicked != "credits")
@@ -37,7 +43,7 @@ public class ScreenBtns : MonoBehaviour {
 		
 		GUI.skin = guiSkin;
 		if (clicked == ""){
-			WindowRect = GUI.Window(0, WindowRect, menuFunc, "Main Menu" ,GUIStyle.none);
+			WindowRect = GUI.Window(0, HugeRect, menuFunc, "Main Menu" ,GUIStyle.none);
 
 		}
 		else if(clicked == "howToPlay"){
@@ -45,11 +51,11 @@ public class ScreenBtns : MonoBehaviour {
 
 		}
 		else if(clicked == "stat"){
-			WindowRect = GUI.Window(2, WindowRect, StatFunc, "Your Stats" ,GUIStyle.none);
+			WindowRect = GUI.Window(2, HugeRect, StatFunc, "Your Stats" ,GUIStyle.none);
 
 		}
 		else if (clicked == "options"){
-			WindowRect = GUI.Window(3, WindowRect, optionsFunc, "Options" ,GUIStyle.none);
+			WindowRect = GUI.Window(3, HugeRect, optionsFunc, "Options" ,GUIStyle.none);
 
 		}
 		else if (clicked == "credits"){
