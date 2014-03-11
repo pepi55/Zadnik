@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour {
 	private int x, y;
 
 	void OnMouseDown () {
-		if (Input.touches.Length == 1) {
+		if (Input.touchCount == 1) {
 			if (GlobalValues.active) {
 				RaycastHit2D selectHexRay = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position), Vector2.zero);
 				
@@ -17,7 +17,10 @@ public class Movement : MonoBehaviour {
 					Debug.Log("huehuehuehuehuehuehuehuehuehuehuehuehuehuehuehuehue");
 				}
 				
-				//Movement.OnMove();
+				if (selectHexRay.collider.tag == GlobalValues.cellTag) {
+					HexGrid.end = selectHexRay.transform.gameObject;
+					MoveChar();
+				}
 			}
 		}
 	}
