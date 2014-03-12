@@ -1,0 +1,17 @@
+Index:
+
+Items with outline are in the following folders:
+magic
+melee
+ranged
+special
+
+Items without outline are in the following folders:
+magic_item
+melee_item
+ranged_item
+special_item
+
+Projectiles are in the following folders:
+spells (magic)
+arrows (ranged)
