@@ -27,6 +27,7 @@ public class Chestmenu2 : MonoBehaviour {
 			float dist = Mathf.Pow(MousePos.x - transform.position.x,2) + Mathf.Pow(MousePos.y - transform.position.y,2);
 			dist = Mathf.Sqrt(dist);
 			if(dist < radius){
+				Debug.Log("WOOT");
 				PopBool = true;
 			}
 		}
