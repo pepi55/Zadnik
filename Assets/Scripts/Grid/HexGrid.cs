@@ -26,8 +26,13 @@ public class HexGrid : MonoBehaviour {
 
 	void Awake () {
 		if (gridCreated) return;
+		int place;
+		GameObject dummy;
 
 		sources = PathNode.CreateGrid(Vector2.zero, Vector2.one * 1.0f, new int[] {20, 20}/*, 0.0f*/);
+		place = (int)Random.Range(1, sources.Count);
+		dummy = (GameObject)Instantiate(Resources.Load(GlobalValues.cellPath), sources, Quaternion.identity);
+
 		gridCreated = true;
 	}
 
