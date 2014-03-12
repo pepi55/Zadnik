@@ -18,7 +18,6 @@ public class GameControler : MonoBehaviour {
 	//private HexGrid grid = null;
 	/*--- END PRIVATES ---*/
 
-	// Use this for initialization
 	void Start () {
 		/*--- INIT ---*/
 		//int
@@ -30,10 +29,5 @@ public class GameControler : MonoBehaviour {
 		/*--- END INIT ---*/
 
 		//grid.DrawGrid(gridHeight, gridLength);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 }

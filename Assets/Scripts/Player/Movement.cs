@@ -1,33 +1,67 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Movement : MonoBehaviour {
-	//int
-	int x, y;
+	//float
+	private float timer = 0;
 
-	void Start () {
+	//bool
+	private bool reset;
+	private bool pathDone;
+	private bool walking;
 
-	}
+	//list
+	public List<PathNode> solvedPath = new List<PathNode>();
 
-	/*void FixedUpdate () {
-		if (Input.GetMouseButtonDown(0)) {
-			x += 1;
-			y = 1;
+	//pathnode
+	private PathNode hex;
 
-			Vector2 coordinates = grid.CubeToAxis(GlobalValues.row[x][y]);
-			Vector2 newPos = grid.HexToPixel(coordinates, GlobalValues.radius);
+	//ray
+	private RaycastHit2D selectHexRay;
 
-			transform.position = newPos;
+	void FixedUpdate () {
+		if (!walking && Input.GetMouseButtonDown(0) == true) {
+			selectHexRay = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
-			Debug.Log(GlobalValues.row[x][y]);
+			if (selectHexRay.collider.tag == GlobalValues.cellTag) {
+				HexGrid.end = selectHexRay.transform.gameObject;
+
+				StartCoroutine(MoveChar());
+			}
 		}
-	}*/
-
-	void OnMouseDown () {
-
+		
+		//MoveChar();
+		/*if (Input.touchCount == 1) {
+			if (GlobalValues.active) {
+				RaycastHit2D selectHexRay = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position), Vector2.zero);
+				
+				if (selectHexRay.collider != null) {
+					Debug.Log("huehuehuehuehuehuehuehuehuehuehuehuehuehuehuehuehue");
+				}
+				
+				if (selectHexRay.collider.tag == GlobalValues.cellTag) {
+					HexGrid.end = selectHexRay.transform.gameObject;
+					MoveChar();
+				}
+			}
+		}*/
 	}
 
-	public void MoveTo (Vector3 position) {
-		transform.position = position;
+	private IEnumerator MoveChar () {
+		int i = 0;
+		walking = true;
+
+		while (true) {
+			i++;
+
+			if (HexGrid.solvedPath.Count == 2) {
+				walking = false;
+				break;
+			}
+
+			yield return new WaitForSeconds(0.5f);
+			transform.position = HexGrid.solvedPath[1].Position;
+		}
 	}
 }
