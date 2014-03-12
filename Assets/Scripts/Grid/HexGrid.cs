@@ -3,18 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class HexGrid : MonoBehaviour {
-	public static List<PathNode> solvedPath = new List<PathNode>();
+	public static List<PathNode> sources;
 
-	public static GameObject start;
+	public GameObject start;
 	public static GameObject end;
 
-	public List<PathNode> sources;
+	public static List<PathNode> solvedPath = new List<PathNode>();
 
 	public Color nodeColor = new Color(0.05f, 0.3f, 0.05f, 0.1f);
 	public Color connectionColor = Color.blue; //new Color(1.0f, 0.2f, 0.05f, 1.5f);
 	public Color pathColor = Color.magenta; //new Color(0.5f, 0.03f, 0.3f, 1.0f);
 
-	public bool reset;
+	public static bool reset;
 	public bool gridCreated;
 
 	private int startIndex;
@@ -66,9 +66,14 @@ public class HexGrid : MonoBehaviour {
 			reset = false;
 		}
 
-		if (start == null || end == null) {
-			Debug.LogWarning("No start / end point");
-			enabled = false;
+		if (start == null) {
+			Debug.LogWarning("No start point");
+			//enabled = false;
+
+			return;
+		} else if (end == null) {
+			Debug.LogWarning("No end point");
+			//enabled = false;
 
 			return;
 		}

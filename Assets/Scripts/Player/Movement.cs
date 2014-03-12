@@ -3,13 +3,36 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Movement : MonoBehaviour {
-	//int
-	public static int i;
+	//float
+	private float timer = 0;
 
-	private int x, y;
+	//bool
+	private bool reset;
+	private bool pathDone;
+	private bool walking;
 
-	void OnMouseDown () {
-		if (Input.touchCount == 1) {
+	//list
+	public List<PathNode> solvedPath = new List<PathNode>();
+
+	//pathnode
+	private PathNode hex;
+
+	//ray
+	private RaycastHit2D selectHexRay;
+
+	void FixedUpdate () {
+		if (!walking && Input.GetMouseButtonDown(0) == true) {
+			selectHexRay = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+
+			if (selectHexRay.collider.tag == GlobalValues.cellTag) {
+				HexGrid.end = selectHexRay.transform.gameObject;
+
+				StartCoroutine(MoveChar());
+			}
+		}
+		
+		//MoveChar();
+		/*if (Input.touchCount == 1) {
 			if (GlobalValues.active) {
 				RaycastHit2D selectHexRay = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position), Vector2.zero);
 				
@@ -22,24 +45,23 @@ public class Movement : MonoBehaviour {
 					MoveChar();
 				}
 			}
-		}
+		}*/
 	}
 
-	public void MoveChar () {
-		if (HexGrid.solvedPath.Count != 0) return;
+	private IEnumerator MoveChar () {
+		int i = 0;
+		walking = true;
 
-		for (i = 0; i < HexGrid.solvedPath.Count; i++) {
-			StartCoroutine(OnMove());
-		}
-	}
-
-	public IEnumerator OnMove () {
 		while (true) {
-			if (HexGrid.solvedPath.Count == 0) yield return null;
+			i++;
 
-			transform.position = HexGrid.solvedPath[i].Position;
+			if (HexGrid.solvedPath.Count == 2) {
+				walking = false;
+				break;
+			}
 
-			yield return new WaitForSeconds(1);
+			yield return new WaitForSeconds(0.5f);
+			transform.position = HexGrid.solvedPath[1].Position;
 		}
 	}
 }
