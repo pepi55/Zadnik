@@ -11,6 +11,7 @@ public class CameraMove : MonoBehaviour {
 	public 	float intensity = 8;
 	// Use this for initialization
 	void Start () {
+		Screen.orientation = ScreenOrientation.LandscapeLeft;
 		intensity = intensity  + 1;
 	}
 	

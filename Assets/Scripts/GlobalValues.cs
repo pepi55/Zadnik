@@ -11,6 +11,7 @@ public static class GlobalValues {
 
 	public static string gameControllerTag = "GameController";
 	public static string playerTag = "Player";
+	public static string bug = "";
 
 	//floats
 	public static float SFXvol = 1f;

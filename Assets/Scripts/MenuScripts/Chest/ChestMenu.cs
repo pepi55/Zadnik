@@ -48,6 +48,7 @@ public class ChestMenu : MonoBehaviour {
 		Texture2D ItemRandom3 = Items[index3];
 
 		Debug.Log(Items.Count);
+		Debug.Log(ItemRandom1 +" "+ ItemRandom2 +" "+ ItemRandom3);
 		//Debug.Log("1e = " + index1 + " 2e = "  + index2 + " 3e = " + index3);
 
 		/*
@@ -72,6 +73,7 @@ public class ChestMenu : MonoBehaviour {
 			float dist = Mathf.Pow(MousePos.x - transform.position.x,2) + Mathf.Pow(MousePos.y - transform.position.y,2);
 			dist = Mathf.Sqrt(dist);
 			if(dist < radius){
+				GlobalValues.bug = "Chest Clicked";
 				PopBool = true;
 			}
 		}

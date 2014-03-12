@@ -10,6 +10,8 @@ public class Items : IComparable<Items> {
 		name = newName;
 		descr = newDescr;
 		power = newPower;
+		Debug.Log(name);
+		Debug.Log(descr);
 
 	}
 	public int CompareTo(Items other)

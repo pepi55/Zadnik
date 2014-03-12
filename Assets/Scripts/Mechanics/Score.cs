@@ -9,7 +9,7 @@ public class Score : MonoBehaviour {
 	}
 	void OnGUI(){
 		GUI.color = Color.white;
-		GUI.Label(WindowRect,"Score " + ScorePoints);
+		GUI.Label(WindowRect,"Score " + GlobalValues.bug);
 	}
 
 }

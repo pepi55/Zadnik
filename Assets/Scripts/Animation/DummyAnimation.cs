@@ -18,7 +18,7 @@ public class DummyAnimation : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		animator.SetInteger("Lives",HitPoints);
-		if(HitPoints == 1){	
+		if(HitPoints == 0){	
 			//AudioSource.PlayClipAtPoint(dummyDeath, transform.position, 1);
 			animator.SetBool("Alive",false);
 		}
