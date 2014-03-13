@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class Movement : MonoBehaviour {
 	//float
+//	private float timer = 0;
 	//private float timer = 0;
 
 	//bool

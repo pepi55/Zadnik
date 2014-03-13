@@ -31,11 +31,11 @@ public class ScreenBtns : MonoBehaviour {
 	//---------------------de function om bij een click een andere te kiezen------------------------------------------//
 	private void OnGUI()
 	{
-		if(Screen.orientation == ScreenOrientation.LandscapeLeft){
+		/*if(Screen.orientation == ScreenOrientation.LandscapeLeft){
 			Rect HugeRect = new Rect(0, 0, Screen.height, Screen.width);
 		}else{
 			Rect HugeRect = new Rect(0, 0, Screen.width, Screen.height);
-		}
+		}*/
 		if (background != null)
 			GUI.DrawTexture(new Rect(0,0,Screen.width , Screen.height),background);
 		if (LOGO != null && clicked != "credits")

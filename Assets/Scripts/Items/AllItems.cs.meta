@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f45275ed57a9842629fd0e50a57e6a87
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - eSwordIcon: {fileID: 2800000, guid: 79da824be30224fe6a64236bf66b911d, type: 3}
+  - eArrowIcon: {fileID: 2800000, guid: a1621a212aa7244ff9b7c1a673f72dd4, type: 3}
+  - eWandIcon: {fileID: 2800000, guid: 2157b370f996345e191e5909914d5fb4, type: 3}
+  - eEmptyIcon: {fileID: 2800000, guid: 50926c3bf2e284b54afe1485c84a3eef, type: 3}
+  - swordItem: {instanceID: 0}
+  - arrowItem: {instanceID: 0}
+  - wandItem: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
