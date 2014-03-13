@@ -5,12 +5,18 @@ using System.Collections.Generic;
 public static class GlobalValues {
 	//strings
 	public static string screenPos;
+
 	public static string cellName = "hexGridCell";
 	public static string cellTag = "gridCell";
 	public static string cellPath = "Grid/HexTile";
+	
+	public static string dummyTag = "dummy";
+	public static string dummyName = "dummy";
+	public static string dummyPath = "Enemies/Dummy";
 
 	public static string gameControllerTag = "GameController";
 	public static string playerTag = "Player";
+
 	public static string bug = "";
 
 	//floats
@@ -30,4 +36,7 @@ public static class GlobalValues {
 	//bools
 	public static bool Death = false;
 	public static bool active = false;
+
+	//vectors
+	public static Vector2 playerPos = new Vector2();
 }

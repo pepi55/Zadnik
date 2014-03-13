@@ -4,30 +4,38 @@ using System.Collections.Generic;
 
 public class Movement : MonoBehaviour {
 	//float
-	private float timer = 0;
+	//private float timer = 0;
 
 	//bool
-	private bool reset;
-	private bool pathDone;
+	/*private bool reset;
+	private bool pathDone;*/
 	private bool walking;
 
 	//list
-	public List<PathNode> solvedPath = new List<PathNode>();
+	//public List<PathNode> solvedPath = new List<PathNode>();
 
 	//pathnode
-	private PathNode hex;
+	//private PathNode hex;
 
 	//ray
 	private RaycastHit2D selectHexRay;
+
+	void Start () {
+		GlobalValues.playerPos = transform.position;
+	}
 
 	void FixedUpdate () {
 		if (!walking && Input.GetMouseButtonDown(0) == true) {
 			selectHexRay = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
-			if (selectHexRay.collider.tag == GlobalValues.cellTag) {
-				HexGrid.end = selectHexRay.transform.gameObject;
+			if (selectHexRay.collider != null) {
+				if (selectHexRay.collider.tag == GlobalValues.cellTag) {
+					HexGrid.end = selectHexRay.transform.gameObject;
 
-				StartCoroutine(MoveChar());
+					StartCoroutine(MoveChar());
+				}
+			} else if (!walking) {
+				HexGrid.end = null;
 			}
 		}
 		
@@ -38,6 +46,10 @@ public class Movement : MonoBehaviour {
 				
 				if (selectHexRay.collider != null) {
 					Debug.Log("huehuehuehuehuehuehuehuehuehuehuehuehuehuehuehuehue");
+
+					if (Input.GetMouseButtonDown(0)) Debug.Log("0");
+					if (Input.GetMouseButtonDown(1)) Debug.Log("1");
+					if (Input.GetMouseButtonDown(3)) Debug.Log("2");
 				}
 				
 				if (selectHexRay.collider.tag == GlobalValues.cellTag) {
@@ -57,6 +69,8 @@ public class Movement : MonoBehaviour {
 
 			if (HexGrid.solvedPath.Count == 2) {
 				walking = false;
+				GlobalValues.playerPos = transform.position;
+
 				break;
 			}
 

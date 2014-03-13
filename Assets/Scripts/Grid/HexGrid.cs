@@ -14,24 +14,31 @@ public class HexGrid : MonoBehaviour {
 	public Color connectionColor = Color.blue; //new Color(1.0f, 0.2f, 0.05f, 1.5f);
 	public Color pathColor = Color.magenta; //new Color(0.5f, 0.03f, 0.3f, 1.0f);
 
-	public static bool reset;
-	public bool gridCreated;
-
+	//int
 	private int startIndex;
 	private int endIndex;
 	private int lastStartIndex;
 	private int lastEndIndex;
+	private int place;
 
+	//bool
 	private bool pathDone;
+	public static bool reset;
+	public bool gridCreated;
 
 	void Awake () {
 		if (gridCreated) return;
-		int place;
-		GameObject dummy;
 
-		sources = PathNode.CreateGrid(Vector2.zero, Vector2.one * 1.0f, new int[] {20, 20}/*, 0.0f*/);
-		place = (int)Random.Range(1, sources.Count);
-		dummy = (GameObject)Instantiate(Resources.Load(GlobalValues.cellPath), sources, Quaternion.identity);
+		sources = PathNode.CreateGrid(Vector2.zero, Vector2.one * 1.0f, new int[] {20, 20}, 0.1f);
+		/*place = (int)Random.Range(1, sources.Count);
+		SpawnDummy(place);*/
+
+		/*for (int i = 0; i < sources.Count; i++) {
+			if (sources[i] == null) {
+				SpawnDummy(i);
+				break;
+			}
+		}*/
 
 		gridCreated = true;
 	}
@@ -44,6 +51,15 @@ public class HexGrid : MonoBehaviour {
 
 	public void DrawConnections (int startPoint, int endPoint, Color inColor) {
 		Debug.DrawLine(sources[startPoint].Position, sources[endPoint].Position, inColor);
+	}
+
+	private void SpawnDummy (int loc) {
+		GameObject dummy;
+
+		//sources[loc].Invalid = true;
+		dummy = (GameObject)Instantiate(Resources.Load(GlobalValues.dummyPath), sources[loc].Position, Quaternion.identity);
+		dummy.tag = GlobalValues.dummyTag;
+		dummy.name = GlobalValues.dummyName;
 	}
 
 	private static int Closest (List<PathNode> inNodes, Vector2 toPoint) {
@@ -77,7 +93,7 @@ public class HexGrid : MonoBehaviour {
 
 			return;
 		} else if (end == null) {
-			Debug.LogWarning("No end point");
+			//Debug.LogWarning("No end point");
 			//enabled = false;
 
 			return;
