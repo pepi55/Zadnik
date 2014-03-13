@@ -4,11 +4,8 @@ using System.Collections.Generic;
 
 public class Movement : MonoBehaviour {
 	//float
-<<<<<<< HEAD
 //	private float timer = 0;
-=======
 	//private float timer = 0;
->>>>>>> master
 
 	//bool
 	/*private bool reset;
