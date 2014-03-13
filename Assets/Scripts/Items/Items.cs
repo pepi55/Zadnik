@@ -4,8 +4,8 @@ using System;
 
 public class Items : IComparable<Items> {
 
-	private string name, descr;
-	private int power;
+	public string name, descr;
+	public int power;
 	public Items(string newName, string newDescr, int newPower){
 		name = newName;
 		descr = newDescr;
