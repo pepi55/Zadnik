@@ -11,8 +11,7 @@ public class DummyAnimation : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator>();
-		radius = transform.localScale.x;
-
+		radius = 0.5f; //transform.localScale.x;
 	}
 	
 	// Update is called once per frame
@@ -29,8 +28,12 @@ public class DummyAnimation : MonoBehaviour {
 		if(Input.GetMouseButtonDown(0) && HitPoints != 0){
 			Vector3 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			float dist = Mathf.Pow(MousePos.x - transform.position.x,2) + Mathf.Pow(MousePos.y - transform.position.y,2);
+			float ply = Mathf.Pow(MousePos.x - GlobalValues.playerPos.x, 2) + Mathf.Pow(MousePos.y - GlobalValues.playerPos.y, 2);
+
+			ply = Mathf.Sqrt(ply);
 			dist = Mathf.Sqrt(dist);
-			if(dist < radius){
+
+			if(dist < radius && ply < (radius + 1.0f)){
 				AudioSource.PlayClipAtPoint(dummyHit, transform.position, 1);
 				HitPoints -= 1;
 				HitAnim = 20;

@@ -61,7 +61,7 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 		return newNode;
 	}
 
-	public static List<PathNode> CreateGrid (Vector2 center, Vector2 spacing, int[] dim/*, float randomSpace*/) {
+	public static List<PathNode> CreateGrid (Vector2 center, Vector2 spacing, int[] dim, float randomSpace) {
 		GameObject gridObject = new GameObject("grid");
 
 		int xCount = dim[0];
@@ -79,15 +79,16 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 
 		List<PathNode> result = new List<PathNode>();
 
-		//Random.seed = 1337;
+		Random.seed = 1337;
 
 		for (int x = 0; x < xCount; x++) {
 			float xPos = (x * offsetX/*spacing.x*/) + xStart;
 
 			for (int y = 0; y < yCount; y++) {
-				/*if (randomSpace < 0.0f) {
+				/*if (randomSpace < 1.0f) {
 					if (Random.value <= randomSpace) {
 						result.Add(null);
+						
 						continue;
 					}
 				}*/
@@ -95,6 +96,19 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 				float yPos = (y * offsetY/*spacing.y*/) + yStart;
 				float offset = (y % 2.0f == 0.0f) ? spacing.x * 0.56f : 0.0f;
 				Vector2 newPos = new Vector2(xPos + offset, yPos);
+
+				if (randomSpace < 1.0f) {
+					if (Random.value <= randomSpace) {
+						GameObject dummy;
+						
+						dummy = (GameObject)Instantiate(Resources.Load(GlobalValues.dummyPath), newPos, Quaternion.identity);
+						dummy.tag = GlobalValues.dummyTag;
+						dummy.name = GlobalValues.dummyName;
+
+						result.Add(null);
+						continue;
+					}
+				}
 
 				PathNode newNode = Spawn(newPos); //generateHexAt(i - floor(j/2), j);
 
