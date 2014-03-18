@@ -120,6 +120,9 @@ public class HexGrid : MonoBehaviour {
 		PulsePoint(lastEndIndex);
 
 		if (!pathDone) {
+			/*for (int i = 0; i < 6; i++) {
+				solvedPath = AStar.CalculatePath(sources[lastStartIndex], sources[lastEndIndex]);
+			}*/
 			solvedPath = AStar.CalculatePath(sources[lastStartIndex], sources[lastEndIndex]);
 			/*for (int i = 0; i < solvedPath.Count; i++) {
 				Debug.Log(solvedPath[i]);
