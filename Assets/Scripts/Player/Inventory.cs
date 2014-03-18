@@ -5,11 +5,17 @@ using System.Collections.Generic;
 public class Inventory : MonoBehaviour {
 
 	public Rect invertoryRect = new Rect(Screen.width / 10,Screen.height / 10,Screen.width / 10 * 8,400);
+
 	private bool inventoryWindowShow = false;
+
 	public Texture2D Test = AllItems.arrowIcon;
+
 	private float ShPos = Screen.height / 10;
-	private float SwPos = Screen.width / 10;
+	private float SwPos = Screen.width / 10;	
+	private float radius;
+
 	private Animator animator;
+
 
 	public static Dictionary<int,string> inventoryNameDictionary = new Dictionary<int, string>(){
 		{0,string.Empty},
@@ -23,22 +29,41 @@ public class Inventory : MonoBehaviour {
 		{8,string.Empty},
 	};
 
-	public GameObject Place;
 //	Allitems itemObject = new Allitems();
 	// Use this for initialization
 	void Start(){
-
-
+		animator = GetComponent<Animator>();
+		animator.GetBool("Open");
+		radius = transform.localScale.x;
+		
 	}
 	void Update () {
-		Place.transform.position = new Vector2(SwPos * 8, ShPos * 8);
+		//transform.position = new Vector2(SwPos * 8, ShPos * 8);
+		if(Input.GetMouseButtonDown(0)){
+			Vector3 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			float dist = Mathf.Pow(MousePos.x - transform.position.x,2) + Mathf.Pow(MousePos.y - transform.position.y,2);
+			dist = Mathf.Sqrt(dist);
+			
+			if(dist < radius){
+				if(!inventoryWindowShow){
+					inventoryWindowShow = true;
+
+				}else{
+					inventoryWindowShow = false;
+
+				}
+			}
+		}
 	}
 	
 	void OnGUI(){
 		if(inventoryWindowShow){
-			animator.GetBool("Open");
 			animator.SetBool("Open" , true);
 			invertoryRect = GUI.Window(0,invertoryRect,InventoryWindowFunc,"Inventory");
+
+		}else{
+			animator.SetBool("Open" , false);
+
 		}
 
 	}
