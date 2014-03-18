@@ -9,6 +9,7 @@ public class Inventory : MonoBehaviour {
 	public Texture2D Test = AllItems.arrowIcon;
 	private float ShPos = Screen.height / 10;
 	private float SwPos = Screen.width / 10;
+	private Animator animator;
 
 	public static Dictionary<int,string> inventoryNameDictionary = new Dictionary<int, string>(){
 		{0,string.Empty},
@@ -25,23 +26,24 @@ public class Inventory : MonoBehaviour {
 	public GameObject Place;
 //	Allitems itemObject = new Allitems();
 	// Use this for initialization
-	void Start () {
+	void Start(){
 
+
+	}
+	void Update () {
+		Place.transform.position = new Vector2(SwPos * 8, ShPos * 8);
 	}
 	
 	void OnGUI(){
-		if(GUI.Button(new Rect(SwPos,ShPos / 10,100,50),Place ,"Inventory")){
-			if(!inventoryWindowShow){
-				inventoryWindowShow = true;
-			}else{
-				inventoryWindowShow = false;
-			}
-		}
-
 		if(inventoryWindowShow){
+			animator.GetBool("Open");
+			animator.SetBool("Open" , true);
 			invertoryRect = GUI.Window(0,invertoryRect,InventoryWindowFunc,"Inventory");
 		}
+
 	}
+
+
 	void InventoryWindowFunc(int id){
 	
 	/*	//Display
