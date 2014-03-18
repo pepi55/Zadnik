@@ -4,13 +4,14 @@ using System.Collections.Generic;
 
 public class Movement : MonoBehaviour {
 	//float
-//	private float timer = 0;
+	//private float timer = 0;
 	//private float timer = 0;
 
 	//bool
 	/*private bool reset;
 	private bool pathDone;*/
-	private bool walking;
+	//private bool walking;
+	//private bool click = false;
 
 	//list
 	//public List<PathNode> solvedPath = new List<PathNode>();
@@ -26,17 +27,18 @@ public class Movement : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		if (!walking && Input.GetMouseButtonDown(0) == true) {
+		if (/*!walking && */Input.GetMouseButtonDown(0) == true) {
 			selectHexRay = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
 			if (selectHexRay.collider != null) {
-				if (selectHexRay.collider.tag == GlobalValues.cellTag) {
+				StopCoroutine("MoveChar");
+				if (/* && */selectHexRay.collider.tag == GlobalValues.cellTag) {
 					HexGrid.end = selectHexRay.transform.gameObject;
 
-					StartCoroutine(MoveChar());
-				}
-			} else if (!walking) {
-				HexGrid.end = null;
+					StartCoroutine("MoveChar");
+				}/* else if (!walking) {
+					HexGrid.end = null;
+				}*/
 			}
 		}
 		
@@ -63,13 +65,13 @@ public class Movement : MonoBehaviour {
 
 	private IEnumerator MoveChar () {
 		int i = 0;
-		walking = true;
+		//walking = true;
 
 		while (true) {
 			i++;
 
 			if (HexGrid.solvedPath.Count == 2) {
-				walking = false;
+				//walking = false;
 				GlobalValues.playerPos = transform.position;
 
 				break;
@@ -77,6 +79,7 @@ public class Movement : MonoBehaviour {
 
 			yield return new WaitForSeconds(0.5f);
 			transform.position = HexGrid.solvedPath[1].Position;
+			GlobalValues.playerPos = transform.position;
 		}
 	}
 }

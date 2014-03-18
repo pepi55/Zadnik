@@ -63,6 +63,7 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 
 	public static List<PathNode> CreateGrid (Vector2 center, Vector2 spacing, int[] dim, float randomSpace) {
 		GameObject gridObject = new GameObject("grid");
+		GameObject dummies = new GameObject("dummies");
 
 		int xCount = dim[0];
 		int yCount = dim[1];
@@ -79,7 +80,7 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 
 		List<PathNode> result = new List<PathNode>();
 
-		Random.seed = 1337;
+		//Random.seed = 1337;
 
 		for (int x = 0; x < xCount; x++) {
 			float xPos = (x * offsetX/*spacing.x*/) + xStart;
@@ -97,23 +98,39 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 				float offset = (y % 2.0f == 0.0f) ? spacing.x * 0.56f : 0.0f;
 				Vector2 newPos = new Vector2(xPos + offset, yPos);
 
+				PathNode newNode = Spawn(newPos); //generateHexAt(i - floor(j/2), j);
+
 				if (randomSpace < 1.0f) {
-					if (Random.value <= randomSpace) {
+					if (Random.value > 0.001f && Random.value < 0.05f) {
 						GameObject dummy;
 						
 						dummy = (GameObject)Instantiate(Resources.Load(GlobalValues.dummyPath), newPos, Quaternion.identity);
 						dummy.tag = GlobalValues.dummyTag;
 						dummy.name = GlobalValues.dummyName;
+						dummy.transform.parent = dummies.transform;
 
-						result.Add(null);
-						continue;
+						newNode.tag = GlobalValues.dummyTag;
+						//newNode.active = false;
+						
+						/*result.Add(null);
+						continue;*/
+					} else if (Random.value < 0.001f) {
+						GameObject chest;
+
+						chest = (GameObject)Instantiate(Resources.Load(GlobalValues.chestPath), newPos, Quaternion.identity);
+						chest.tag = GlobalValues.chestTag;
+						chest.name = GlobalValues.chestName;
+
+						newNode.tag = GlobalValues.chestTag;
+						//newNode.active = false;
+						
+						/*result.Add(null);
+						continue;*/
 					}
 				}
 
-				PathNode newNode = Spawn(newPos); //generateHexAt(i - floor(j/2), j);
-
-				result.Add(newNode);
 				newNode.transform.parent = gridObject.transform;
+				result.Add(newNode);
 			}
 		}
 
@@ -123,7 +140,7 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 				List<int> connectedIndicies = new List<int>();
 				PathNode thisNode = result[thisIndex];
 
-				if (AStar.InvalidNode(thisNode)) {
+				if (AStar.InvalidNode(thisNode)/* || HexGrid.solvedPath[1].gameObject.tag != GlobalValues.cellTag*/) {
 					continue;
 				}
 
@@ -196,7 +213,7 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 				for (int i = 0; i < connectedIndicies.Count; i++) {
 					PathNode thisConnection = result[connectedIndicies[i]];
 
-					if (AStar.InvalidNode(thisConnection)) {
+					if (AStar.InvalidNode(thisConnection) || thisConnection.gameObject.tag != GlobalValues.cellTag) {
 						continue;
 					}
 
