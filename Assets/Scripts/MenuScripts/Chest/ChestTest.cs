@@ -23,7 +23,7 @@ public class ChestTest : MonoBehaviour {
 	};
 	AllItems itemObject = new AllItems();
 	void Start(){
-		lootDictionary[0] = itemObject.swordItem.name;
+		lootDictionary[0] = itemObject.swordItem1.name;
 		animator = GetComponent<Animator>();
 		radius = transform.localScale.x;
 		
@@ -37,11 +37,13 @@ public class ChestTest : MonoBehaviour {
 			
 			if(dist < radius){
 				animator.SetBool("Open", true);
+
 				PopBool = true;
 			}
 		}
 		//	Destroy(gameObject);
 	}
+
 	void DoWindow0(int windowID ) {
 		if (GUI.Button(new Rect(0,30, 50,50),	Item1,GUIStyle.none)){
 			if(!Obtain1){
@@ -83,6 +85,7 @@ public class ChestTest : MonoBehaviour {
 			
 		}
 	}
+
 	void OnGUI() {
 		//doWindow0 = GUI.Toggle(new Rect(10, 10, 100, 20), doWindow0, "Window 0");
 		if (PopBool){

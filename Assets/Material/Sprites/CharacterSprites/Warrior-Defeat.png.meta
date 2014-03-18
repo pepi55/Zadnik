@@ -1,0 +1,274 @@
+fileFormatVersion: 2
+guid: aa1e199d1452643a79985f44bc4c5adb
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: Warrior-Defeat_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2200
+        width: 1079
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Warrior-Defeat_1
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 2200
+        width: 1079
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Warrior-Defeat_2
+      rect:
+        serializedVersion: 2
+        x: 2158
+        y: 2200
+        width: 1079
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Warrior-Defeat_3
+      rect:
+        serializedVersion: 2
+        x: 3237
+        y: 2200
+        width: 1079
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Warrior-Defeat_4
+      rect:
+        serializedVersion: 2
+        x: 4316
+        y: 2200
+        width: 1079
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Warrior-Defeat_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1650
+        width: 1079
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Warrior-Defeat_6
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 1650
+        width: 1079
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Warrior-Defeat_7
+      rect:
+        serializedVersion: 2
+        x: 2158
+        y: 1650
+        width: 1079
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Warrior-Defeat_8
+      rect:
+        serializedVersion: 2
+        x: 3237
+        y: 1650
+        width: 1079
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Warrior-Defeat_9
+      rect:
+        serializedVersion: 2
+        x: 4316
+        y: 1650
+        width: 1079
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Warrior-Defeat_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1100
+        width: 1079
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Warrior-Defeat_11
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 1100
+        width: 1079
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Warrior-Defeat_12
+      rect:
+        serializedVersion: 2
+        x: 2158
+        y: 1100
+        width: 1079
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Warrior-Defeat_13
+      rect:
+        serializedVersion: 2
+        x: 3237
+        y: 1100
+        width: 1079
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Warrior-Defeat_14
+      rect:
+        serializedVersion: 2
+        x: 4316
+        y: 1100
+        width: 1079
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Warrior-Defeat_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 550
+        width: 1079
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Warrior-Defeat_16
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 550
+        width: 1079
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Warrior-Defeat_17
+      rect:
+        serializedVersion: 2
+        x: 2158
+        y: 550
+        width: 1079
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Warrior-Defeat_18
+      rect:
+        serializedVersion: 2
+        x: 3237
+        y: 550
+        width: 1079
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Warrior-Defeat_19
+      rect:
+        serializedVersion: 2
+        x: 4316
+        y: 550
+        width: 1079
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Warrior-Defeat_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1079
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Warrior-Defeat_21
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 0
+        width: 1079
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Warrior-Defeat_22
+      rect:
+        serializedVersion: 2
+        x: 2158
+        y: 0
+        width: 1079
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Warrior-Defeat_23
+      rect:
+        serializedVersion: 2
+        x: 3237
+        y: 0
+        width: 1079
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Warrior-Defeat_24
+      rect:
+        serializedVersion: 2
+        x: 4316
+        y: 0
+        width: 1079
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+  spritePackingTag: 
+  userData: 
