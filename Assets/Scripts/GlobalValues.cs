@@ -14,6 +14,10 @@ public static class GlobalValues {
 	public static string dummyName = "dummy";
 	public static string dummyPath = "Enemies/Dummy";
 
+	public static string chestTag = "chest";
+	public static string chestName = "chest";
+	public static string chestPath = "Objects/Chest";
+
 	public static string gameControllerTag = "GameController";
 	public static string playerTag = "Player";
 
