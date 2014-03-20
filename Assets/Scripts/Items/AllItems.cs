@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System;
 
 public class AllItems : MonoBehaviour {
+	private float randomChoice;
+
 	public Texture2D eSwordIcon1;
 	public Texture2D eSwordIcon2;
 	public Texture2D eSwordIcon3;
@@ -146,12 +148,12 @@ public class AllItems : MonoBehaviour {
 	static public Texture2D swordIcon66;
 	static public Texture2D wandIcon;
 	
-	public ItemCreate swordItem1 	= 	new ItemCreate(0,"Regular Swords",	swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem2 	= 	new ItemCreate(0,"Casual Sword  ",	swordIcon2,"Talkin about casual....");
-	public ItemCreate swordItem3 	= 	new ItemCreate(0,"Basic Sword",		swordIcon1,"Mere basic");
-	public ItemCreate swordItem4 	= 	new ItemCreate(0,"Swords",			swordIcon1,"what did you expect?");
-	public ItemCreate swordItem5 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem6 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
+	public ItemCreate swordItem1	= 	new	ItemCreate(0,"Regular Swords",	swordIcon1,"This sword is pretty basic");
+	public ItemCreate swordItem2 	= 	new ItemCreate(1,"Casual Sword  ",	swordIcon2,"Talkin about casual....");
+	public ItemCreate swordItem3 	= 	new ItemCreate(2,"Basic Sword",		swordIcon3,"Mere basic");
+	public ItemCreate swordItem4 	= 	new ItemCreate(3,"Swords",			swordIcon4,"what did you expect?");
+	public ItemCreate swordItem5 	= 	new ItemCreate(4,"Regular Swords",swordIcon1,"This sword is pretty basic");
+	public ItemCreate swordItem6 	= 	new ItemCreate(5,"Regular Swords",swordIcon1,"This sword is pretty basic");
 	public ItemCreate swordItem7 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
 	public ItemCreate swordItem8 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
 	public ItemCreate swordItem9 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
@@ -220,9 +222,11 @@ public class AllItems : MonoBehaviour {
 		swordIcon1 = eSwordIcon1;
 		arrowIcon = eArrowIcon;
 		wandIcon  = eWandIcon;
+		emptyIcon = eEmptyIcon;
+
 	}
 
-	public class ItemCreate : MonoBehaviour{
+	public class ItemCreate:MonoBehaviour{
 		public int 			id;
 		public string 		name;
 		public string 		descr;
@@ -231,8 +235,7 @@ public class AllItems : MonoBehaviour {
 			id = Id;
 			name = Name;
 			icon = Ico;
-			descr = des;
-			
+			descr = des;	
 			
 		}
 	}
