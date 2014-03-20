@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class EnemyMove : MonoBehaviour {
-	public static List<PathNode> solvedPath = new List<PathNode>();
+	//list
+	public List<PathNode> solvedPath = new List<PathNode>();
 	private List<PathNode> sources;
 	
-	public Color nodeColor = new Color(0.05f, 0.3f, 0.05f, 0.1f);
+	private Color nodeColor = new Color(0.05f, 0.3f, 0.05f, 0.1f);
 	/*public Color connectionColor = Color.blue; //new Color(1.0f, 0.2f, 0.05f, 1.5f);
 	public Color pathColor = Color.magenta; //new Color(0.5f, 0.03f, 0.3f, 1.0f);*/
 	
@@ -97,9 +98,9 @@ public class EnemyMove : MonoBehaviour {
 				return;
 			}
 
-			solvedPath[0].tag = GlobalValues.cellTag;
+			/*solvedPath[0].tag = GlobalValues.cellTag;
 			transform.position = solvedPath[1].transform.position;
-			solvedPath[1].tag = GlobalValues.enemyTag;
+			solvedPath[1].tag = GlobalValues.enemyTag;*/
 			
 			Debug.DrawLine(solvedPath[i].Position, solvedPath[i + 1].Position, Color.cyan * new Color(1.0f, 1.0f, 1.0f, 1.0f));
 		}

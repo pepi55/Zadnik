@@ -49,9 +49,10 @@ public static class GlobalValues {
 	
 	//bools
 	public static bool Death = false;
-	//public static bool move = false;
 
-	//gameobject
+	//gameobjects
 	public static GameObject player;
-	//public static GameObject enemy;
+
+	//lists
+	public static List<GameObject> enemies = new List<GameObject>();
 }

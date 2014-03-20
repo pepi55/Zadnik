@@ -115,6 +115,8 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 						enemy.transform.parent = enemies.transform;
 
 						newNode.tag = GlobalValues.enemyTag;
+
+						GlobalValues.enemies.Add(enemy);
 					} else if (randomSpace > 0.05f && randomSpace < 0.15f) { /*Random.value > 0.05f && Random.value < 0.15f*/
 						/*GameObject wall;
 
