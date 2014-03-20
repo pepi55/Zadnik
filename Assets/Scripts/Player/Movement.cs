@@ -26,7 +26,7 @@ public class Movement : MonoBehaviour {
 		GlobalValues.playerPos = transform.position;
 	}
 
-	void FixedUpdate () {
+	void Update () {
 		if (/*!walking && */Input.GetMouseButtonDown(0) == true) {
 			selectHexRay = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
