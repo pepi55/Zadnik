@@ -41,8 +41,9 @@ public static class GlobalValues {
 	
 	//bools
 	public static bool Death = false;
-	public static bool active = false;
+	public static bool move = false;
 
 	//vectors
-	public static Vector2 playerPos = new Vector2();
+	public static GameObject player;
+	public static Vector2 enemyPos = new Vector2();
 }

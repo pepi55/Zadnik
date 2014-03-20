@@ -53,15 +53,6 @@ public class HexGrid : MonoBehaviour {
 		Debug.DrawLine(sources[startPoint].Position, sources[endPoint].Position, inColor);
 	}
 
-	private void SpawnDummy (int loc) {
-		GameObject dummy;
-
-		//sources[loc].Invalid = true;
-		dummy = (GameObject)Instantiate(Resources.Load(GlobalValues.dummyPath), sources[loc].Position, Quaternion.identity);
-		dummy.tag = GlobalValues.dummyTag;
-		dummy.name = GlobalValues.dummyName;
-	}
-
 	private static int Closest (List<PathNode> inNodes, Vector2 toPoint) {
 		int closestIndex = 0;
 		float minDistance = float.MaxValue;

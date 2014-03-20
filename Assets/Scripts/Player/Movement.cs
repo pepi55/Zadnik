@@ -23,10 +23,11 @@ public class Movement : MonoBehaviour {
 	private RaycastHit2D selectHexRay;
 
 	void Start () {
-		GlobalValues.playerPos = transform.position;
+		//GlobalValues.playerPos = transform.position;
+		GlobalValues.player = this.gameObject;
 	}
 
-	void FixedUpdate () {
+	void Update () {
 		if (/*!walking && */Input.GetMouseButtonDown(0) == true) {
 			selectHexRay = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
@@ -72,14 +73,15 @@ public class Movement : MonoBehaviour {
 
 			if (HexGrid.solvedPath.Count == 2) {
 				//walking = false;
-				GlobalValues.playerPos = transform.position;
+				//GlobalValues.player = this.gameObject;
 
 				break;
 			}
 
 			yield return new WaitForSeconds(0.1f);
 			transform.position = HexGrid.solvedPath[1].Position;
-			GlobalValues.playerPos = transform.position;
+			//GlobalValues.player = transform.position;
+			GlobalValues.move = true;
 		}
 	}
 }

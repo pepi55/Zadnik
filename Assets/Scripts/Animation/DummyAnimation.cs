@@ -28,7 +28,7 @@ public class DummyAnimation : MonoBehaviour {
 		if(Input.GetMouseButtonDown(0) && HitPoints != 0){
 			Vector3 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			float dist = Mathf.Pow(MousePos.x - transform.position.x,2) + Mathf.Pow(MousePos.y - transform.position.y,2);
-			float ply = Mathf.Pow(MousePos.x - GlobalValues.playerPos.x, 2) + Mathf.Pow(MousePos.y - GlobalValues.playerPos.y, 2);
+			float ply = Mathf.Pow(MousePos.x - GlobalValues.player.transform.position.x, 2) + Mathf.Pow(MousePos.y - GlobalValues.player.transform.position.y, 2);
 
 			ply = Mathf.Sqrt(ply);
 			dist = Mathf.Sqrt(dist);
