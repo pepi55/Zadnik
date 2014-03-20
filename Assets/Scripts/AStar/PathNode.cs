@@ -100,8 +100,18 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 
 				PathNode newNode = Spawn(newPos); //generateHexAt(i - floor(j/2), j);
 
+				newNode.transform.parent = gridObject.transform;
+
 				if (randomSpace < 1.0f) {
-					if (Random.value > 0.001f && Random.value < 0.05f) {
+					/*if (Random.value > 0.05f && Random.value < 0.15f) {
+						GameObject wall;
+
+						wall = (GameObject)Instantiate(Resources.Load(GlobalValues.cellPath), newPos, Quaternion.identity);
+						wall.tag = GlobalValues.cellTag;
+						wall.name = GlobalValues.cellName;
+
+						newNode.tag = GlobalValues.cellTag;
+					}*/ if (Random.value > 0.001f && Random.value < 0.05f) {
 						GameObject dummy;
 						
 						dummy = (GameObject)Instantiate(Resources.Load(GlobalValues.dummyPath), newPos, Quaternion.identity);
@@ -129,7 +139,6 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 					}
 				}
 
-				newNode.transform.parent = gridObject.transform;
 				result.Add(newNode);
 			}
 		}
