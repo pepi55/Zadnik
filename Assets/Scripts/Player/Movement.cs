@@ -80,6 +80,7 @@ public class Movement : MonoBehaviour {
 			yield return new WaitForSeconds(0.1f);
 			transform.position = HexGrid.solvedPath[1].Position;
 			GlobalValues.playerPos = transform.position;
+			GlobalValues.move = true;
 		}
 	}
 }
