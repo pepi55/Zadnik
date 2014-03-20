@@ -77,7 +77,7 @@ public class Movement : MonoBehaviour {
 				break;
 			}
 
-			yield return new WaitForSeconds(0.5f);
+			yield return new WaitForSeconds(0.1f);
 			transform.position = HexGrid.solvedPath[1].Position;
 			GlobalValues.playerPos = transform.position;
 		}
