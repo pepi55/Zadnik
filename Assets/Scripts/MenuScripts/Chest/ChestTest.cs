@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class ChestTest : MonoBehaviour {
-	public Texture2D Item1, Item2, Item3;
+	AllItems itemObject = new AllItems();
+	public Texture2D background, Item1, Item2, Item3;
 	
 	private float radius; 
 	private float Luck;
@@ -16,14 +17,18 @@ public class ChestTest : MonoBehaviour {
 	public bool doWindow0 = true;
 	
 	private Rect PopMenu = new Rect(Screen.width - 200 ,0,200,100);
-	public static Dictionary<int,string> lootDictionary = new Dictionary<int, string>(){
-		{0,string.Empty},
-		{1,string.Empty},
-		{2,string.Empty},
+
+	public static Dictionary<int,Texture2D> lootDictionary = new Dictionary<int, Texture2D>(){
+		{0,AllItems.arrowIcon},
+		{1,AllItems.arrowIcon},
+		{2,AllItems.arrowIcon},
+
 	};
-	AllItems itemObject = new AllItems();
+
+
 	void Start(){
-		lootDictionary[0] = itemObject.swordItem1.name;
+		lootDictionary[0] = AllItems.swordIcon1;
+		lootDictionary[1] = AllItems.swordIcon2;
 		animator = GetComponent<Animator>();
 		radius = transform.localScale.x;
 		
@@ -56,6 +61,8 @@ public class ChestTest : MonoBehaviour {
 		}
 		if (GUI.Button(new Rect(50,30, 50,50), 	Item2,GUIStyle.none)){
 			if(!Obtain2){
+				Inventory.inventoryNameDictionary[1] = lootDictionary[1];
+				Item3 	= Item1;
 				Obtain2 = true;
 				
 			}else{
@@ -87,9 +94,10 @@ public class ChestTest : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		//doWindow0 = GUI.Toggle(new Rect(10, 10, 100, 20), doWindow0, "Window 0");
 		if (PopBool){
 			GUI.Window(0, PopMenu, DoWindow0, "Chest",GUIStyle.none);
+			if (background != null)
+				GUI.DrawTexture(PopMenu,background);
 			
 		}
 		
