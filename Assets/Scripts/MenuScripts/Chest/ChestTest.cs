@@ -19,9 +19,9 @@ public class ChestTest : MonoBehaviour {
 	private Rect PopMenu = new Rect(Screen.width - 200 ,0,200,100);
 
 	public static Dictionary<int,Texture2D> lootDictionary = new Dictionary<int, Texture2D>(){
-		{0,AllItems.arrowIcon},
-		{1,AllItems.arrowIcon},
-		{2,AllItems.arrowIcon},
+		{0,AllItems.emptyIcon},
+		{1,AllItems.emptyIcon},
+		{2,AllItems.emptyIcon},
 
 	};
 
@@ -59,10 +59,10 @@ public class ChestTest : MonoBehaviour {
 				
 			}
 		}
-		if (GUI.Button(new Rect(50,30, 50,50), 	Item2,GUIStyle.none)){
+		if (GUI.Button(new Rect(50,30, 50,50),Item2,GUIStyle.none)){
 			if(!Obtain2){
-				Inventory.inventoryNameDictionary[1] = lootDictionary[1];
-				Item3 	= Item1;
+				Inventory.inventoryNameDictionary[1] = lootDictionary[2];
+				Item2 	= Item1;
 				Obtain2 = true;
 				
 			}else{
