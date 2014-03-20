@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class EnemyMove : MonoBehaviour {
-	private List<PathNode> solvedPath = new List<PathNode>();
-	private List<PathNode> sources = HexGrid.sources;
+	public static List<PathNode> solvedPath = new List<PathNode>();
+	private List<PathNode> sources;
 	
 	public Color nodeColor = new Color(0.05f, 0.3f, 0.05f, 0.1f);
-	public Color connectionColor = Color.blue; //new Color(1.0f, 0.2f, 0.05f, 1.5f);
-	public Color pathColor = Color.magenta; //new Color(0.5f, 0.03f, 0.3f, 1.0f);
+	/*public Color connectionColor = Color.blue; //new Color(1.0f, 0.2f, 0.05f, 1.5f);
+	public Color pathColor = Color.magenta; //new Color(0.5f, 0.03f, 0.3f, 1.0f);*/
 	
 	//int
 	private int startIndex;
@@ -25,7 +25,10 @@ public class EnemyMove : MonoBehaviour {
 	private bool pathDone;
 	private bool reset;
 
-	void Awake () {
+	void Start () {
+		//GlobalValues.enemy = /*this.*/gameObject;
+
+		sources = HexGrid.sources;
 		start = this.gameObject;
 		end = GlobalValues.player;
 	}
@@ -36,7 +39,7 @@ public class EnemyMove : MonoBehaviour {
 			solvedPath.Clear();
 			reset = false;
 		}
-		
+
 		if (start == null) {
 			Debug.LogWarning("No start point");
 			//enabled = false;
@@ -48,7 +51,7 @@ public class EnemyMove : MonoBehaviour {
 			
 			return;
 		}
-		
+
 		startIndex = Closest(sources, start.transform.position);
 		endIndex = Closest(sources, end.transform.position);
 		
@@ -66,8 +69,8 @@ public class EnemyMove : MonoBehaviour {
 			sources[i].nodeColor = nodeColor;
 		}
 		
-		PulsePoint(lastStartIndex);
-		PulsePoint(lastEndIndex);
+		//PulsePoint(lastStartIndex);
+		//PulsePoint(lastEndIndex);
 		
 		if (!pathDone) {
 			/*for (int i = 0; i < 6; i++) {
@@ -93,12 +96,16 @@ public class EnemyMove : MonoBehaviour {
 				reset = true;
 				return;
 			}
+
+			solvedPath[0].tag = GlobalValues.cellTag;
+			transform.position = solvedPath[1].transform.position;
+			solvedPath[1].tag = GlobalValues.enemyTag;
 			
 			Debug.DrawLine(solvedPath[i].Position, solvedPath[i + 1].Position, Color.cyan * new Color(1.0f, 1.0f, 1.0f, 1.0f));
 		}
 	}
 
-	public void PulsePoint (int index) {
+	/*public void PulsePoint (int index) {
 		if (AStar.InvalidNode(sources[index])) return;
 		
 		Draw.DrawCube(sources[index].Position, Vector2.one * 1.0f, connectionColor);
@@ -106,7 +113,7 @@ public class EnemyMove : MonoBehaviour {
 
 	public void DrawConnections (int startPoint, int endPoint, Color inColor) {
 		Debug.DrawLine(sources[startPoint].Position, sources[endPoint].Position, inColor);
-	}
+	}*/
 
 	private static int Closest (List<PathNode> inNodes, Vector2 toPoint) {
 		int closestIndex = 0;
@@ -125,4 +132,8 @@ public class EnemyMove : MonoBehaviour {
 		
 		return closestIndex;
 	}
+
+	/*public void MoveEnemy () {
+		transform.position = solvedPath[1].Position;
+	}*/
 }

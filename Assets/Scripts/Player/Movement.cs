@@ -19,12 +19,15 @@ public class Movement : MonoBehaviour {
 	//pathnode
 	//private PathNode hex;
 
+	//class
+	//private EnemyMove enemy;
+
 	//ray
 	private RaycastHit2D selectHexRay;
 
 	void Start () {
 		//GlobalValues.playerPos = transform.position;
-		GlobalValues.player = this.gameObject;
+		GlobalValues.player = /*this.*/gameObject;
 	}
 
 	void Update () {
@@ -79,9 +82,11 @@ public class Movement : MonoBehaviour {
 			}
 
 			yield return new WaitForSeconds(0.1f);
+			HexGrid.solvedPath[0].tag = GlobalValues.cellTag;
 			transform.position = HexGrid.solvedPath[1].Position;
+			HexGrid.solvedPath[1].tag = GlobalValues.playerTag;
 			//GlobalValues.player = transform.position;
-			GlobalValues.move = true;
+			//GlobalValues.move = true;
 		}
 	}
 }

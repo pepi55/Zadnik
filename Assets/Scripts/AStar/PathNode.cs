@@ -63,7 +63,7 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 
 	public static List<PathNode> CreateGrid (Vector2 center, Vector2 spacing, int[] dim, float randomSpace) {
 		GameObject gridObject = new GameObject("grid");
-		GameObject dummies = new GameObject("dummies");
+		GameObject enemies = new GameObject("enemies");
 
 		int xCount = dim[0];
 		int yCount = dim[1];
@@ -81,6 +81,7 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 		List<PathNode> result = new List<PathNode>();
 
 		//Random.seed = 1337;
+		float reset = randomSpace;
 
 		for (int x = 0; x < xCount; x++) {
 			float xPos = (x * offsetX/*spacing.x*/) + xStart;
@@ -97,34 +98,47 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 				float yPos = (y * offsetY/*spacing.y*/) + yStart;
 				float offset = (y % 2.0f == 0.0f) ? spacing.x * 0.56f : 0.0f;
 				Vector2 newPos = new Vector2(xPos + offset, yPos);
-
 				PathNode newNode = Spawn(newPos); //generateHexAt(i - floor(j/2), j);
-
+				
 				newNode.transform.parent = gridObject.transform;
+				
+				randomSpace = reset;
+				randomSpace -= Random.value;
 
-				if (randomSpace < 1.0f) {
-					/*if (Random.value > 0.05f && Random.value < 0.15f) {
-						GameObject wall;
+				if (randomSpace <= 1.0f) {
+					if (randomSpace > 0.15 && randomSpace < 0.16) { /*Random.value > 0.15 && Random.value < 0.1*/
+						GameObject enemy;
 
-						wall = (GameObject)Instantiate(Resources.Load(GlobalValues.cellPath), newPos, Quaternion.identity);
-						wall.tag = GlobalValues.cellTag;
-						wall.name = GlobalValues.cellName;
+						enemy = (GameObject)Instantiate(Resources.Load(GlobalValues.enemyPath), newPos, Quaternion.identity);
+						enemy.tag = GlobalValues.enemyTag;
+						enemy.name = GlobalValues.enemyName;
+						enemy.transform.parent = enemies.transform;
 
-						newNode.tag = GlobalValues.cellTag;
-					}*/ if (Random.value > 0.001f && Random.value < 0.05f) {
+						newNode.tag = GlobalValues.enemyTag;
+					} else if (randomSpace > 0.05f && randomSpace < 0.15f) { /*Random.value > 0.05f && Random.value < 0.15f*/
+						/*GameObject wall;
+
+						wall = (GameObject)Instantiate(Resources.Load(GlobalValues.wallPath), newPos, Quaternion.identity);
+						wall.tag = GlobalValues.wallTag;
+						wall.name = GlobalValues.wallName;*/
+						//newNode.tag = GlobalValues.wallTag;
+
+						result.Add(null);
+						continue;
+					} else if (randomSpace > 0.001f && randomSpace < 0.05f) { /*Random.value > 0.001f && Random.value < 0.05f*/
 						GameObject dummy;
 						
 						dummy = (GameObject)Instantiate(Resources.Load(GlobalValues.dummyPath), newPos, Quaternion.identity);
 						dummy.tag = GlobalValues.dummyTag;
 						dummy.name = GlobalValues.dummyName;
-						dummy.transform.parent = dummies.transform;
+						dummy.transform.parent = enemies.transform;
 
 						newNode.tag = GlobalValues.dummyTag;
 						//newNode.active = false;
 						
 						/*result.Add(null);
 						continue;*/
-					} else if (Random.value < 0.001f) {
+					} else if (randomSpace < 0.001f) { /*Random.value < 0.001f*/
 						GameObject chest;
 
 						chest = (GameObject)Instantiate(Resources.Load(GlobalValues.chestPath), newPos, Quaternion.identity);
