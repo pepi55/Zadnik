@@ -40,8 +40,8 @@ public class Inventory : MonoBehaviour {
 		radius = transform.localScale.x;
 
 		for(int i = 0;i < 12 ; i++){
-			if(inventoryNameDictionary[i] == null){
-				inventoryNameDictionary[i] = AllItems.emptyIcon;
+			if(inventoryNameDictionary[i] != null){
+				inventoryNameDictionary[i] = null;
 
 			}
 		}
@@ -86,17 +86,16 @@ public class Inventory : MonoBehaviour {
 
 
 	void InventoryWindowFunc(int id){
-
-		//Display
-
-
+		Debug.Log(inventoryNameDictionary[0]);
 		GUILayout.BeginArea(new Rect(0,0,SwPos * 6,ShPos * 6));
 		GUILayout.Box("   Items  ",GUIStyle.none);
 		GUILayout.BeginHorizontal();
+
 		if(GUILayout.Button(inventoryNameDictionary[0],GUIStyle.none, GUILayout.Height(ShPos))){
 			inventoryNameDictionary[9] = inventoryNameDictionary[0];
-			inventoryNameDictionary[0] = AllItems.emptyIcon;
+			inventoryNameDictionary[0] = null;
 		}
+
 		GUILayout.Button(inventoryNameDictionary[1],GUIStyle.none, GUILayout.Height(ShPos));
 		GUILayout.Button(inventoryNameDictionary[2],GUIStyle.none, GUILayout.Height(ShPos));
 		GUILayout.EndHorizontal();
