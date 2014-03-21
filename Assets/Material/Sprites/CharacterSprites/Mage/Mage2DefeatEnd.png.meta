@@ -1,0 +1,274 @@
+fileFormatVersion: 2
+guid: 4a130a4a67b55417e9c62e93bc95cbef
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: Mage2DefeatEnd_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2516
+        width: 1008
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2DefeatEnd_1
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 2516
+        width: 1008
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2DefeatEnd_2
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 2516
+        width: 1008
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2DefeatEnd_3
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 2516
+        width: 1008
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2DefeatEnd_4
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 2516
+        width: 1008
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2DefeatEnd_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1887
+        width: 1008
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2DefeatEnd_6
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 1887
+        width: 1008
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2DefeatEnd_7
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 1887
+        width: 1008
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2DefeatEnd_8
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 1887
+        width: 1008
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2DefeatEnd_9
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 1887
+        width: 1008
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2DefeatEnd_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1258
+        width: 1008
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2DefeatEnd_11
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 1258
+        width: 1008
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2DefeatEnd_12
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 1258
+        width: 1008
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2DefeatEnd_13
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 1258
+        width: 1008
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2DefeatEnd_14
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 1258
+        width: 1008
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2DefeatEnd_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 629
+        width: 1008
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2DefeatEnd_16
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 629
+        width: 1008
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2DefeatEnd_17
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 629
+        width: 1008
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2DefeatEnd_18
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 629
+        width: 1008
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2DefeatEnd_19
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 629
+        width: 1008
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2DefeatEnd_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1008
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2DefeatEnd_21
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 0
+        width: 1008
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2DefeatEnd_22
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 0
+        width: 1008
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2DefeatEnd_23
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 0
+        width: 1008
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2DefeatEnd_24
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 0
+        width: 1008
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+  spritePackingTag: 
+  userData: 

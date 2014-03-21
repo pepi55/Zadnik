@@ -9,12 +9,12 @@ public class ProfileTest : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	/*void Update () {
 		Profile.StartProfile("Update");
 		float y = 10;
 		float x = y * y;
 		Profile.EndProfile("Update");
-	}
+	}*/
 
 	void OnApplicationExit(){
 		Profile.EndProfile("Start");
