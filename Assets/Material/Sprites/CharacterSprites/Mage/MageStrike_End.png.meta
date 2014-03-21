@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f8970640656e84f6cb40f1212adb1cc0
+guid: e3568a9895d8948a1a2936a09c33d0ba
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -45,130 +45,130 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: ArcherWalk_0
+    - name: MageStrike_End_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 591
+        width: 733
+        height: 591
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: MageStrike_End_1
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 591
+        width: 733
+        height: 591
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: MageStrike_End_2
+      rect:
+        serializedVersion: 2
+        x: 1466
+        y: 591
+        width: 733
+        height: 591
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: MageStrike_End_3
+      rect:
+        serializedVersion: 2
+        x: 2199
+        y: 591
+        width: 733
+        height: 591
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: MageStrike_End_4
+      rect:
+        serializedVersion: 2
+        x: 2932
+        y: 591
+        width: 733
+        height: 591
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: MageStrike_End_5
+      rect:
+        serializedVersion: 2
+        x: 3665
+        y: 591
+        width: 733
+        height: 591
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: MageStrike_End_6
+      rect:
+        serializedVersion: 2
+        x: 4398
+        y: 591
+        width: 733
+        height: 591
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: MageStrike_End_7
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 391
-        height: 538
+        width: 733
+        height: 591
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: ArcherWalk_1
+    - name: MageStrike_End_8
       rect:
         serializedVersion: 2
-        x: 391
+        x: 733
         y: 0
-        width: 391
-        height: 538
+        width: 733
+        height: 591
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: ArcherWalk_2
+    - name: MageStrike_End_9
       rect:
         serializedVersion: 2
-        x: 782
+        x: 1466
         y: 0
-        width: 391
-        height: 538
+        width: 733
+        height: 591
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: ArcherWalk_3
+    - name: MageStrike_End_10
       rect:
         serializedVersion: 2
-        x: 1173
+        x: 2199
         y: 0
-        width: 391
-        height: 538
+        width: 733
+        height: 591
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: ArcherWalk_4
+    - name: MageStrike_End_11
       rect:
         serializedVersion: 2
-        x: 1564
+        x: 2932
         y: 0
-        width: 391
-        height: 538
+        width: 733
+        height: 591
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: ArcherWalk_5
+    - name: MageStrike_End_12
       rect:
         serializedVersion: 2
-        x: 1955
+        x: 3665
         y: 0
-        width: 391
-        height: 538
+        width: 733
+        height: 591
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: ArcherWalk_6
+    - name: MageStrike_End_13
       rect:
         serializedVersion: 2
-        x: 2346
+        x: 4398
         y: 0
-        width: 391
-        height: 538
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ArcherWalk_7
-      rect:
-        serializedVersion: 2
-        x: 2737
-        y: 0
-        width: 391
-        height: 538
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ArcherWalk_8
-      rect:
-        serializedVersion: 2
-        x: 3128
-        y: 0
-        width: 391
-        height: 538
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ArcherWalk_9
-      rect:
-        serializedVersion: 2
-        x: 3519
-        y: 0
-        width: 391
-        height: 538
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ArcherWalk_10
-      rect:
-        serializedVersion: 2
-        x: 3910
-        y: 0
-        width: 391
-        height: 538
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ArcherWalk_11
-      rect:
-        serializedVersion: 2
-        x: 4301
-        y: 0
-        width: 391
-        height: 538
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ArcherWalk_12
-      rect:
-        serializedVersion: 2
-        x: 4692
-        y: 0
-        width: 391
-        height: 538
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ArcherWalk_13
-      rect:
-        serializedVersion: 2
-        x: 5083
-        y: 0
-        width: 391
-        height: 538
+        width: 733
+        height: 591
       alignment: 0
       pivot: {x: 0, y: 0}
   spritePackingTag: 
