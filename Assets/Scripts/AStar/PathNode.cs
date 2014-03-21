@@ -7,7 +7,7 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 	public List<PathNode> connections;
 	public Color nodeColor = Color.cyan;
 	public static int index;
-	
+
 	void Awake () {
 		if (connections == null) {
 			connections = new List<PathNode>();
