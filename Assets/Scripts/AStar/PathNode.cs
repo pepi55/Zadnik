@@ -103,9 +103,10 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 				newNode.transform.parent = gridObject.transform;
 				
 				randomSpace = reset;
-				randomSpace -= Random.value;
 
 				if (randomSpace <= 1.0f) {
+					randomSpace -= Random.value;
+
 					if (randomSpace > 0.15 && randomSpace < 0.16) { /*Random.value > 0.15 && Random.value < 0.1*/
 						GameObject enemy;
 

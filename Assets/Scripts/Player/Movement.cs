@@ -74,6 +74,11 @@ public class Movement : MonoBehaviour {
 
 		while (true) {
 			//i++;
+			yield return new WaitForSeconds(0.1f);
+			Debug.Log(HexGrid.solvedPath.Count);
+			HexGrid.solvedPath[0].tag = GlobalValues.cellTag;
+			transform.position = HexGrid.solvedPath[1].Position;
+			HexGrid.solvedPath[1].tag = GlobalValues.playerTag;
 
 			if (HexGrid.solvedPath.Count == 2) {
 				//walking = false;
@@ -83,19 +88,13 @@ public class Movement : MonoBehaviour {
 			}
 
 			for (int i = 0; i < GlobalValues.enemies.Count; i++) {
-				enemyMovement = GlobalValues.enemies[i].GetComponent<EnemyMove>();
+				yield return new WaitForSeconds(0.1f);
 
+				enemyMovement = GlobalValues.enemies[i].GetComponent<EnemyMove>();
 				enemyMovement.solvedPath[0].tag = GlobalValues.cellTag;
 				GlobalValues.enemies[i].transform.position = enemyMovement.solvedPath[1].Position;
 				enemyMovement.solvedPath[1].tag = GlobalValues.enemyTag;
-
-				yield return new WaitForSeconds(0.1f);
 			}
-
-			//yield return new WaitForSeconds(0.1f);
-			HexGrid.solvedPath[0].tag = GlobalValues.cellTag;
-			transform.position = HexGrid.solvedPath[1].Position;
-			HexGrid.solvedPath[1].tag = GlobalValues.playerTag;
 			//GlobalValues.player = transform.position;
 			//GlobalValues.move = true;
 		}
