@@ -7,9 +7,7 @@ public class Inventory : MonoBehaviour {
 
 	private float ShPos = Screen.height / 10;
 	private float SwPos = Screen.width / 10;
-	//public string "Occupy0", "Occupy1","Occupy2","Occupy3","Occupy4","Occupy5";
-	//public string "Occupy6", "Occupy7","Occupy8","Occupy9","Occupy10","Occupy11";
-	public string inside0,inside1,inside2,inside3,inside4,inside5,inside6,inside7,inside8,inside9,inside10,inside11;
+	
 	private float radius;
 
 	public Rect invertoryRect = new Rect(Screen.width / 10,Screen.height / 10,Screen.width / 10 * 8,400);
