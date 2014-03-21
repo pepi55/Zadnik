@@ -9,6 +9,10 @@ public static class GlobalValues {
 	public static string cellName = "hexGridCell";
 	public static string cellTag = "gridCell";
 	public static string cellPath = "Grid/HexTile";
+
+	public static string wallTag = "wall";
+	public static string wallName = "wall";
+	public static string wallPath = "Grid/HexTile";
 	
 	public static string dummyTag = "dummy";
 	public static string dummyName = "dummy";
@@ -17,6 +21,10 @@ public static class GlobalValues {
 	public static string chestTag = "chest";
 	public static string chestName = "chest";
 	public static string chestPath = "Objects/Chest";
+
+	public static string enemyTag = "enemy";
+	public static string enemyName = "enemy";
+	public static string enemyPath = "Enemies/Enemy1";
 
 	public static string gameControllerTag = "GameController";
 	public static string playerTag = "Player";
@@ -41,9 +49,10 @@ public static class GlobalValues {
 	
 	//bools
 	public static bool Death = false;
-	public static bool move = false;
 
-	//vectors
+	//gameobjects
 	public static GameObject player;
-	public static Vector2 enemyPos = new Vector2();
+
+	//lists
+	public static List<GameObject> enemies = new List<GameObject>();
 }

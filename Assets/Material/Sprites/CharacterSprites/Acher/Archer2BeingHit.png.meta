@@ -1,0 +1,175 @@
+fileFormatVersion: 2
+guid: 906a0064358f34bb2af79f51776e7d59
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: Archer2BeingHit_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 404
+        height: 686
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Archer2BeingHit_1
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 0
+        width: 404
+        height: 686
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Archer2BeingHit_2
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 0
+        width: 404
+        height: 686
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Archer2BeingHit_3
+      rect:
+        serializedVersion: 2
+        x: 1212
+        y: 0
+        width: 404
+        height: 686
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Archer2BeingHit_4
+      rect:
+        serializedVersion: 2
+        x: 1616
+        y: 0
+        width: 404
+        height: 686
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Archer2BeingHit_5
+      rect:
+        serializedVersion: 2
+        x: 2020
+        y: 0
+        width: 404
+        height: 686
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Archer2BeingHit_6
+      rect:
+        serializedVersion: 2
+        x: 2424
+        y: 0
+        width: 404
+        height: 686
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Archer2BeingHit_7
+      rect:
+        serializedVersion: 2
+        x: 2828
+        y: 0
+        width: 404
+        height: 686
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Archer2BeingHit_8
+      rect:
+        serializedVersion: 2
+        x: 3232
+        y: 0
+        width: 404
+        height: 686
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Archer2BeingHit_9
+      rect:
+        serializedVersion: 2
+        x: 3636
+        y: 0
+        width: 404
+        height: 686
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Archer2BeingHit_10
+      rect:
+        serializedVersion: 2
+        x: 4040
+        y: 0
+        width: 404
+        height: 686
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Archer2BeingHit_11
+      rect:
+        serializedVersion: 2
+        x: 4444
+        y: 0
+        width: 404
+        height: 686
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Archer2BeingHit_12
+      rect:
+        serializedVersion: 2
+        x: 4848
+        y: 0
+        width: 404
+        height: 686
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Archer2BeingHit_13
+      rect:
+        serializedVersion: 2
+        x: 5252
+        y: 0
+        width: 404
+        height: 686
+      alignment: 0
+      pivot: {x: 0, y: 0}
+  spritePackingTag: 
+  userData: 

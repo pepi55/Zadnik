@@ -29,7 +29,7 @@ public class HexGrid : MonoBehaviour {
 	void Awake () {
 		if (gridCreated) return;
 
-		sources = PathNode.CreateGrid(Vector2.zero, Vector2.one * 1.0f, new int[] {20, 20}, 0.1f);
+		sources = PathNode.CreateGrid(Vector2.zero, Vector2.one * 1.0f, new int[] {20, 20}, 1.0f);
 		/*place = (int)Random.Range(1, sources.Count);
 		SpawnDummy(place);*/
 

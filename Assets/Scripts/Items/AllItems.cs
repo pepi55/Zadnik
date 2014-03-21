@@ -148,7 +148,7 @@ public class AllItems : MonoBehaviour {
 	static public Texture2D swordIcon66;
 	static public Texture2D wandIcon;
 	
-	public ItemCreate swordItem1	= 	new	ItemCreate(0,"Regular Swords",	swordIcon1,"This sword is pretty basic");
+	public ItemCreate swordItem1	= 	new	ItemCreate(1,"Regular Swords",	swordIcon1,"This sword is pretty basic");
 	public ItemCreate swordItem2 	= 	new ItemCreate(1,"Casual Sword  ",	swordIcon2,"Talkin about casual....");
 	public ItemCreate swordItem3 	= 	new ItemCreate(2,"Basic Sword",		swordIcon3,"Mere basic");
 	public ItemCreate swordItem4 	= 	new ItemCreate(3,"Swords",			swordIcon4,"what did you expect?");

@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class ChestTest : MonoBehaviour {
-	AllItems itemObject = new AllItems();
-	public Texture2D background, Item1, Item2, Item3;
+//	AllItems itemObject = new AllItems();
+	public Texture2D background, Item1, Item2, Item3, Empty;
 	
 	private float radius; 
 	private float Luck;
@@ -13,8 +13,9 @@ public class ChestTest : MonoBehaviour {
 	private Animator animator;
 	
 	public bool PopBool = false;
-	private bool Obtain1, Obtain2, Obtain3;
+	private bool Obtain1 = false ,Obtain2 = false, Obtain3 = false;
 	public bool doWindow0 = true;
+	private bool chestReady = false;
 	
 	private Rect PopMenu = new Rect(Screen.width - 200 ,0,200,100);
 
@@ -27,8 +28,6 @@ public class ChestTest : MonoBehaviour {
 
 
 	void Start(){
-		//lootDictionary[0] = AllItems.swordIcon1;
-		//lootDictionary[1] = AllItems.swordIcon2;
 		animator = GetComponent<Animator>();
 		radius = transform.localScale.x;
 		
@@ -50,7 +49,11 @@ public class ChestTest : MonoBehaviour {
 	}
 
 	void DoWindow0(int windowID ) {
-		if (GUI.Button(new Rect(0,30, 50,50),	lootDictionary[0],GUIStyle.none)){
+		if(chestReady == false){
+			lootDictionary[0] = AllItems.swordIcon1;
+			lootDictionary[1] = AllItems.wandIcon;
+		}
+		if (GUI.Button(new Rect(0,30, 50,50),	Item1,GUIStyle.none)){
 			if(!Obtain1){
 				Obtain1 = true;
 				
@@ -59,23 +62,31 @@ public class ChestTest : MonoBehaviour {
 				
 			}
 		}
-		if (GUI.Button(new Rect(50,30, 50,50), 	lootDictionary[1],GUIStyle.none)){
+		if (GUI.Button(new Rect(50,30, 50,50),Item2,GUIStyle.none)){
 			if(!Obtain2){
-				Inventory.inventoryNameDictionary[1] = lootDictionary[2];
-				Item2 	= Item1;
-				Obtain2 = true;
-				
+				for(int i = 0; 0 < 9;i++){
+					if(Inventory.inventoryNameDictionary[i] == null){
+						Inventory.inventoryNameDictionary[i] = AllItems.swordIcon1;
+						Item2 = null;
+						Obtain2 = true;
+						break;
+					}
+				}
 			}else{
 				Debug.Log("This slot is empty");
 				
 			}
 		}
-		if (GUI.Button(new Rect(100,30, 50,50), lootDictionary[2],GUIStyle.none)){
+		if (GUI.Button(new Rect(100,30, 50,50), Item3,GUIStyle.none)){
 			if(!Obtain3){
-				Inventory.inventoryNameDictionary[0] = lootDictionary[0];
-				Item3 = Item1;
-				Obtain3 = true;
-				
+				for(int j = 0; 0 < 9;j++){
+					if(Inventory.inventoryNameDictionary[j] == null){
+					Inventory.inventoryNameDictionary[j] = lootDictionary[0];
+					Item3 = null;
+					Obtain3 = true;
+						break;
+					}
+				}
 			}else{
 				Debug.Log("This slot is empty");
 				

@@ -1,0 +1,274 @@
+fileFormatVersion: 2
+guid: d7cd93c54fc474a3285f19ae16dca94f
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: Mage2Death_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2464
+        width: 710
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2Death_1
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 2464
+        width: 710
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2Death_2
+      rect:
+        serializedVersion: 2
+        x: 1420
+        y: 2464
+        width: 710
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2Death_3
+      rect:
+        serializedVersion: 2
+        x: 2130
+        y: 2464
+        width: 710
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2Death_4
+      rect:
+        serializedVersion: 2
+        x: 2840
+        y: 2464
+        width: 710
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2Death_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1848
+        width: 710
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2Death_6
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 1848
+        width: 710
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2Death_7
+      rect:
+        serializedVersion: 2
+        x: 1420
+        y: 1848
+        width: 710
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2Death_8
+      rect:
+        serializedVersion: 2
+        x: 2130
+        y: 1848
+        width: 710
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2Death_9
+      rect:
+        serializedVersion: 2
+        x: 2840
+        y: 1848
+        width: 710
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2Death_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1232
+        width: 710
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2Death_11
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 1232
+        width: 710
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2Death_12
+      rect:
+        serializedVersion: 2
+        x: 1420
+        y: 1232
+        width: 710
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2Death_13
+      rect:
+        serializedVersion: 2
+        x: 2130
+        y: 1232
+        width: 710
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2Death_14
+      rect:
+        serializedVersion: 2
+        x: 2840
+        y: 1232
+        width: 710
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2Death_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 616
+        width: 710
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2Death_16
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 616
+        width: 710
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2Death_17
+      rect:
+        serializedVersion: 2
+        x: 1420
+        y: 616
+        width: 710
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2Death_18
+      rect:
+        serializedVersion: 2
+        x: 2130
+        y: 616
+        width: 710
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2Death_19
+      rect:
+        serializedVersion: 2
+        x: 2840
+        y: 616
+        width: 710
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2Death_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 710
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2Death_21
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 0
+        width: 710
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2Death_22
+      rect:
+        serializedVersion: 2
+        x: 1420
+        y: 0
+        width: 710
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2Death_23
+      rect:
+        serializedVersion: 2
+        x: 2130
+        y: 0
+        width: 710
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Mage2Death_24
+      rect:
+        serializedVersion: 2
+        x: 2840
+        y: 0
+        width: 710
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+  spritePackingTag: 
+  userData: 

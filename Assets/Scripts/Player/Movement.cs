@@ -19,12 +19,15 @@ public class Movement : MonoBehaviour {
 	//pathnode
 	//private PathNode hex;
 
+	//class
+	//private EnemyMove enemy;
+
 	//ray
 	private RaycastHit2D selectHexRay;
 
 	void Start () {
 		//GlobalValues.playerPos = transform.position;
-		GlobalValues.player = this.gameObject;
+		GlobalValues.player = /*this.*/gameObject;
 	}
 
 	void Update () {
@@ -65,11 +68,12 @@ public class Movement : MonoBehaviour {
 	}
 
 	private IEnumerator MoveChar () {
-		int i = 0;
+		//int i = 0;
 		//walking = true;
+		EnemyMove enemyMovement;
 
 		while (true) {
-			i++;
+			//i++;
 
 			if (HexGrid.solvedPath.Count == 2) {
 				//walking = false;
@@ -78,10 +82,22 @@ public class Movement : MonoBehaviour {
 				break;
 			}
 
-			yield return new WaitForSeconds(0.1f);
+			for (int i = 0; i < GlobalValues.enemies.Count; i++) {
+				enemyMovement = GlobalValues.enemies[i].GetComponent<EnemyMove>();
+
+				enemyMovement.solvedPath[0].tag = GlobalValues.cellTag;
+				GlobalValues.enemies[i].transform.position = enemyMovement.solvedPath[1].Position;
+				enemyMovement.solvedPath[1].tag = GlobalValues.enemyTag;
+
+				yield return new WaitForSeconds(0.1f);
+			}
+
+			//yield return new WaitForSeconds(0.1f);
+			HexGrid.solvedPath[0].tag = GlobalValues.cellTag;
 			transform.position = HexGrid.solvedPath[1].Position;
+			HexGrid.solvedPath[1].tag = GlobalValues.playerTag;
 			//GlobalValues.player = transform.position;
-			GlobalValues.move = true;
+			//GlobalValues.move = true;
 		}
 	}
 }
