@@ -19,7 +19,7 @@ public class ChestTest : MonoBehaviour {
 	private bool PopBool = false;
 	private bool Obtain1 = false ,Obtain2 = false, Obtain3 = false;
 	//private bool doWindow0 = true;
-	private bool chestReady = true;
+	private bool chestReady = false;
 	
 	private Rect PopMenu = new Rect(Screen.height - Screen.height / 10 * 3,0 ,Screen.height / 10 * 3,Screen.width / 10 * 3);
 
@@ -31,10 +31,11 @@ public class ChestTest : MonoBehaviour {
 	};
 
 
-	void Start(){
+	void Awake(){
 		animator = GetComponent<Animator>();
 		radius = transform.localScale.x;
-		
+		lootDictionary[0] = AllItems.swordIcon1;
+		lootDictionary[1] = AllItems.wandIcon;
 	}
 	
 	void Update(){
@@ -42,14 +43,31 @@ public class ChestTest : MonoBehaviour {
 			if(Input.GetMouseButtonDown(0)){
 				Vector3 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 				float dist = Mathf.Pow(MousePos.x - transform.position.x,2) + Mathf.Pow(MousePos.y - transform.position.y,2);
-				dist = Mathf.Sqrt(dist);
-				
+				dist = Mathf.Sqrt(dist);	
+
 				if(dist < radius){
 					animator.SetBool("Open", true);
 					clickable = false;
 					PopBool = true;
 				}
 			}
+
+
+			/*if(Input.GetMouseButtonDown(0)){
+				Vector3 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+				float dist = Mathf.Pow(MousePos.x - transform.position.x,2) + Mathf.Pow(MousePos.y - transform.position.y,2);
+				float ply = Mathf.Pow(MousePos.x - GlobalValues.player.transform.position.x, 2) + Mathf.Pow(MousePos.y - GlobalValues.player.transform.position.y, 2);
+				
+				ply = Mathf.Sqrt(ply);
+				dist = Mathf.Sqrt(dist);
+				
+				if(dist < radius && ply < (radius + 1.0f)){
+					animator.SetBool("Open", true);
+					clickable = false;
+					PopBool = true;
+				}
+		
+			}*/
 		}
 		/*if(Input.GetMouseButtonUp(0)){
 			clickable = true;
@@ -61,11 +79,21 @@ public class ChestTest : MonoBehaviour {
 		if(chestReady == false){
 			lootDictionary[0] = AllItems.swordIcon1;
 			lootDictionary[1] = AllItems.wandIcon;
+			chestReady = true;
+			Debug.Log(lootDictionary[0]);
 		}
+
 		if (GUI.Button(new Rect(0,30, SwPos,ShPos),	Item1,GUIStyle.none)){
-			if(!Obtain1){
-				Obtain1 = true;
-				
+			if(!Obtain1){	
+				for(int i = 0; 0 < 9;i++){
+					if(Inventory.inventoryNameDictionary[i] == null){
+						Inventory.inventoryNameDictionary[i] = AllItems.swordIcon1;
+						Item1 = null;
+						Obtain1 = true;
+						Debug.Log("Working " + i);
+						break;
+					}
+				}
 			}else{
 				Debug.Log("This slot is empty");
 				
@@ -73,14 +101,7 @@ public class ChestTest : MonoBehaviour {
 		}
 		if (GUI.Button(new Rect(SwPos,30, SwPos,ShPos),Item2,GUIStyle.none)){
 			if(!Obtain2){
-				for(int i = 0; 0 < 9;i++){
-					if(Inventory.inventoryNameDictionary[i] == null){
-						Inventory.inventoryNameDictionary[i] = AllItems.swordIcon1;
-						Item2 = null;
-						Obtain2 = true;
-						break;
-					}
-				}
+				Obtain2 = true;
 			}else{
 				Debug.Log("This slot is empty");
 				
@@ -90,9 +111,10 @@ public class ChestTest : MonoBehaviour {
 			if(!Obtain3){
 				for(int j = 0; 0 < 9;j++){
 					if(Inventory.inventoryNameDictionary[j] == null){
-					Inventory.inventoryNameDictionary[j] = lootDictionary[0];
-					Item3 = null;
-					Obtain3 = true;
+						Inventory.inventoryNameDictionary[j] =  AllItems.swordIcon2;
+						Item3 = null;
+						Obtain3 = true;
+						Debug.Log("Working " + j);
 						break;
 					}
 				}

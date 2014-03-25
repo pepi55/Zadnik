@@ -46,6 +46,6 @@ public class Zoom : MonoBehaviour
 
 	private void ZoomCamera(float zoomFactor)
 	{
-		camera.orthographicSize = Mathf.Clamp(camera.orthographicSize += zoomFactor, 1, 5);
+		camera.orthographicSize = Mathf.Clamp(camera.orthographicSize += zoomFactor,2 , 4);
 	}
 }
