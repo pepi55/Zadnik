@@ -51,9 +51,11 @@ public static class GlobalValues {
 	public static bool Death = false;
 	public static bool zoomUp = false;
 	public static bool zoomDown = false;
+	public static bool playerMove = false;
 
 	//gameobjects
 	public static GameObject player;
+	public static GameObject targetTile;
 
 	//lists
 	public static List<GameObject> enemies = new List<GameObject>();

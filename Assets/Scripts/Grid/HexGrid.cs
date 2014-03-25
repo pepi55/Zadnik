@@ -71,7 +71,7 @@ public class HexGrid : MonoBehaviour {
 		return closestIndex;
 	}
 
-	void Update () {
+	/*void Update () {
 		if (reset) {
 			pathDone = false;
 			solvedPath.Clear();
@@ -113,11 +113,11 @@ public class HexGrid : MonoBehaviour {
 		if (!pathDone) {
 			/*for (int i = 0; i < 6; i++) {
 				solvedPath = AStar.CalculatePath(sources[lastStartIndex], sources[lastEndIndex]);
-			}*/
+			}
 			solvedPath = AStar.CalculatePath(sources[lastStartIndex], sources[lastEndIndex]);
 			/*for (int i = 0; i < solvedPath.Count; i++) {
 				Debug.Log(solvedPath[i]);
-			}*/
+			}
 			pathDone = true;
 		}
 
@@ -137,5 +137,5 @@ public class HexGrid : MonoBehaviour {
 
 			Debug.DrawLine(solvedPath[i].Position, solvedPath[i + 1].Position, Color.cyan * new Color(1.0f, 1.0f, 1.0f, 1.0f));
 		}
-	}
+	}*/
 }
