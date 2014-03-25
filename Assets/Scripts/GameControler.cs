@@ -10,14 +10,6 @@ public class GameControler : MonoBehaviour {
 	//list
 	public static List<PathNode> sources;
 
-	//gameobject
-	public GameObject start;
-	public GameObject end;
-	
-	//int
-	public int gridHeight;
-	public int gridLength;
-
 	//delegate
 	public delegate void FindPath();
 
@@ -38,18 +30,17 @@ public class GameControler : MonoBehaviour {
 	/*--- END PRIVATES ---*/
 	
 	void Awake () {
-		gridHeight = 16; GlobalValues.gridH = gridHeight;
-		gridLength = 16; GlobalValues.gridW = gridLength;
-
 		sources = HexGrid.sources;
 	}
 
 	void Update () {
 		if (Input.GetMouseButtonDown(0) == true) {
 			selectHexRay = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-			
+
 			if (selectHexRay.collider != null) {
 				if (selectHexRay.collider.tag == GlobalValues.cellTag) {
+					GlobalValues.targetTile = selectHexRay.transform.gameObject;
+
 					if (OnClick != null) {
 						OnClick();
 					}

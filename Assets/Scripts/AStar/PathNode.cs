@@ -3,9 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class PathNode : MonoBehaviour, IPathNode<PathNode> {
-	public Movement movement;
 	public List<PathNode> connections;
-	public Color nodeColor = Color.cyan;
+	public Color nodeColor = Color.green;
 	public static int index;
 
 	void Awake () {
@@ -101,7 +100,7 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 				PathNode newNode = Spawn(newPos); //generateHexAt(i - floor(j/2), j);
 				
 				newNode.transform.parent = gridObject.transform;
-				
+
 				randomSpace = reset;
 
 				if (randomSpace <= 1.0f) {
@@ -115,7 +114,8 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 						enemy.name = GlobalValues.enemyName;
 						enemy.transform.parent = enemies.transform;
 
-						newNode.tag = GlobalValues.enemyTag;
+						//newNode.tag = GlobalValues.enemyTag;
+						newNode.enabled = false;
 
 						GlobalValues.enemies.Add(enemy);
 					} else if (randomSpace > 0.05f && randomSpace < 0.15f) { /*Random.value > 0.05f && Random.value < 0.15f*/
@@ -136,8 +136,9 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 						dummy.name = GlobalValues.dummyName;
 						dummy.transform.parent = enemies.transform;
 
-						newNode.tag = GlobalValues.dummyTag;
+						//newNode.tag = GlobalValues.dummyTag;
 						//newNode.active = false;
+						newNode.enabled = false;
 						
 						/*result.Add(null);
 						continue;*/
@@ -148,8 +149,9 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 						chest.tag = GlobalValues.chestTag;
 						chest.name = GlobalValues.chestName;
 
-						newNode.tag = GlobalValues.chestTag;
+						//newNode.tag = GlobalValues.chestTag;
 						//newNode.active = false;
+						newNode.enabled = false;
 						
 						/*result.Add(null);
 						continue;*/
