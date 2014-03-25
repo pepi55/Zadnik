@@ -94,7 +94,7 @@ public class ScreenBtns : MonoBehaviour {
 		GUILayout.Box(startBtn);
 
 		if(GUILayout.Button(tutBtn,GUIStyle.none)){
-			Application.LoadLevel("");
+			Application.LoadLevel(TutName);
 		}
 		if (GUILayout.Button(backBtn,GUIStyle.none)){
 			clicked = "";

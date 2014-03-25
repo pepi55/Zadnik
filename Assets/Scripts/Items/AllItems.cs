@@ -213,8 +213,8 @@ public class AllItems : MonoBehaviour {
 	public ItemCreate swordItem63 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
 	public ItemCreate swordItem64 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
 
-	public ItemCreate arrowItem = 	new ItemCreate(0,"Arrows",arrowIcon,"Shooting THAT SHIT");
-	public ItemCreate wandItem 	= 	new ItemCreate(0,"Wand",wandIcon,"Magic....");
+	public ItemCreate arrowItem 	= 	new ItemCreate(0,"Arrows",arrowIcon,"Shooting THAT SHIT");
+	public ItemCreate wandItem 		= 	new ItemCreate(0,"Wand",wandIcon,"Magic....");
 
 
 	// Use this for initialization
@@ -226,14 +226,17 @@ public class AllItems : MonoBehaviour {
 
 	}
 
-	public class ItemCreate:MonoBehaviour{
+	public class ItemCreate
+	{
 		public int 			id;
-		public string 		name;
+		public string 		naam;
 		public string 		descr;
 		public Texture2D 	icon;
-		public ItemCreate(int Id,string Name,Texture2D Ico, string des){
+
+		public ItemCreate(int Id,string Name,Texture2D Ico, string des)
+		{
 			id = Id;
-			name = Name;
+			naam = Name;
 			icon = Ico;
 			descr = des;	
 			

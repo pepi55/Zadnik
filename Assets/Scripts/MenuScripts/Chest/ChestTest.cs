@@ -4,20 +4,24 @@ using System.Collections.Generic;
 
 public class ChestTest : MonoBehaviour {
 //	AllItems itemObject = new AllItems();
+
 	public Texture2D background, Item1, Item2, Item3, Empty;
 	
 	private float radius; 
 	private float Luck;
 	private float RandomNumber;
+	private float SwPos = Screen.height / 10;
+	private float ShPos = Screen.width / 10;
 	
 	private Animator animator;
-	
-	public bool PopBool = false;
+
+	private bool clickable = true;
+	private bool PopBool = false;
 	private bool Obtain1 = false ,Obtain2 = false, Obtain3 = false;
-	public bool doWindow0 = true;
-	private bool chestReady = false;
+	//private bool doWindow0 = true;
+	private bool chestReady = true;
 	
-	private Rect PopMenu = new Rect(Screen.width - 200 ,0,200,100);
+	private Rect PopMenu = new Rect(Screen.height - Screen.height / 10 * 3,0 ,Screen.height / 10 * 3,Screen.width / 10 * 3);
 
 	public static Dictionary<int,Texture2D> lootDictionary = new Dictionary<int, Texture2D>(){
 		{0,AllItems.emptyIcon},
@@ -34,18 +38,23 @@ public class ChestTest : MonoBehaviour {
 	}
 	
 	void Update(){
-		if(Input.GetMouseButtonDown(0)){
-			Vector3 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			float dist = Mathf.Pow(MousePos.x - transform.position.x,2) + Mathf.Pow(MousePos.y - transform.position.y,2);
-			dist = Mathf.Sqrt(dist);
-			
-			if(dist < radius){
-				animator.SetBool("Open", true);
-
-				PopBool = true;
+		if(clickable){
+			if(Input.GetMouseButtonDown(0)){
+				Vector3 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+				float dist = Mathf.Pow(MousePos.x - transform.position.x,2) + Mathf.Pow(MousePos.y - transform.position.y,2);
+				dist = Mathf.Sqrt(dist);
+				
+				if(dist < radius){
+					animator.SetBool("Open", true);
+					clickable = false;
+					PopBool = true;
+				}
 			}
 		}
-		//	Destroy(gameObject);
+		/*if(Input.GetMouseButtonUp(0)){
+			clickable = true;
+		}
+		//	Destroy(gameObject);*/
 	}
 
 	void DoWindow0(int windowID ) {
@@ -53,7 +62,7 @@ public class ChestTest : MonoBehaviour {
 			lootDictionary[0] = AllItems.swordIcon1;
 			lootDictionary[1] = AllItems.wandIcon;
 		}
-		if (GUI.Button(new Rect(0,30, 50,50),	Item1,GUIStyle.none)){
+		if (GUI.Button(new Rect(0,30, SwPos,ShPos),	Item1,GUIStyle.none)){
 			if(!Obtain1){
 				Obtain1 = true;
 				
@@ -62,7 +71,7 @@ public class ChestTest : MonoBehaviour {
 				
 			}
 		}
-		if (GUI.Button(new Rect(50,30, 50,50),Item2,GUIStyle.none)){
+		if (GUI.Button(new Rect(SwPos,30, SwPos,ShPos),Item2,GUIStyle.none)){
 			if(!Obtain2){
 				for(int i = 0; 0 < 9;i++){
 					if(Inventory.inventoryNameDictionary[i] == null){
@@ -77,7 +86,7 @@ public class ChestTest : MonoBehaviour {
 				
 			}
 		}
-		if (GUI.Button(new Rect(100,30, 50,50), Item3,GUIStyle.none)){
+		if (GUI.Button(new Rect(SwPos * 2,30, SwPos,ShPos), Item3,GUIStyle.none)){
 			if(!Obtain3){
 				for(int j = 0; 0 < 9;j++){
 					if(Inventory.inventoryNameDictionary[j] == null){
@@ -92,14 +101,17 @@ public class ChestTest : MonoBehaviour {
 				
 			}
 		}
-		if(GUI.Button(new Rect(10, 80, 100, 20), "Leave")){
+		GUI.skin.button.fontSize = 30;
+		if(GUI.Button(new Rect(0, ShPos * 2, SwPos * 2, ShPos), "Leave")){
 			animator.SetBool("Open", false);
 			PopBool = false;
+			clickable = false;
 			
 		}
 		if(GUI.Button(new Rect(200 - 20, 0, 20, 20), "X",GUIStyle.none)){
 			animator.SetBool("Open", false);
 			PopBool = false;
+			clickable = false;
 			
 		}
 	}
