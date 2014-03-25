@@ -35,7 +35,7 @@ public class DummyAnimation : MonoBehaviour {
 
 			if(dist < radius && ply < (radius + 1.0f)){
 				AudioSource.PlayClipAtPoint(dummyHit, transform.position, 1);
-				HitPoints -= 1;
+				HitPoints -= GlobalValues.Power + 1;
 				HitAnim = 20;
 				animator.SetInteger("Hit",HitAnim);
 				if(HitPoints == 0){

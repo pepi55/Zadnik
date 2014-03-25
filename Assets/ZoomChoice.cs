@@ -4,9 +4,14 @@ using System.Collections;
 public class ZoomChoice : MonoBehaviour {
 	private float radius;
 	public bool positive;
+	private bool zoombrade = false;
+	public int zoomAmount;
 	void Awake(){
+		zoomAmount = 2;
 		if(positive){
-			transform.position = new Vector2(Screen.width / 10 * 8, Screen.height / 10 * 8);
+			transform.position = new Vector2(-3, 3);
+		}else{
+			transform.position = new Vector2(-4, 3);
 		}
 	}
 	// Use this for initialization
@@ -16,6 +21,33 @@ public class ZoomChoice : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(zoomAmount == 1 && zoombrade == false){
+			if(positive){
+				transform.position = new Vector2(-1, 1);
+			}else{
+				transform.position = new Vector2(-2, 1);
+			}
+
+			zoombrade = true;
+		} 
+		if(zoomAmount == 2 && zoombrade == false){
+			if(positive){
+				transform.position = new Vector2(-3, 3);
+			}else{
+				transform.position = new Vector2(-4, 3);
+			}
+
+			zoombrade = true;
+		}
+		if(zoomAmount == 3 && zoombrade == false){
+			if(positive){
+				transform.position = new Vector2(-5, 5);
+			}else{
+				transform.position = new Vector2(-6, 5);
+			}
+
+			zoombrade = true;
+		}
 		//if(Input.touchCount == 1){
 		if(Input.GetMouseButton(0)){
 			Vector3 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -23,12 +55,13 @@ public class ZoomChoice : MonoBehaviour {
 			dist = Mathf.Sqrt(dist);
 			
 			if(dist < radius){
-				Debug.Log(GlobalValues.zoomUp);
 				if(positive){
 					GlobalValues.zoomUp = true;
+					zoombrade = false;
 				}
 				if(!positive){
 					GlobalValues.zoomDown = true;
+					zoombrade = false;
 				}
 			}
 		}
