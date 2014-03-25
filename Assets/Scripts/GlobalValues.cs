@@ -49,6 +49,8 @@ public static class GlobalValues {
 	
 	//bools
 	public static bool Death = false;
+	public static bool zoomUp = false;
+	public static bool zoomDown = false;
 
 	//gameobjects
 	public static GameObject player;

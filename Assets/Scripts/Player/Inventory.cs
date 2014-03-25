@@ -5,14 +5,14 @@ using System.Collections.Generic;
 public class Inventory : MonoBehaviour {
 	AllItems itemObject = new AllItems();
 
-	private float ShPos = Screen.height / 10;
-	private float SwPos = Screen.width / 10;
-	
+	private float SwPos = Screen.height / 10;
+	private float ShPos = Screen.width / 10;
 	private float radius;
 
-	public Rect invertoryRect = new Rect(Screen.width / 10,Screen.height / 10,Screen.width / 10 * 8,400);
+	private Rect invertoryRect = new Rect(Screen.height / 10,Screen.width / 10,Screen.height / 10 * 8,Screen.width / 10 * 8);
 
 	private bool inventoryWindowShow = false;
+	private bool clickable = true;
 
 	public Texture2D background;
 
@@ -33,8 +33,9 @@ public class Inventory : MonoBehaviour {
 		{11,AllItems.emptyIcon},
 
 	};
-
+	
 	void Start(){
+		gameObject.AddComponent<AllItems>();
 		animator = GetComponent<Animator>();
 		animator.GetBool("Open");
 		radius = transform.localScale.x;
@@ -51,20 +52,27 @@ public class Inventory : MonoBehaviour {
 	}
 	void Update () {
 		//transform.position = new Vector2(SwPos * 8, ShPos * 8);
-		if(Input.GetMouseButtonDown(0)){
-			Vector3 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			float dist = Mathf.Pow(MousePos.x - transform.position.x,2) + Mathf.Pow(MousePos.y - transform.position.y,2);
-			dist = Mathf.Sqrt(dist);
-			
-			if(dist < radius){
-				if(!inventoryWindowShow){
-					inventoryWindowShow = true;
+		if(clickable){
+		//if(Input.touchCount == 1){
+			if(Input.GetMouseButton(0)){
+				Vector3 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+				float dist = Mathf.Pow(MousePos.x - transform.position.x,2) + Mathf.Pow(MousePos.y - transform.position.y,2);
+				dist = Mathf.Sqrt(dist);
+				
+				if(dist < radius){
 
-				}else{
-					inventoryWindowShow = false;
-
+					if(!inventoryWindowShow){
+						inventoryWindowShow = true;
+						clickable = false;
+					}else{
+						inventoryWindowShow = false;
+						clickable = false;
+					}
 				}
 			}
+		}
+		if(Input.GetMouseButtonUp(0)){
+			clickable = true;
 		}
 		
 	}

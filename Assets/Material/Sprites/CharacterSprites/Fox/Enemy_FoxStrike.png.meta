@@ -24,9 +24,9 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 1
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -44,6 +44,132 @@ TextureImporter:
     textureFormat: -2
     compressionQuality: 50
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Enemy_FoxStrike_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 529
+        width: 729
+        height: 529
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Enemy_FoxStrike_1
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 529
+        width: 729
+        height: 529
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Enemy_FoxStrike_2
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 529
+        width: 729
+        height: 529
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Enemy_FoxStrike_3
+      rect:
+        serializedVersion: 2
+        x: 2187
+        y: 529
+        width: 729
+        height: 529
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Enemy_FoxStrike_4
+      rect:
+        serializedVersion: 2
+        x: 2916
+        y: 529
+        width: 729
+        height: 529
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Enemy_FoxStrike_5
+      rect:
+        serializedVersion: 2
+        x: 3645
+        y: 529
+        width: 729
+        height: 529
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Enemy_FoxStrike_6
+      rect:
+        serializedVersion: 2
+        x: 4374
+        y: 529
+        width: 729
+        height: 529
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Enemy_FoxStrike_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 729
+        height: 529
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Enemy_FoxStrike_8
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 0
+        width: 729
+        height: 529
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Enemy_FoxStrike_9
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 0
+        width: 729
+        height: 529
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Enemy_FoxStrike_10
+      rect:
+        serializedVersion: 2
+        x: 2187
+        y: 0
+        width: 729
+        height: 529
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Enemy_FoxStrike_11
+      rect:
+        serializedVersion: 2
+        x: 2916
+        y: 0
+        width: 729
+        height: 529
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Enemy_FoxStrike_12
+      rect:
+        serializedVersion: 2
+        x: 3645
+        y: 0
+        width: 729
+        height: 529
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Enemy_FoxStrike_13
+      rect:
+        serializedVersion: 2
+        x: 4374
+        y: 0
+        width: 729
+        height: 529
+      alignment: 0
+      pivot: {x: 0, y: 0}
   spritePackingTag: 
   userData: 
