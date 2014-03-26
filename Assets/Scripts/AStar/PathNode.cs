@@ -140,8 +140,8 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 						//newNode.active = false;
 						newNode.enabled = false;
 						
-						/*result.Add(null);
-						continue;*/
+						result.Add(null);
+						continue;
 					} else if (randomSpace < 0.001f) { /*Random.value < 0.001f*/
 						GameObject chest;
 
@@ -153,8 +153,8 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 						//newNode.active = false;
 						newNode.enabled = false;
 						
-						/*result.Add(null);
-						continue;*/
+						result.Add(null);
+						continue;
 					}
 				}
 

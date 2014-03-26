@@ -4,9 +4,6 @@ using System.Collections.Generic;
 
 public class GameControler : MonoBehaviour {
 	/*--- PUBLICS ---*/
-	//bool
-	//public static bool reset;
-
 	//list
 	public static List<PathNode> sources;
 

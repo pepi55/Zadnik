@@ -66,6 +66,7 @@ public static class AStar {
 		Dictionary<T, float> estimateCost = new Dictionary<T, float>();
 		Dictionary<T, float> totalCost = new Dictionary<T, float>();
 
+	Redo:
 		openset.Add(start);
 		score[start] = 0.0f;
 		estimateCost[start] = CostEstimate(start, goal);
@@ -77,6 +78,14 @@ public static class AStar {
 			if (x.Equals(goal)) {
 				List<T> result = new List<T>();
 				ReconstructPath(from, x, ref result);
+
+				for (int j = 0; j < EnemyControl.E_solvedPath.Count; j++) {
+					for (int i = 0; i < PlayerControl.solvedPath.Count; i++) {
+						if (EnemyControl.E_solvedPath[j].tag != GlobalValues.cellTag || PlayerControl.solvedPath[i].tag != GlobalValues.cellTag) {;
+							goto Redo;
+						}
+					}
+				}
 
 				return result;
 			}

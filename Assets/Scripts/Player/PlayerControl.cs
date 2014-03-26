@@ -5,13 +5,10 @@ using System.Collections.Generic;
 public class PlayerControl : MonoBehaviour {
 	/*--- PUBLICS ---*/
 	//list
-	public static List<PathNode> sources;
+	public static List<PathNode> solvedPath = new List<PathNode>();
 	/*--- END PUBLICS ---*/
 
 	/*--- PRIVATES ---*/
-	//list
-	private List<PathNode> solvedPath = new List<PathNode>();
-
 	//int
 	private int startIndex;
 	private int endIndex;
@@ -26,6 +23,9 @@ public class PlayerControl : MonoBehaviour {
 	//bool
 	private bool pathDone;
 	private bool reset;
+
+	//list
+	private List<PathNode> sources;
 	/*--- END PRIVATES ---*/
 
 	void Start () {
@@ -48,9 +48,14 @@ public class PlayerControl : MonoBehaviour {
 	private IEnumerator Move () {
 		GlobalValues.playerMove = true;
 
-		for (int i = 0; i < solvedPath.Count; i++) {
+		for (int i = 1; i < solvedPath.Count; i++) {
 			if (solvedPath[i] != null) {
+				if (solvedPath[i - 1] != null) {
+					solvedPath[i].tag = GlobalValues.cellTag;
+				}
+
 				transform.position = solvedPath[i].transform.position;
+				solvedPath[i].tag = GlobalValues.playerTag;
 
 				yield return new WaitForSeconds(0.5f);
 			} else {

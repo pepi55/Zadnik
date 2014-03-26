@@ -5,13 +5,10 @@ using System.Collections.Generic;
 public class EnemyControl : MonoBehaviour {
 	/*--- PUBLICS ---*/
 	//list
-	public static List<PathNode> E_sources;
+	public static List<PathNode> E_solvedPath = new List<PathNode>();
 	/*--- END PUBLICS ---*/
 	
 	/*--- PRIVATES ---*/
-	//list
-	private List<PathNode> E_solvedPath = new List<PathNode>();
-	
 	//int
 	private int E_startIndex;
 	private int E_endIndex;
@@ -26,6 +23,9 @@ public class EnemyControl : MonoBehaviour {
 	//bool
 	private bool E_pathDone;
 	private bool E_reset;
+
+	//list
+	private List<PathNode> E_sources;
 	/*--- END PRIVATES ---*/
 	
 	void Start () {
@@ -42,19 +42,17 @@ public class EnemyControl : MonoBehaviour {
 	}
 	
 	private IEnumerator Move () {
-		/*for (int i = 0; i < E_solvedPath.Count; i++) {
-			if (E_solvedPath[i] != null) {
-				transform.position = E_solvedPath[i].transform.position;
-				
-				yield return new WaitForSeconds(0.5f);
-			} else {
-				return false;
-			}
-		}*/
-		yield return new WaitForSeconds(0.5f);
+		if (!GlobalValues.playerMove) {
+			return false;
+		} else if (GlobalValues.playerMove) {
+			E_solvedPath[0].tag = GlobalValues.cellTag;
+			transform.position = E_solvedPath[1].transform.position;
+			E_solvedPath[1].tag = GlobalValues.enemyTag;
+			
+			yield return new WaitForSeconds(0.5f);
 
-		transform.position = E_solvedPath[1].transform.position;
-		GetEnemyPath();
+			GetEnemyPath();
+		}
 	}
 	
 	private void GetEnemyPath () {
@@ -117,17 +115,13 @@ public class EnemyControl : MonoBehaviour {
 			}
 			
 			if (E_solvedPath != null) {
-				if (GlobalValues.playerMove) {
-					StopCoroutine("Move");
-					StartCoroutine("Move");
-				} else if (!GlobalValues.playerMove) {
-					StopCoroutine("Move");
-				}
+				StopCoroutine("Move");
+				StartCoroutine("Move");
 
 				E_pathDone = true;
 			}
 		}
-		
+
 		E_pathDone = false;
 	}
 	
