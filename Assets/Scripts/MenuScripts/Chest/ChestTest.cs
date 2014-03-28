@@ -30,16 +30,34 @@ public class ChestTest : MonoBehaviour {
 
 	};
 
-
 	void Awake(){
 		animator = GetComponent<Animator>();
 		radius = transform.localScale.x;
 		lootDictionary[0] = AllItems.swordIcon1;
 		lootDictionary[1] = AllItems.wandIcon;
 	}
-	
-	void Update(){
+
+	private void OpenChest () {
 		if(clickable){
+			if(Input.GetMouseButtonDown(0)){
+				Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+				float dist = Mathf.Pow(mousePos.x - transform.position.x,2) + Mathf.Pow(mousePos.y - transform.position.y,2);
+				float ply = Mathf.Pow(mousePos.x - GlobalValues.player.transform.position.x, 2) + Mathf.Pow(mousePos.y - GlobalValues.player.transform.position.y, 2);
+
+				dist = Mathf.Sqrt(dist);
+				ply = Mathf.Sqrt(ply);
+				
+				if(dist < radius && ply < (radius + 1.0f)){
+					animator.SetBool("Open", true);
+					clickable = false;
+					PopBool = true;
+				}
+			}
+		}
+	}
+	
+	/*void Update(){
+		/*if(clickable){
 			if(Input.GetMouseButtonDown(0)){
 				Vector3 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 				float dist = Mathf.Pow(MousePos.x - transform.position.x,2) + Mathf.Pow(MousePos.y - transform.position.y,2);
@@ -67,13 +85,13 @@ public class ChestTest : MonoBehaviour {
 					PopBool = true;
 				}
 		
-			}*/
-		}
+			}*
+		}*
 		/*if(Input.GetMouseButtonUp(0)){
 			clickable = true;
 		}
-		//	Destroy(gameObject);*/
-	}
+		//	Destroy(gameObject);*
+	}*/
 
 	void DoWindow0(int windowID ) {
 		if(chestReady == false){

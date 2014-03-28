@@ -35,6 +35,12 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 		}
 	}
 
+	public string Tag {
+		get {
+			return transform.tag;
+		}
+	}
+
 	public List<PathNode> Connections {
 		get {
 			return(connections);
@@ -106,7 +112,7 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 				if (randomSpace <= 1.0f) {
 					randomSpace -= Random.value;
 
-					if (randomSpace > 0.15 && randomSpace < 0.16) { /*Random.value > 0.15 && Random.value < 0.1*/
+					if (randomSpace > 0.2f && randomSpace < 0.21f) { /*Random.value > 0.15 && Random.value < 0.1*/
 						GameObject enemy;
 
 						enemy = (GameObject)Instantiate(Resources.Load(GlobalValues.enemyPath), newPos, Quaternion.identity);
@@ -115,17 +121,18 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 						enemy.transform.parent = enemies.transform;
 
 						//newNode.tag = GlobalValues.enemyTag;
-						newNode.enabled = false;
+						//newNode.enabled = false;
 
 						GlobalValues.enemies.Add(enemy);
-					} else if (randomSpace > 0.05f && randomSpace < 0.15f) { /*Random.value > 0.05f && Random.value < 0.15f*/
-						/*GameObject wall;
+					} else if (randomSpace > 0.05f && randomSpace < 0.2f) { /*Random.value > 0.05f && Random.value < 0.15f*/
+						GameObject wall;
 
 						wall = (GameObject)Instantiate(Resources.Load(GlobalValues.wallPath), newPos, Quaternion.identity);
 						wall.tag = GlobalValues.wallTag;
-						wall.name = GlobalValues.wallName;*/
-						//newNode.tag = GlobalValues.wallTag;
+						wall.name = GlobalValues.wallName;
+						newNode.tag = GlobalValues.wallTag;
 
+						newNode.enabled = false;
 						result.Add(null);
 						continue;
 					} else if (randomSpace > 0.001f && randomSpace < 0.05f) { /*Random.value > 0.001f && Random.value < 0.05f*/

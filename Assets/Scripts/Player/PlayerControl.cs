@@ -36,13 +36,11 @@ public class PlayerControl : MonoBehaviour {
 	}
 
 	void OnEnable () {
-		GameControler.OnClick += GetPath;
-		//GameControler.OnClick += Move;
+		GameControler.PlayerClick += GetPath;
 	}
 	
 	void OnDisable () {
-		GameControler.OnClick -= GetPath;
-		//GameControler.OnClick -= Move;
+		GameControler.PlayerClick -= GetPath;
 	}
 
 	private IEnumerator Move () {
@@ -50,10 +48,10 @@ public class PlayerControl : MonoBehaviour {
 
 		for (int i = 1; i < solvedPath.Count; i++) {
 			if (solvedPath[i] != null) {
-				if (solvedPath[i - 1] != null) {
+				/*if (solvedPath[i - 1] != null) {
 					solvedPath[i].tag = GlobalValues.cellTag;
-				}
-
+				}*/
+				solvedPath[i].tag = GlobalValues.cellTag;
 				transform.position = solvedPath[i].transform.position;
 				solvedPath[i].tag = GlobalValues.playerTag;
 

@@ -6,4 +6,5 @@ public interface IPathNode<T> {
 	List<T> Connections { get; }
 	Vector2 Position { get; }
 	bool Invalid { get; }
+	string Tag { get; }
 }

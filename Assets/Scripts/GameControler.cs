@@ -8,10 +8,12 @@ public class GameControler : MonoBehaviour {
 	public static List<PathNode> sources;
 
 	//delegate
-	public delegate void FindPath();
+	public delegate void Player();
+	public delegate void Enemy();
 
 	//event
-	public static event FindPath OnClick;
+	public static event Player PlayerClick;
+	public static event Enemy EnemyAction;
 	/*--- END PUBLICS ---*/
 	
 	/*--- PRIVATES ---*/
@@ -31,18 +33,40 @@ public class GameControler : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Input.GetMouseButtonDown(0) == true) {
+		if (Input.touchCount == 1) {
+			selectHexRay = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position), Vector2.zero);
+
+			if (selectHexRay.collider != null) {
+				if (selectHexRay.collider.tag == GlobalValues.cellTag) {
+					GlobalValues.targetTile = selectHexRay.transform.gameObject;
+					
+					if (PlayerClick != null) {
+						PlayerClick();
+						
+						if (EnemyAction != null) {
+							EnemyAction();
+						}
+					}
+				}
+			}
+		}
+
+		/*if (Input.GetMouseButtonDown(0) == true) {
 			selectHexRay = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
 			if (selectHexRay.collider != null) {
 				if (selectHexRay.collider.tag == GlobalValues.cellTag) {
 					GlobalValues.targetTile = selectHexRay.transform.gameObject;
 
-					if (OnClick != null) {
-						OnClick();
+					if (PlayerClick != null) {
+						PlayerClick();
+
+						if (EnemyAction != null) {
+							EnemyAction();
+						}
 					}
 				}
 			}
-		}
+		}*/
 	}
 }

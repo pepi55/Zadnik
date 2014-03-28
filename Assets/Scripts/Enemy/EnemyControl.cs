@@ -34,11 +34,11 @@ public class EnemyControl : MonoBehaviour {
 	}
 	
 	void OnEnable () {
-		GameControler.OnClick += GetEnemyPath;
+		GameControler.EnemyAction += GetEnemyPath;
 	}
 	
 	void OnDisable () {
-		GameControler.OnClick -= GetEnemyPath;
+		GameControler.EnemyAction -= GetEnemyPath;
 	}
 	
 	private IEnumerator Move () {
@@ -48,6 +48,10 @@ public class EnemyControl : MonoBehaviour {
 			E_solvedPath[0].tag = GlobalValues.cellTag;
 			transform.position = E_solvedPath[1].transform.position;
 			E_solvedPath[1].tag = GlobalValues.enemyTag;
+			/*if (E_solvedPath[1].tag == GlobalValues.cellTag) {
+				transform.position = E_solvedPath[1].transform.position;
+				E_solvedPath[1].tag = GlobalValues.enemyTag;
+			}*/
 			
 			yield return new WaitForSeconds(0.5f);
 
