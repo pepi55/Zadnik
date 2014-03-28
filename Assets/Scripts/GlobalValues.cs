@@ -43,6 +43,7 @@ public static class GlobalValues {
 	public static int GoldCount;
 	public static int level = 1;
 	public static int Power;
+	public static int DummyKill = 5;
 
 	public static int gridH;
 	public static int gridW;

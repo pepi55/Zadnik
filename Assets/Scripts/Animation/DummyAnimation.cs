@@ -38,6 +38,8 @@ public class DummyAnimation : MonoBehaviour {
 				HitAnim = 20;
 				animator.SetInteger("Hit",HitAnim);
 				if(HitPoints == 0){
+					GlobalValues.DummyKill -= 1;
+					Debug.Log(GlobalValues.DummyKill);
 					AudioSource.PlayClipAtPoint(dummyDeath, transform.position, 1);
 				}
 			}
