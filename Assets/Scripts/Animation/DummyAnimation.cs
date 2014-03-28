@@ -8,17 +8,16 @@ public class DummyAnimation : MonoBehaviour {
 	private Animator animator;
 	private int HitAnim = 0;
 	private int HitPoints = 5;
-	// Use this for initialization
+
+
 	void Start () {
 		animator = GetComponent<Animator>();
 		radius = 0.5f; //transform.localScale.x;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		animator.SetInteger("Lives",HitPoints);
 		if(HitPoints == 0){	
-			//AudioSource.PlayClipAtPoint(dummyDeath, transform.position, 1);
 			animator.SetBool("Alive",false);
 		}
 		if(HitAnim != 0){
@@ -43,5 +42,13 @@ public class DummyAnimation : MonoBehaviour {
 				}
 			}
 		}
+	}
+
+	//-----pas wanneer de dummy visible is word zijn code uitgevoerd----//
+	void OnBecameVisible(){
+		enabled = true;
+	}
+	void OnBecameInvisible(){
+		enabled = false;
 	}
 }

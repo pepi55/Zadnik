@@ -2,7 +2,9 @@ fileFormatVersion: 2
 guid: 5b492e725e72f4900936c8d6007c298b
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - dummyHit: {fileID: 8300000, guid: ee91870ba4220444ca65ee9e5e83211d, type: 3}
+  - dummyDeath: {fileID: 8300000, guid: 56b64bf53bf924572be570cd45b914ad, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
