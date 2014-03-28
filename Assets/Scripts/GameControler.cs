@@ -14,6 +14,7 @@ public class GameControler : MonoBehaviour {
 	//event
 	public static event Player PlayerClick;
 	public static event Enemy EnemyAction;
+	public static event Enemy HitEnemy;
 	/*--- END PUBLICS ---*/
 	
 	/*--- PRIVATES ---*/
@@ -37,7 +38,9 @@ public class GameControler : MonoBehaviour {
 			selectHexRay = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position), Vector2.zero);
 
 			if (selectHexRay.collider != null) {
-				if (selectHexRay.collider.tag == GlobalValues.cellTag) {
+				if (selectHexRay.collider.tag == GlobalValues.enemyTag) {
+					HitEnemy();
+				} else if (selectHexRay.collider.tag == GlobalValues.cellTag) {
 					GlobalValues.targetTile = selectHexRay.transform.gameObject;
 					
 					if (PlayerClick != null) {
@@ -55,7 +58,9 @@ public class GameControler : MonoBehaviour {
 			selectHexRay = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
 			if (selectHexRay.collider != null) {
-				if (selectHexRay.collider.tag == GlobalValues.cellTag) {
+				if (selectHexRay.collider.tag == GlobalValues.enemyTag) {
+					HitEnemy();
+				} else if (selectHexRay.collider.tag == GlobalValues.cellTag) {
 					GlobalValues.targetTile = selectHexRay.transform.gameObject;
 
 					if (PlayerClick != null) {

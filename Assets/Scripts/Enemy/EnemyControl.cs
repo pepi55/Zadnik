@@ -15,7 +15,12 @@ public class EnemyControl : MonoBehaviour {
 	private int E_lastStartIndex;
 	private int E_lastEndIndex;
 	private int E_place;
-	
+
+	private int HitPoints = 5;
+
+	//float
+	private float radius = 0.5f;
+
 	//gameobject
 	private GameObject E_start;
 	private GameObject E_end;
@@ -35,19 +40,19 @@ public class EnemyControl : MonoBehaviour {
 	
 	void OnEnable () {
 		GameControler.EnemyAction += GetEnemyPath;
+		GameControler.HitEnemy += HitEnemy;
 	}
 	
 	void OnDisable () {
 		GameControler.EnemyAction -= GetEnemyPath;
+		GameControler.HitEnemy -= HitEnemy;
 	}
 	
 	private IEnumerator Move () {
 		if (!GlobalValues.playerMove) {
 			return false;
 		} else if (GlobalValues.playerMove) {
-			E_solvedPath[0].tag = GlobalValues.cellTag;
 			transform.position = E_solvedPath[1].transform.position;
-			E_solvedPath[1].tag = GlobalValues.enemyTag;
 			/*if (E_solvedPath[1].tag == GlobalValues.cellTag) {
 				transform.position = E_solvedPath[1].transform.position;
 				E_solvedPath[1].tag = GlobalValues.enemyTag;
@@ -56,6 +61,25 @@ public class EnemyControl : MonoBehaviour {
 			yield return new WaitForSeconds(0.5f);
 
 			GetEnemyPath();
+		}
+	}
+
+	private void HitEnemy () {
+		if (HitPoints != 0) {
+			Vector2 mousePos = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			float dist = Mathf.Pow(mousePos.x - transform.position.x,2) + Mathf.Pow(mousePos.y - transform.position.y,2);
+			float ply = Mathf.Pow(mousePos.x - GlobalValues.player.transform.position.x, 2) + Mathf.Pow(mousePos.y - GlobalValues.player.transform.position.y, 2);
+			
+			ply = Mathf.Sqrt(ply);
+			dist = Mathf.Sqrt(dist);
+			
+			if(dist < radius && ply < (radius + 1.0f)){
+				HitPoints -= GlobalValues.Power + 1;
+				
+				if(HitPoints == 0){
+					Destroy(gameObject);
+				}
+			}
 		}
 	}
 	

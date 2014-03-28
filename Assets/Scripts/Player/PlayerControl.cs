@@ -51,11 +51,12 @@ public class PlayerControl : MonoBehaviour {
 				/*if (solvedPath[i - 1] != null) {
 					solvedPath[i].tag = GlobalValues.cellTag;
 				}*/
-				solvedPath[i].tag = GlobalValues.cellTag;
 				transform.position = solvedPath[i].transform.position;
 				solvedPath[i].tag = GlobalValues.playerTag;
 
 				yield return new WaitForSeconds(0.5f);
+
+				solvedPath[i].tag = GlobalValues.cellTag;
 			} else {
 				return false;
 			}
