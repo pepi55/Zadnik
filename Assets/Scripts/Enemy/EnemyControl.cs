@@ -5,20 +5,22 @@ using System.Collections.Generic;
 public class EnemyControl : MonoBehaviour {
 	/*--- PUBLICS ---*/
 	//list
-	public static List<PathNode> E_sources;
+	public static List<PathNode> E_solvedPath = new List<PathNode>();
 	/*--- END PUBLICS ---*/
 	
 	/*--- PRIVATES ---*/
-	//list
-	private List<PathNode> E_solvedPath = new List<PathNode>();
-	
 	//int
 	private int E_startIndex;
 	private int E_endIndex;
 	private int E_lastStartIndex;
 	private int E_lastEndIndex;
 	private int E_place;
-	
+
+	private int HitPoints = 5;
+
+	//float
+	private float radius = 0.5f;
+
 	//gameobject
 	private GameObject E_start;
 	private GameObject E_end;
@@ -26,6 +28,9 @@ public class EnemyControl : MonoBehaviour {
 	//bool
 	private bool E_pathDone;
 	private bool E_reset;
+
+	//list
+	private List<PathNode> E_sources;
 	/*--- END PRIVATES ---*/
 	
 	void Start () {
@@ -34,27 +39,48 @@ public class EnemyControl : MonoBehaviour {
 	}
 	
 	void OnEnable () {
-		GameControler.OnClick += GetEnemyPath;
+		GameControler.EnemyAction += GetEnemyPath;
+		GameControler.HitEnemy += HitEnemy;
 	}
 	
 	void OnDisable () {
-		GameControler.OnClick -= GetEnemyPath;
+		GameControler.EnemyAction -= GetEnemyPath;
+		GameControler.HitEnemy -= HitEnemy;
 	}
 	
 	private IEnumerator Move () {
-		/*for (int i = 0; i < E_solvedPath.Count; i++) {
-			if (E_solvedPath[i] != null) {
-				transform.position = E_solvedPath[i].transform.position;
-				
-				yield return new WaitForSeconds(0.5f);
-			} else {
-				return false;
-			}
-		}*/
-		yield return new WaitForSeconds(0.5f);
+		if (!GlobalValues.playerMove) {
+			return false;
+		} else if (GlobalValues.playerMove) {
+			transform.position = E_solvedPath[1].transform.position;
+			/*if (E_solvedPath[1].tag == GlobalValues.cellTag) {
+				transform.position = E_solvedPath[1].transform.position;
+				E_solvedPath[1].tag = GlobalValues.enemyTag;
+			}*/
+			
+			yield return new WaitForSeconds(0.5f);
 
-		transform.position = E_solvedPath[1].transform.position;
-		GetEnemyPath();
+			GetEnemyPath();
+		}
+	}
+
+	private void HitEnemy () {
+		if (HitPoints != 0) {
+			Vector2 mousePos = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			float dist = Mathf.Pow(mousePos.x - transform.position.x,2) + Mathf.Pow(mousePos.y - transform.position.y,2);
+			float ply = Mathf.Pow(mousePos.x - GlobalValues.player.transform.position.x, 2) + Mathf.Pow(mousePos.y - GlobalValues.player.transform.position.y, 2);
+			
+			ply = Mathf.Sqrt(ply);
+			dist = Mathf.Sqrt(dist);
+			
+			if(dist < radius && ply < (radius + 1.0f)){
+				HitPoints -= GlobalValues.Power + 1;
+				
+				if(HitPoints == 0){
+					Destroy(gameObject);
+				}
+			}
+		}
 	}
 	
 	private void GetEnemyPath () {
@@ -117,17 +143,13 @@ public class EnemyControl : MonoBehaviour {
 			}
 			
 			if (E_solvedPath != null) {
-				if (GlobalValues.playerMove) {
-					StopCoroutine("Move");
-					StartCoroutine("Move");
-				} else if (!GlobalValues.playerMove) {
-					StopCoroutine("Move");
-				}
+				StopCoroutine("Move");
+				StartCoroutine("Move");
 
 				E_pathDone = true;
 			}
 		}
-		
+
 		E_pathDone = false;
 	}
 	

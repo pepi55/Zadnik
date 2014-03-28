@@ -12,7 +12,7 @@ public static class GlobalValues {
 
 	public static string wallTag = "wall";
 	public static string wallName = "wall";
-	public static string wallPath = "Grid/HexTile";
+	public static string wallPath = "Grid/Wall";
 	
 	public static string dummyTag = "dummy";
 	public static string dummyName = "dummy";
