@@ -5,11 +5,11 @@ public class Score : MonoBehaviour {
 	private Rect WindowRect;
 	public int ScorePoints;
 	void Start(){
-		WindowRect = new Rect(Screen.height / 100, Screen.width - 50, Screen.height / 10, Screen.width / 10);
+		WindowRect = new Rect(0, Screen.height - 100, Screen.height / 2, Screen.width / 10);
 	}
 	void OnGUI(){
-	//	GUI.skin.label.fontSize = 10;
-		GUI.Label(WindowRect,"Score " + GlobalValues.bug  + "   Level = " + GlobalValues.level);
+		GUI.skin.label.fontSize = 20;
+		GUI.Label(WindowRect,"You have to kill " + GlobalValues.DummyKill  + " Dummies "/* + GlobalValues.level*/);
 	}
 
 }

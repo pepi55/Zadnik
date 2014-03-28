@@ -9,6 +9,7 @@ public class DummyAnimation : MonoBehaviour {
 	private int HitAnim = 0;
 	private int HitPoints = 5;
 
+<<<<<<< HEAD
 	void OnEnable () {
 		GameControler.EnemyAction += HitDummy;
 	}
@@ -17,6 +18,9 @@ public class DummyAnimation : MonoBehaviour {
 		GameControler.EnemyAction -= HitDummy;
 	}
 	
+=======
+
+>>>>>>> FETCH_HEAD
 	void Start () {
 		animator = GetComponent<Animator>();
 		radius = 0.5f; //transform.localScale.x;
@@ -26,7 +30,6 @@ public class DummyAnimation : MonoBehaviour {
 		animator.SetInteger("Lives",HitPoints);
 
 		if(HitPoints == 0){	
-			//AudioSource.PlayClipAtPoint(dummyDeath, transform.position, 1);
 			animator.SetBool("Alive",false);
 		}
 
@@ -72,9 +75,19 @@ public class DummyAnimation : MonoBehaviour {
 				animator.SetInteger("Hit",HitAnim);
 				
 				if(HitPoints == 0){
+					GlobalValues.DummyKill -= 1;
+					Debug.Log(GlobalValues.DummyKill);
 					AudioSource.PlayClipAtPoint(dummyDeath, transform.position, 1);
 				}
 			}
 		}
+	}
+
+	//-----pas wanneer de dummy visible is word zijn code uitgevoerd----//
+	void OnBecameVisible(){
+		enabled = true;
+	}
+	void OnBecameInvisible(){
+		enabled = false;
 	}
 }

@@ -165,4 +165,11 @@ public class ChestTest : MonoBehaviour {
 		}
 		
 	}
+
+	void OnBecameVisible(){
+		enabled = true;
+	}
+	void OnBecameInvisible(){
+		enabled = false;
+	}
 }
