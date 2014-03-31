@@ -16,6 +16,11 @@ public class PlayerControl : MonoBehaviour {
 	private int lastEndIndex;
 	private int place;
 
+	private int HitPoints = 10;
+
+	//float
+	private float radius = 0.5f;
+
 	//gameobject
 	private GameObject start;
 	private GameObject end;
@@ -37,10 +42,12 @@ public class PlayerControl : MonoBehaviour {
 
 	void OnEnable () {
 		GameControler.PlayerClick += GetPath;
+		EnemyControl.HitPlayer += HitPlayer;
 	}
 	
 	void OnDisable () {
 		GameControler.PlayerClick -= GetPath;
+		EnemyControl.HitPlayer -= HitPlayer;
 	}
 
 	private IEnumerator Move () {
@@ -63,6 +70,16 @@ public class PlayerControl : MonoBehaviour {
 		}
 
 		GlobalValues.playerMove = false;
+	}
+
+	private void HitPlayer () {
+		if (HitPoints != 0) {
+			HitPoints--;
+
+			if(HitPoints == 0){
+				Application.LoadLevel("PeterTest");
+			}
+		}
 	}
 
 	private void GetPath () {
