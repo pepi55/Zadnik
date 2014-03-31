@@ -3,19 +3,20 @@ using System.Collections;
 
 public class HealthBar : MonoBehaviour {
 	public float grootte;
+
 	private float extra = 1;
 	private float maxHealth = 14;
 	private float curHealth;
 
-
-	// Use this for initialization
+	
 	void Start () {
+		//--hiermee word bepaald hoe groot de healthbar is en hoeveel erin zit--//
 		grootte = transform.localScale.x;
 		curHealth = maxHealth + extra;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
+		//----Zolang je niet dood bent moet je levens eraf halen tot je dood bent-----//
 		if(GlobalValues.Death == false){
 			Vector3 scale = transform.localScale;
 			scale.x = curHealth;
