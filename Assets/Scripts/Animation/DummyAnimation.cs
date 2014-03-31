@@ -9,7 +9,7 @@ public class DummyAnimation : MonoBehaviour {
 	private int HitAnim = 0;
 	private int HitPoints = 5;
 
-<<<<<<< HEAD
+
 	void OnEnable () {
 		GameControler.EnemyAction += HitDummy;
 	}
@@ -17,10 +17,7 @@ public class DummyAnimation : MonoBehaviour {
 	void OnDisable () {
 		GameControler.EnemyAction -= HitDummy;
 	}
-	
-=======
 
->>>>>>> FETCH_HEAD
 	void Start () {
 		animator = GetComponent<Animator>();
 		radius = 0.5f; //transform.localScale.x;

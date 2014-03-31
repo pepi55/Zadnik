@@ -3,7 +3,7 @@ using System.Collections;
 
 public class NewInventory 
 {
-	Item[] items = new Item[5];
+//	Item[] items = new Item[5];
 
 	Weapon sword = new Weapon();
 

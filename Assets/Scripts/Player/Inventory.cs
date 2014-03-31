@@ -9,12 +9,14 @@ public class Inventory : MonoBehaviour {
 	private float ShPos = Screen.width / 10;
 	private float radius;
 
-	private Rect invertoryRect = new Rect(Screen.height / 10,Screen.width / 10,Screen.height / 10 * 8,Screen.width / 10 * 8);
+	private Rect invertoryRect 		= new Rect(Screen.height / 10,Screen.width / 10,Screen.height / 10 * 8,Screen.width / 10 * 8);
+	private Rect invertoryRectOne 	= new Rect(Screen.height / 10,Screen.width / 10,Screen.height / 10 * 6,Screen.width / 10 * 6);
+	private Rect invertoryRectTwo 	= new Rect(Screen.height / 10 ,Screen.width / 10 * 6,Screen.height / 10 * 2,Screen.width / 10 * 2);
 
 	private bool inventoryWindowShow = false;
 	private bool clickable = true;
 
-	public Texture2D background;
+	public Texture2D background, backgroundSec;
 
 	private Animator animator;
 
@@ -82,7 +84,8 @@ public class Inventory : MonoBehaviour {
 			animator.SetBool("Open" , true);
 			invertoryRect = GUI.Window(0,invertoryRect,InventoryWindowFunc,"", GUIStyle.none);
 			if (background != null){
-				GUI.DrawTexture(invertoryRect,background);
+				GUI.DrawTexture(invertoryRectOne,background);
+				GUI.DrawTexture(invertoryRectTwo,backgroundSec);
 			}
 			
 		}else{
@@ -95,6 +98,7 @@ public class Inventory : MonoBehaviour {
 
 	void InventoryWindowFunc(int id){
 		Debug.Log(inventoryNameDictionary[0]);
+
 		GUILayout.BeginArea(new Rect(SwPos,ShPos,SwPos * 6,ShPos * 5));
 		GUILayout.Box("   Items  ",GUIStyle.none);
 		GUILayout.BeginHorizontal();
@@ -119,6 +123,22 @@ public class Inventory : MonoBehaviour {
 		GUILayout.Button(inventoryNameDictionary[8],GUIStyle.none, GUILayout.Width(SwPos * 2));
 		GUILayout.EndHorizontal();
 	
+
+
+		/*GUILayout.BeginHorizontal();
+		GUILayout.Button(inventoryNameDictionary[9],GUIStyle.none, 	GUILayout.Height(SwPos * 2));
+		GUILayout.Button(inventoryNameDictionary[10],GUIStyle.none, GUILayout.Height(SwPos * 2));
+		GUILayout.Button(inventoryNameDictionary[11],GUIStyle.none, GUILayout.Height(SwPos * 2));
+		GUILayout.EndHorizontal();*/
+
+		if(inventoryNameDictionary[9] != null){
+			GlobalValues.Power = 2;
+		}
+
+		GUILayout.EndArea();
+
+
+		GUILayout.BeginArea(new Rect(SwPos,ShPos,SwPos * 6,ShPos * 5));
 		GUILayout.BeginHorizontal();
 		GUILayout.Box("   Uitrusting  ",GUIStyle.none);
 		GUILayout.EndHorizontal();
@@ -128,12 +148,8 @@ public class Inventory : MonoBehaviour {
 		GUILayout.Button(inventoryNameDictionary[10],GUIStyle.none, GUILayout.Height(SwPos * 2));
 		GUILayout.Button(inventoryNameDictionary[11],GUIStyle.none, GUILayout.Height(SwPos * 2));
 		GUILayout.EndHorizontal();
-
-		if(inventoryNameDictionary[9] != null){
-			GlobalValues.Power = 2;
-		}
-
 		GUILayout.EndArea();
+
 	}
 	
 }
