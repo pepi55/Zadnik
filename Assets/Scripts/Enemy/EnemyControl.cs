@@ -6,6 +6,12 @@ public class EnemyControl : MonoBehaviour {
 	/*--- PUBLICS ---*/
 	//list
 	public static List<PathNode> E_solvedPath = new List<PathNode>();
+
+	//delegate
+	public delegate void Player();
+
+	//event
+	public static event Player HitPlayer;
 	/*--- END PUBLICS ---*/
 	
 	/*--- PRIVATES ---*/
@@ -49,7 +55,14 @@ public class EnemyControl : MonoBehaviour {
 	}
 	
 	private IEnumerator Move () {
-		if (!GlobalValues.playerMove) {
+		float dist = Mathf.Pow(transform.position.x - GlobalValues.player.transform.position.x, 2) + Mathf.Pow(transform.position.y - GlobalValues.player.transform.position.y, 2);
+		Mathf.Sqrt(dist);
+		Debug.Log(dist < radius + 1);
+
+		if (/*!GlobalValues.playerMove || */dist < radius + 1) {
+			if (HitPlayer != null) {
+				HitPlayer();
+			}
 			return false;
 		} else if (GlobalValues.playerMove) {
 			transform.position = E_solvedPath[1].transform.position;
