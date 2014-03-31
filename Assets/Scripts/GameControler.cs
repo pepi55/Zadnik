@@ -60,7 +60,7 @@ public class GameControler : MonoBehaviour {
 		if (Input.GetMouseButtonDown(0) == true) {
 			selectHexRay = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
-			if (selectHexRay.collider != null) {
+			if (selectHexRay.collider != null && !GlobalValues.invOpen) {
 				if (selectHexRay.collider.tag == GlobalValues.enemyTag) {
 					HitEnemy();
 					EnemyAction();

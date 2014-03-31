@@ -60,6 +60,7 @@ public class Inventory : MonoBehaviour {
 				dist = Mathf.Sqrt(dist);
 				
 				if(dist < radius){
+					GlobalValues.invOpen = true;
 
 					if(!inventoryWindowShow){
 						inventoryWindowShow = true;
@@ -87,7 +88,7 @@ public class Inventory : MonoBehaviour {
 			
 		}else{
 			animator.SetBool("Open" , false);
-
+			GlobalValues.invOpen = false;
 		}
 
 	}

@@ -57,7 +57,6 @@ public class EnemyControl : MonoBehaviour {
 	private IEnumerator Move () {
 		float dist = Mathf.Pow(transform.position.x - GlobalValues.player.transform.position.x, 2) + Mathf.Pow(transform.position.y - GlobalValues.player.transform.position.y, 2);
 		Mathf.Sqrt(dist);
-		Debug.Log(dist < radius + 1);
 
 		if (/*!GlobalValues.playerMove || */dist < radius + 1) {
 			if (HitPlayer != null) {
