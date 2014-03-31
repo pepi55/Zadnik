@@ -53,6 +53,7 @@ public static class GlobalValues {
 	public static bool zoomUp = false;
 	public static bool zoomDown = false;
 	public static bool playerMove = false;
+	public static bool invOpen = false;
 
 	//gameobjects
 	public static GameObject player;
