@@ -8,12 +8,6 @@ public class DummyAnimation : MonoBehaviour {
 	private Animator animator;
 	private int HitAnim = 0;
 	private int HitPoints = 5;
-<<<<<<< HEAD
-
-
-=======
-	
->>>>>>> master
 	void OnEnable () {
 		GameControler.EnemyAction += HitDummy;
 	}
