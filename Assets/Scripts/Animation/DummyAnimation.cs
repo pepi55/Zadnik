@@ -24,7 +24,7 @@ public class DummyAnimation : MonoBehaviour {
 	void Update () {
 		animator.SetInteger("Lives",HitPoints);
 
-		if(HitPoints == 0){	
+		if(HitPoints == 0 || HitPoints < 0){	
 			animator.SetBool("Alive",false);
 		}
 

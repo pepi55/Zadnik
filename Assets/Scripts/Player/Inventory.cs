@@ -62,14 +62,16 @@ public class Inventory : MonoBehaviour {
 				dist = Mathf.Sqrt(dist);
 				
 				if(dist < radius){
-					GlobalValues.invOpen = true;
-
 					if(!inventoryWindowShow){
+						GlobalValues.invOpen = true;
 						inventoryWindowShow = true;
 						clickable = false;
+
 					}else{
+						GlobalValues.invOpen = false;
 						inventoryWindowShow = false;
 						clickable = false;
+
 					}
 				}
 			}
@@ -91,7 +93,6 @@ public class Inventory : MonoBehaviour {
 			
 		}else{
 			animator.SetBool("Open" , false);
-			GlobalValues.invOpen = false;
 		}
 
 	}
@@ -123,14 +124,6 @@ public class Inventory : MonoBehaviour {
 		GUILayout.Button(inventoryNameDictionary[7],GUIStyle.none, GUILayout.Width(SwPos * 2));
 		GUILayout.Button(inventoryNameDictionary[8],GUIStyle.none, GUILayout.Width(SwPos * 2));
 		GUILayout.EndHorizontal();
-	
-
-
-		/*GUILayout.BeginHorizontal();
-		GUILayout.Button(inventoryNameDictionary[9],GUIStyle.none, 	GUILayout.Height(SwPos * 2));
-		GUILayout.Button(inventoryNameDictionary[10],GUIStyle.none, GUILayout.Height(SwPos * 2));
-		GUILayout.Button(inventoryNameDictionary[11],GUIStyle.none, GUILayout.Height(SwPos * 2));
-		GUILayout.EndHorizontal();*/
 
 		if(inventoryNameDictionary[9] != null){
 			GlobalValues.Power = 2;
