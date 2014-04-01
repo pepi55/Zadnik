@@ -147,82 +147,38 @@ public class AllItems : MonoBehaviour {
 	static public Texture2D swordIcon65;
 	static public Texture2D swordIcon66;
 	static public Texture2D wandIcon;
+
+	static public List<ItemCreate> Item = new List<ItemCreate>{
+		new	ItemCreate(1,"Regular Swords",	swordIcon1,"This sword is pretty basic"),
+		new ItemCreate(1,"Casual Sword  ",	swordIcon2,"Talkin about casual...."),
+		new ItemCreate(2,"Basic Sword",		swordIcon3,"Mere basic"),
+		new ItemCreate(3,"Swords",			swordIcon4,"what did you expect?"),
+		new ItemCreate(4,"Regular Swords",swordIcon1,"This sword is pretty basic"),
+		new ItemCreate(5,"Regular Swords",swordIcon1,"This sword is pretty basic"),
+		new ItemCreate(6,"Regular Swords",swordIcon1,"This sword is pretty basic"),
+		new ItemCreate(7,"Regular Swords",swordIcon1,"This sword is pretty basic"),
+		new ItemCreate(8,"Regular Swords",swordIcon1,"This sword is pretty basic"),
+		new ItemCreate(9,"Regular Swords",swordIcon1,"This sword is pretty basic"),
+		new ItemCreate(10,"Regular Swords",swordIcon1,"This sword is pretty basic"),
+		new ItemCreate(11,"Regular Swords",swordIcon1,"This sword is pretty basic"),
+		new ItemCreate(12,"Regular Swords",swordIcon1,"This sword is pretty basic"),
+		new ItemCreate(13,"Regular Swords",swordIcon1,"This sword is pretty basic"),
+		new ItemCreate(14,"Regular Swords",swordIcon1,"This sword is pretty basic"),
+
+	};
 	
-	public ItemCreate swordItem1	= 	new	ItemCreate(1,"Regular Swords",	swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem2 	= 	new ItemCreate(1,"Casual Sword  ",	swordIcon2,"Talkin about casual....");
-	public ItemCreate swordItem3 	= 	new ItemCreate(2,"Basic Sword",		swordIcon3,"Mere basic");
-	public ItemCreate swordItem4 	= 	new ItemCreate(3,"Swords",			swordIcon4,"what did you expect?");
-	public ItemCreate swordItem5 	= 	new ItemCreate(4,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem6 	= 	new ItemCreate(5,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem7 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem8 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem9 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem10 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem11 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem12 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem13 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem14 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem15 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem16 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem17 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem18 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem19 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem20 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem21 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem22 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem23 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem24 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem25 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem26 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem27 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem28 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem29 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem30 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem31 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem32 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem33 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem34 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem35 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem36 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem37 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem38 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem39 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem40 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem41 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem42 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem43 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem44 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem45 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem46 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem47 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem48 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem49 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem50 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem51 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem52 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem53 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem54 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem55 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem56 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem57 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem58 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem59 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem60 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem61	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem62 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem63 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
-	public ItemCreate swordItem64 	= 	new ItemCreate(0,"Regular Swords",swordIcon1,"This sword is pretty basic");
 
 	public ItemCreate arrowItem 	= 	new ItemCreate(0,"Arrows",arrowIcon,"Shooting THAT SHIT");
 	public ItemCreate wandItem 		= 	new ItemCreate(0,"Wand",wandIcon,"Magic....");
 
 
 	// Use this for initialization
-	void Start () {
+	void Start() {
 		swordIcon1 = eSwordIcon1;
 		arrowIcon = eArrowIcon;
 		wandIcon  = eWandIcon;
 		emptyIcon = eEmptyIcon;
+		Debug.Log(swordIcon1);
 
 	}
 
