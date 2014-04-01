@@ -44,6 +44,11 @@ public static class AStar {
 		return openset[index];
 	}
 
+	//cells within ? steps
+	private static List<T> FieldOfView<T>(T start, int steps) where T : IPathNode<T> {
+		List<T> result = new List<T>();
+	}
+
 	//Path == found ? reconstruct : find it;
 	private static void ReconstructPath<T>(Dictionary<T, T> from, T currentNode, ref List<T> result) where T : IPathNode<T> {
 		if (from.ContainsKey(currentNode)) {
