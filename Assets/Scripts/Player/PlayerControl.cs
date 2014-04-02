@@ -18,9 +18,6 @@ public class PlayerControl : MonoBehaviour {
 
 	private int HitPoints = 10;
 
-	//float
-	private float radius = 0.5f;
-
 	//gameobject
 	private GameObject start;
 	private GameObject end;
@@ -31,6 +28,7 @@ public class PlayerControl : MonoBehaviour {
 
 	//list
 	private List<PathNode> sources;
+	private List<PathNode> fov;
 	/*--- END PRIVATES ---*/
 
 	void Start () {
@@ -51,6 +49,16 @@ public class PlayerControl : MonoBehaviour {
 	}
 
 	private IEnumerator Move () {
+		foreach (PathNode hex in sources) {
+			hex.gameObject.SetActive(false);
+		}
+
+		fov = PathNode.FieldOfView(start, 5);
+
+		foreach (PathNode hex in sources) {
+			hex.gameObject.SetActive(true);
+		}
+
 		GlobalValues.playerMove = true;
 
 		for (int i = 1; i < solvedPath.Count; i++) {

@@ -66,6 +66,31 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 		return newNode;
 	}
 
+	public static List<PathNode> FieldOfView(PathNode start, int steps) {
+		List<PathNode> result = new List<PathNode>();
+		Vector3 cube = new Vector3();
+		
+		cube.x = start.Position.x - (start.Position.y - ((int)start.Position.y & 1)) / 2;
+		cube.z = start.Position.y;
+		cube.y = -cube.x - cube.z;
+		
+		foreach (PathNode hex in HexGrid.sources) {
+			if (-steps <= cube.x && cube.x <= steps) {
+				if (Mathf.Max(-steps, -cube.x - steps) <= cube.y && cube.y <= Mathf.Min(steps, -cube.x + steps)) {
+					cube.z = -cube.x - cube.y;
+					result.Add(hex);
+				}
+			}
+		}
+		
+		if (result != null) {
+			return result;
+		} else {
+			Debug.LogWarning("No FoV!");
+			return null;
+		}
+	}
+
 	public static List<PathNode> CreateGrid (Vector2 center, Vector2 spacing, int[] dim, float randomSpace) {
 		GameObject gridObject = new GameObject("grid");
 		GameObject enemies = new GameObject("enemies");
@@ -73,15 +98,15 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 		int xCount = dim[0];
 		int yCount = dim[1];
 
-		float radius = 0.64f;
+		//float radius = 0.64f;
 
 		float xWidth = spacing.x * xCount;
 		float yWidth = spacing.y * yCount;
 		float xStart = center.x - (xWidth / 2.0f) + (spacing.x / 2.0f);
 		float yStart = center.y - (yWidth / 2.0f) + (spacing.y / 2.0f);
 
-		float offsetX = radius * Mathf.Sqrt(3);
-		float offsetY = radius * 1.5f;
+		float offsetX = GlobalValues.radius * Mathf.Sqrt(3);
+		float offsetY = GlobalValues.radius * 1.5f;
 
 		List<PathNode> result = new List<PathNode>();
 
