@@ -47,6 +47,8 @@ public static class AStar {
 	//cells within ? steps
 	private static List<T> FieldOfView<T>(T start, int steps) where T : IPathNode<T> {
 		List<T> result = new List<T>();
+
+
 	}
 
 	//Path == found ? reconstruct : find it;
