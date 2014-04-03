@@ -173,7 +173,7 @@ public class AllItems : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start() {
+	void Awake() {
 		swordIcon1 = eSwordIcon1;
 		arrowIcon = eArrowIcon;
 		wandIcon  = eWandIcon;

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Inventory : MonoBehaviour {
-	AllItems itemObject = new AllItems();
+//	AllItems itemObject = new AllItems();
 
 	private float SwPos = Screen.height / 10;
 	private float ShPos = Screen.width / 10;
@@ -38,7 +38,7 @@ public class Inventory : MonoBehaviour {
 		{2,AllItems.emptyIcon},
 	};
 	
-	void Awake(){
+	void Start(){
 		gameObject.AddComponent<AllItems>();
 		animator = GetComponent<Animator>();
 		animator.GetBool("Open");
