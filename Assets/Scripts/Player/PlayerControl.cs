@@ -35,6 +35,9 @@ public class PlayerControl : MonoBehaviour {
 		sources = HexGrid.sources;
 		start = this.gameObject;
 
+		int initPos = Closest(sources, start.transform.position);
+		transform.position = sources[initPos].transform.position;
+
 		GlobalValues.player = this.gameObject;
 	}
 
@@ -49,15 +52,20 @@ public class PlayerControl : MonoBehaviour {
 	}
 
 	private IEnumerator Move () {
-		foreach (PathNode hex in sources) {
-			hex.gameObject.SetActive(false);
-		}
-
-		fov = PathNode.FieldOfView(start, 5);
+		/*List<PathNode> fieldOfView = PathNode.FieldOfView(start, 0.5f);
 
 		foreach (PathNode hex in sources) {
-			hex.gameObject.SetActive(true);
+			if (hex != null) {
+				hex.gameObject.SetActive(false);
+			}
 		}
+
+		foreach (PathNode hex in fieldOfView) {
+			Debug.Log(fieldOfView.Count);
+			if (hex != null) {
+				hex.gameObject.SetActive(true);
+			}
+		}*/
 
 		GlobalValues.playerMove = true;
 
@@ -72,6 +80,10 @@ public class PlayerControl : MonoBehaviour {
 				yield return new WaitForSeconds(0.5f);
 
 				solvedPath[i].tag = GlobalValues.cellTag;
+
+				if (solvedPath[i].tag == GlobalValues.finishedLevel) {
+					Application.LoadLevel("PeterTest");
+				}
 			} else {
 				return false;
 			}

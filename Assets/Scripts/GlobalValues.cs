@@ -6,6 +6,8 @@ public static class GlobalValues {
 	//strings
 	public static string screenPos;
 
+	public static string finishedLevel = "nextlevel";
+
 	public static string cellName = "hexGridCell";
 	public static string cellTag = "gridCell";
 	public static string cellPath = "Grid/HexTile";

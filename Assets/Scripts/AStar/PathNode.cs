@@ -66,19 +66,22 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 		return newNode;
 	}
 
-	public static List<PathNode> FieldOfView(PathNode start, int steps) {
+	public static List<PathNode> FieldOfView(GameObject start, float steps) {
 		List<PathNode> result = new List<PathNode>();
 		Vector3 cube = new Vector3();
 		
-		cube.x = start.Position.x - (start.Position.y - ((int)start.Position.y & 1)) / 2;
-		cube.z = start.Position.y;
+		cube.x = start.transform.position.x - (start.transform.position.y - ((int)start.transform.position.y & 1)) / 2;
+		cube.z = start.transform.position.y;
 		cube.y = -cube.x - cube.z;
 		
 		foreach (PathNode hex in HexGrid.sources) {
-			if (-steps <= cube.x && cube.x <= steps) {
-				if (Mathf.Max(-steps, -cube.x - steps) <= cube.y && cube.y <= Mathf.Min(steps, -cube.x + steps)) {
-					cube.z = -cube.x - cube.y;
-					result.Add(hex);
+			if (hex != null) {
+				if (-steps <= cube.x && cube.x <= steps) {
+					if (Mathf.Max(-steps, -cube.x - steps) <= cube.y && cube.y <= Mathf.Min(steps, -cube.x + steps)) {
+						cube.z = -cube.x - cube.y;
+						Debug.Log("added");
+						result.Add(hex);
+					}
 				}
 			}
 		}
@@ -112,6 +115,8 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 
 		//Random.seed = 1337;
 		float reset = randomSpace;
+
+		bool endCreated = false;
 
 		for (int x = 0; x < xCount; x++) {
 			float xPos = (x * offsetX/*spacing.x*/) + xStart;
@@ -156,6 +161,7 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 						wall.tag = GlobalValues.wallTag;
 						wall.name = GlobalValues.wallName;
 						newNode.tag = GlobalValues.wallTag;
+						wall.transform.parent = gridObject.transform;
 
 						newNode.enabled = false;
 						result.Add(null);
@@ -192,6 +198,15 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 
 				result.Add(newNode);
 			}
+
+			/*if (!endCreated && x >= 3) {
+				if (result[result.Count - 1] != null) {
+					PathNode cell = result[result.Count - 1];
+
+					cell.tag = GlobalValues.finishedLevel;
+					endCreated = true;
+				}
+			}*/
 		}
 
 		for (int x = 0; x < xCount; x++) {

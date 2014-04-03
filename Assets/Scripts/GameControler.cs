@@ -64,7 +64,7 @@ public class GameControler : MonoBehaviour {
 				if (selectHexRay.collider.tag == GlobalValues.enemyTag) {
 					HitEnemy();
 					EnemyAction();
-				} else if (selectHexRay.collider.tag == GlobalValues.cellTag) {
+				} else if (selectHexRay.collider.tag == GlobalValues.cellTag || selectHexRay.collider.tag == GlobalValues.finishedLevel) {
 					GlobalValues.targetTile = selectHexRay.transform.gameObject;
 
 					if (PlayerClick != null) {
