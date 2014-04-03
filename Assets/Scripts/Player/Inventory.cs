@@ -21,7 +21,6 @@ public class Inventory : MonoBehaviour {
 	private Animator animator;
 
 	public static Dictionary<int,Texture2D> inventoryNameDictionary = new Dictionary<int, Texture2D>(){
-<<<<<<< HEAD
 		{0,AllItems.emptyIcon},
 		{1,AllItems.emptyIcon},
 		{2,AllItems.emptyIcon},
@@ -31,21 +30,6 @@ public class Inventory : MonoBehaviour {
 		{6,AllItems.emptyIcon},
 		{7,AllItems.emptyIcon},
 		{8,AllItems.emptyIcon},
-
-=======
-		{0, AllItems.emptyIcon},
-		{1, AllItems.emptyIcon},
-		{2, AllItems.emptyIcon},
-		{3, AllItems.emptyIcon},
-		{4, AllItems.emptyIcon},
-		{5, AllItems.emptyIcon},
-		{6, AllItems.emptyIcon},
-		{7, AllItems.emptyIcon},
-		{8, AllItems.emptyIcon},
-		{9, AllItems.emptyIcon},
-		{10, AllItems.emptyIcon},
-		{11, AllItems.emptyIcon}
->>>>>>> master
 	};
 	public static Dictionary<int,Texture2D> usingNameDictionary = new Dictionary<int, Texture2D>(){
 		{0,AllItems.emptyIcon},
