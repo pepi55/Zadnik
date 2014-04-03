@@ -16,8 +16,6 @@ public class PlayerControl : MonoBehaviour {
 	private int lastEndIndex;
 	private int place;
 
-	private int HitPoints = 10;
-
 	//gameobject
 	private GameObject start;
 	private GameObject end;
@@ -93,10 +91,10 @@ public class PlayerControl : MonoBehaviour {
 	}
 
 	private void HitPlayer () {
-		if (HitPoints != 0) {
-			HitPoints--;
+		if (GlobalValues.playerHP != 0) {
+			GlobalValues.playerHP--;
 
-			if(HitPoints == 0){
+			if(GlobalValues.playerHP == 0){
 				Application.LoadLevel("PeterTest");
 			}
 		}

@@ -49,6 +49,8 @@ public static class GlobalValues {
 
 	public static int gridH;
 	public static int gridW;
+
+	public static int playerHP = 10;
 	
 	//bools
 	public static bool Death = false;
