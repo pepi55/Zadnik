@@ -4,13 +4,13 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - eSwordIcon1: {fileID: 2800000, guid: 133b389f6d2e24ce39209d39cfb6addb, type: 3}
-  - eSwordIcon2: {fileID: 2800000, guid: 79da824be30224fe6a64236bf66b911d, type: 3}
-  - eSwordIcon3: {fileID: 2800000, guid: 8f6128628bee74b8494870290ccd7277, type: 3}
-  - eSwordIcon4: {fileID: 2800000, guid: 4d4b96ef17d27462db6ad985e1fda6bb, type: 3}
+  - eSwordIcon2: {fileID: 2800000, guid: 8f6128628bee74b8494870290ccd7277, type: 3}
+  - eSwordIcon3: {fileID: 2800000, guid: 7ab4d238643d04930a53c2c79935f22b, type: 3}
+  - eSwordIcon4: {fileID: 2800000, guid: 719d5ea155f6144688568c7e394a59a0, type: 3}
   - eSwordIcon5: {fileID: 2800000, guid: f0c75c0d038a3474c89764f2f0c47c55, type: 3}
-  - eSwordIcon7: {fileID: 2800000, guid: a6f6470201fc24e648ba1f5b013f9852, type: 3}
+  - eSwordIcon7: {fileID: 2800000, guid: 72a262e66a20c4886aef0d3f104e0899, type: 3}
   - eSwordIcon8: {fileID: 2800000, guid: 33bc22bd06f53439e8031c6bfa1998f6, type: 3}
-  - eSwordIcon9: {fileID: 2800000, guid: 33bd01124ef974c9ea3a4acf06db7cf9, type: 3}
+  - eSwordIcon9: {fileID: 2800000, guid: 63456aaa8511f4afe9bbce074fbbb297, type: 3}
   - eSwordIcon10: {fileID: 2800000, guid: 92af3484f4d1c40dbaccdc7522d8ffc3, type: 3}
   - eSwordIcon11: {fileID: 2800000, guid: ba26737bbba1543ddb49ab169bf8c27c, type: 3}
   - eSwordIcon12: {fileID: 2800000, guid: 5d07d549a782c44f78f4e9f26cc4ff66, type: 3}
@@ -71,72 +71,6 @@ MonoImporter:
   - eArrowIcon: {fileID: 2800000, guid: a1621a212aa7244ff9b7c1a673f72dd4, type: 3}
   - eWandIcon: {fileID: 2800000, guid: 2157b370f996345e191e5909914d5fb4, type: 3}
   - eEmptyIcon: {fileID: 2800000, guid: 50926c3bf2e284b54afe1485c84a3eef, type: 3}
-  - swordItem1: {instanceID: 0}
-  - swordItem2: {instanceID: 0}
-  - swordItem3: {instanceID: 0}
-  - swordItem4: {instanceID: 0}
-  - swordItem5: {instanceID: 0}
-  - swordItem6: {instanceID: 0}
-  - swordItem7: {instanceID: 0}
-  - swordItem8: {instanceID: 0}
-  - swordItem9: {instanceID: 0}
-  - swordItem10: {instanceID: 0}
-  - swordItem11: {instanceID: 0}
-  - swordItem12: {instanceID: 0}
-  - swordItem13: {instanceID: 0}
-  - swordItem14: {instanceID: 0}
-  - swordItem15: {instanceID: 0}
-  - swordItem16: {instanceID: 0}
-  - swordItem17: {instanceID: 0}
-  - swordItem18: {instanceID: 0}
-  - swordItem19: {instanceID: 0}
-  - swordItem20: {instanceID: 0}
-  - swordItem21: {instanceID: 0}
-  - swordItem22: {instanceID: 0}
-  - swordItem23: {instanceID: 0}
-  - swordItem24: {instanceID: 0}
-  - swordItem25: {instanceID: 0}
-  - swordItem26: {instanceID: 0}
-  - swordItem27: {instanceID: 0}
-  - swordItem28: {instanceID: 0}
-  - swordItem29: {instanceID: 0}
-  - swordItem30: {instanceID: 0}
-  - swordItem31: {instanceID: 0}
-  - swordItem32: {instanceID: 0}
-  - swordItem33: {instanceID: 0}
-  - swordItem34: {instanceID: 0}
-  - swordItem35: {instanceID: 0}
-  - swordItem36: {instanceID: 0}
-  - swordItem37: {instanceID: 0}
-  - swordItem38: {instanceID: 0}
-  - swordItem39: {instanceID: 0}
-  - swordItem40: {instanceID: 0}
-  - swordItem41: {instanceID: 0}
-  - swordItem42: {instanceID: 0}
-  - swordItem43: {instanceID: 0}
-  - swordItem44: {instanceID: 0}
-  - swordItem45: {instanceID: 0}
-  - swordItem46: {instanceID: 0}
-  - swordItem47: {instanceID: 0}
-  - swordItem48: {instanceID: 0}
-  - swordItem49: {instanceID: 0}
-  - swordItem50: {instanceID: 0}
-  - swordItem51: {instanceID: 0}
-  - swordItem52: {instanceID: 0}
-  - swordItem53: {instanceID: 0}
-  - swordItem54: {instanceID: 0}
-  - swordItem55: {instanceID: 0}
-  - swordItem56: {instanceID: 0}
-  - swordItem57: {instanceID: 0}
-  - swordItem58: {instanceID: 0}
-  - swordItem59: {instanceID: 0}
-  - swordItem60: {instanceID: 0}
-  - swordItem61: {instanceID: 0}
-  - swordItem62: {instanceID: 0}
-  - swordItem63: {instanceID: 0}
-  - swordItem64: {instanceID: 0}
-  - arrowItem: {instanceID: 0}
-  - wandItem: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

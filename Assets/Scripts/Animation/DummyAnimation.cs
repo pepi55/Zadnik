@@ -8,7 +8,6 @@ public class DummyAnimation : MonoBehaviour {
 	private Animator animator;
 	private int HitAnim = 0;
 	private int HitPoints = 5;
-	
 	void OnEnable () {
 		GameControler.EnemyAction += HitDummy;
 	}
@@ -25,7 +24,7 @@ public class DummyAnimation : MonoBehaviour {
 	void Update () {
 		animator.SetInteger("Lives",HitPoints);
 
-		if(HitPoints == 0){	
+		if(HitPoints == 0 || HitPoints < 0){	
 			animator.SetBool("Alive",false);
 		}
 

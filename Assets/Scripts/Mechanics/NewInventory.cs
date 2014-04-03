@@ -3,9 +3,9 @@ using System.Collections;
 
 public class NewInventory 
 {
-	Item[] items = new Item[5];
+//	Item[] items = new Item[5];
 
-	Weapon sword = new Weapon();
+	/*Weapon sword = new Weapon();
 
 	void AddItem(Item item)
 	{
@@ -26,8 +26,8 @@ public class NewInventory
 /*		for (int i=0; i < items.GetLength; i++)
 		{
 			//GUILayout.Button(items[i].icon, // blablabla
-		}*/
-	}
+		}
+	}*/
 
 }
 

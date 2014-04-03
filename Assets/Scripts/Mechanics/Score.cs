@@ -9,7 +9,12 @@ public class Score : MonoBehaviour {
 	}
 	void OnGUI(){
 		GUI.skin.label.fontSize = 20;
-		GUI.Label(WindowRect,"You have to kill " + GlobalValues.DummyKill  + " Dummies "/* + GlobalValues.level*/);
+		if(GlobalValues.DummyKill != 0){
+			GUI.Label(WindowRect,"You have to kill " + GlobalValues.DummyKill  + " Dummies "/* + GlobalValues.level*/);
+		}else{
+			GUI.Label(WindowRect,"Good job warrior find your way to the stairway to continue the quest");
+
+		}
 	}
 
 }
