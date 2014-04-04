@@ -101,52 +101,52 @@ public class Inventory : MonoBehaviour {
 
 
 	void InventoryWindowFunc(int id){
-		Debug.Log(inventoryNameDictionary[0]);
 		GUI.skin.label.fontSize = 20;
 		GUILayout.BeginArea(new Rect(SwPos,ShPos,SwPos * 6,ShPos * 5));
-		GUILayout.Box("   Items  ",GUIStyle.none);
-		GUILayout.BeginHorizontal();
+			GUILayout.Box("   Items  ",GUIStyle.none);
+			GUILayout.BeginHorizontal();
 
-		if(GUILayout.Button(inventoryNameDictionary[0].naam, GUILayout.Width(SwPos * 2))){
-			for(int q = 1;q < 3;q++){
-				usingNameDictionary[q] = inventoryNameDictionary[0];
-				inventoryNameDictionary[0] = null;
+			if(GUILayout.Button(inventoryNameDictionary[0].naam, GUILayout.Width(SwPos * 2))){
+				for(int q = 1;q < 3;q++){
+					usingNameDictionary[q] = inventoryNameDictionary[0];
+					inventoryNameDictionary[0] = null;
+				break;
+				}
 			}
-		}
-		GUILayout.Button(inventoryNameDictionary[1].naam, GUILayout.Width(SwPos * 2));
-		GUILayout.Button(inventoryNameDictionary[2].naam, GUILayout.Width(SwPos * 2));
+			GUILayout.Button(inventoryNameDictionary[1].naam, GUILayout.Width(SwPos * 2));
+			GUILayout.Button(inventoryNameDictionary[2].naam, GUILayout.Width(SwPos * 2));
 		GUILayout.EndHorizontal();
 
-		GUILayout.BeginHorizontal();
-		GUILayout.Button(inventoryNameDictionary[3].naam, GUILayout.Width(SwPos * 2));
-		GUILayout.Button(inventoryNameDictionary[4].naam, GUILayout.Width(SwPos * 2));
-		GUILayout.Button(inventoryNameDictionary[5].naam, GUILayout.Width(SwPos * 2));
-		GUILayout.EndHorizontal();
+			GUILayout.BeginHorizontal();
+				GUILayout.Button(inventoryNameDictionary[3].naam, GUILayout.Width(SwPos * 2));
+				GUILayout.Button(inventoryNameDictionary[4].naam, GUILayout.Width(SwPos * 2));
+				GUILayout.Button(inventoryNameDictionary[5].naam, GUILayout.Width(SwPos * 2));
+			GUILayout.EndHorizontal();
 
-		GUILayout.BeginHorizontal();
-		GUILayout.Button(inventoryNameDictionary[6].naam, GUILayout.Width(SwPos * 2));
-		GUILayout.Button(inventoryNameDictionary[7].naam, GUILayout.Width(SwPos * 2));
-		GUILayout.Button(inventoryNameDictionary[8].naam, GUILayout.Width(SwPos * 2));
-		GUILayout.EndHorizontal();
+			GUILayout.BeginHorizontal();
+				GUILayout.Button(inventoryNameDictionary[6].naam, GUILayout.Width(SwPos * 2));
+				GUILayout.Button(inventoryNameDictionary[7].naam, GUILayout.Width(SwPos * 2));
+				GUILayout.Button(inventoryNameDictionary[8].naam, GUILayout.Width(SwPos * 2));
+			GUILayout.EndHorizontal();
 
-		if(usingNameDictionary[0] != null){
-			GlobalValues.Power = 2;
-		}
+			if(usingNameDictionary[0] != null){
+				GlobalValues.Power = 2;
+			}
 
 		GUILayout.EndArea();
 
 
 		GUILayout.BeginArea(new Rect(SwPos,ShPos * 5,SwPos * 6,ShPos * 5));
 
-		GUILayout.BeginHorizontal();
-		GUILayout.Box("   Uitrusting  ",GUIStyle.none);
-		GUILayout.EndHorizontal();
+			GUILayout.BeginHorizontal();
+			GUILayout.Box("   Uitrusting  ",GUIStyle.none);
+			GUILayout.EndHorizontal();
 
-		GUILayout.BeginHorizontal();
-		GUILayout.Button(usingNameDictionary[0].icon, 	GUILayout.Height(SwPos * 2));
-		GUILayout.Button(usingNameDictionary[1].icon, GUILayout.Height(SwPos * 2));
-		GUILayout.Button(usingNameDictionary[2].icon, GUILayout.Height(SwPos * 2));
-		GUILayout.EndHorizontal();
+			GUILayout.BeginHorizontal();
+			GUILayout.Button(usingNameDictionary[0].naam, 	GUILayout.Height(SwPos * 2));
+			GUILayout.Button(usingNameDictionary[1].naam, 	GUILayout.Height(SwPos * 2));
+			//GUILayout.Button(usingNameDictionary[2].naam, 	GUILayout.Height(SwPos * 2));
+			GUILayout.EndHorizontal();
 
 		GUILayout.EndArea();
 

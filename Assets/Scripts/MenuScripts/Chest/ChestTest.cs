@@ -5,7 +5,8 @@ using System.Collections.Generic;
 public class ChestTest : MonoBehaviour {
 //	Item itemObject = new Item();
 
-	public Texture2D background, Item1, Item2, Item3, Empty;
+	public Texture2D background, Empty;
+	private string  Item1, Item2, Item3;
 	
 	private float radius; 
 	private float Luck;
@@ -35,7 +36,7 @@ public class ChestTest : MonoBehaviour {
 		itemComponent = GetComponent<AllItems>();
 		animator = GetComponent<Animator>();
 		radius = transform.localScale.x;
-		Item1 = lootDictionary[0].icon;
+		Item1 = lootDictionary[0].naam;
 		/*lootDictionary[0] = AllItems.swordIcon1;
 		lootDictionary[1] = AllItems.wandIcon;*/
 	}
@@ -61,7 +62,6 @@ public class ChestTest : MonoBehaviour {
 	
 	void Update(){
 		if(clickable){
-			Debug.Log(lootDictionary[1].icon);
 			if(Input.GetMouseButtonDown(0)){
 				Vector3 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 				float dist = Mathf.Pow(MousePos.x - transform.position.x,2) + Mathf.Pow(MousePos.y - transform.position.y,2);
@@ -103,7 +103,6 @@ public class ChestTest : MonoBehaviour {
 			/*lootDictionary[0] = AllItems.swordIcon1;
 			lootDictionary[1] = AllItems.wandIcon;*/
 			chestReady = true;
-			Debug.Log(lootDictionary[0].icon);
 		}
 
 		if (GUI.Button(new Rect(0,30, SwPos,ShPos),	Item1,GUIStyle.none)){
@@ -111,11 +110,10 @@ public class ChestTest : MonoBehaviour {
 				for(int i = 0; 0 < 9;i++){
 					if(Inventory.inventoryNameDictionary[i] == null){
 						Inventory.inventoryNameDictionary[i] = lootDictionary[0];
-						Item1 = null;
 						Obtain1 = true;
-						Debug.Log("Working " + i);
 						break;
 					}
+					Item1 = string.Empty;
 				}
 			}else{
 				Debug.Log("This slot is empty");
@@ -135,9 +133,8 @@ public class ChestTest : MonoBehaviour {
 				for(int j = 0; 0 < 9;j++){
 					if(Inventory.inventoryNameDictionary[j] == null){
 						Inventory.inventoryNameDictionary[j] =  lootDictionary[2];
-						Item3 = null;
+						Item3 = "";
 						Obtain3 = true;
-						Debug.Log("Working " + j);
 						break;
 					}
 				}
