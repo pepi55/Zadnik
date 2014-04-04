@@ -73,6 +73,7 @@ public class DummyAnimation : MonoBehaviour {
 					GlobalValues.DummyKill -= 1;
 					Debug.Log(GlobalValues.DummyKill);
 					AudioSource.PlayClipAtPoint(dummyDeath, transform.position, 1);
+					GlobalValues.playerHP += 1;
 				}
 			}
 		}

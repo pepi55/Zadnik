@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class HealthBar : MonoBehaviour {
+	AudioClip deathSound;
 	public float size;
 	Vector2 scale;
 
