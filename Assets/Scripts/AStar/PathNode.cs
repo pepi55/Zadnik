@@ -13,7 +13,7 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 		}
 	}
 	
-	void Update () {
+	/*void Update () {
 		Draw.DrawCube(transform.position, Vector2.one, nodeColor);
 		
 		if (connections == null) {
@@ -27,7 +27,7 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 				}
 			}
 		}
-	}
+	}*/
 
 	public bool Invalid {
 		get {
@@ -89,7 +89,7 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 		if (result != null) {
 			return result;
 		} else {
-			Debug.LogWarning("No FoV!");
+			//Debug.LogWarning("No FoV!");
 			return null;
 		}
 	}
@@ -115,8 +115,6 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 
 		//Random.seed = 1337;
 		float reset = randomSpace;
-
-		bool endCreated = false;
 
 		for (int x = 0; x < xCount; x++) {
 			float xPos = (x * offsetX/*spacing.x*/) + xStart;

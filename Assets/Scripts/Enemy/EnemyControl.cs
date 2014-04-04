@@ -25,6 +25,8 @@ public class EnemyControl : MonoBehaviour {
 	private int E_place;
 	private int playerPain;
 
+	private int strikeInt;
+	private int beingHitInt;
 	private int HitPoints = 5;
 
 	//float
@@ -41,7 +43,19 @@ public class EnemyControl : MonoBehaviour {
 	//list
 	private List<PathNode> E_sources;
 	/*--- END PRIVATES ---*/
-	
+
+	void Update(){
+		if(strikeInt != 0){
+			strikeInt -= 1;
+		}else{
+			animator.SetInteger("Strike",strikeInt);
+		}
+		if(beingHitInt != 0){
+			beingHitInt -= 1;
+		}else{
+			animator.SetInteger("BeingHit",strikeInt);
+		}
+	}
 	void Start () {
 		animator = GetComponent<Animator>();
 		E_sources = HexGrid.sources;
@@ -60,6 +74,7 @@ public class EnemyControl : MonoBehaviour {
 	
 	private IEnumerator Move () {
 		/*--- MOVEMENT ---*/
+		animator.SetBool("Doing",false);
 		float dist = Mathf.Pow(transform.position.x - GlobalValues.player.transform.position.x, 2) + Mathf.Pow(transform.position.y - GlobalValues.player.transform.position.y, 2);
 		Mathf.Sqrt(dist);
 
@@ -92,9 +107,10 @@ public class EnemyControl : MonoBehaviour {
 			dist = Mathf.Sqrt(dist);
 			
 			if(dist < radius && ply < (radius + 1.0f)){
+				strikeInt = 50;
+				animator.SetInteger("BeingHit",strikeInt);
 				HitPoints -= GlobalValues.Power + 1;
 				playerPain = Random.Range(1,10);
-				Debug.Log(playerPain);
 				switch(playerPain){
 				case 1:
 					AudioSource.PlayClipAtPoint(playerHit1, transform.position, 1);
@@ -108,6 +124,7 @@ public class EnemyControl : MonoBehaviour {
 					break;
 					
 				}
+
 				if(HitPoints == 0){
 					AudioSource.PlayClipAtPoint(playerDeath, transform.position, 1);
 					Destroy(gameObject);
@@ -126,14 +143,15 @@ public class EnemyControl : MonoBehaviour {
 			}
 			
 			if (E_start == null) {
-				Debug.LogWarning("No start point!");
+				//Debug.LogWarning("No start point!");
 				
 				E_pathDone = true;
 			}
 			
 			if (E_end == null) {
 				Debug.LogWarning("No end point!");
-				
+				animator.SetInteger("Choice",0);
+				//Debug.LogWarning("No end point!");
 				E_pathDone = true;
 			}
 			
@@ -155,7 +173,7 @@ public class EnemyControl : MonoBehaviour {
 			}
 			
 			if (E_solvedPath == null || E_solvedPath.Count < 1) {
-				Debug.LogWarning("Invalid path!");
+				//Debug.LogWarning("Invalid path!");
 				E_reset = true;
 				
 				break;
@@ -168,7 +186,7 @@ public class EnemyControl : MonoBehaviour {
 					continue;
 				}
 				
-				Debug.DrawLine(E_solvedPath[i].Position, E_solvedPath[i + 1].Position, Color.cyan * new Color(1.0f, 1.0f, 1.0f, 1.0f));
+				//Debug.DrawLine(E_solvedPath[i].Position, E_solvedPath[i + 1].Position, Color.cyan * new Color(1.0f, 1.0f, 1.0f, 1.0f));
 			}
 			
 			if (E_reset) {

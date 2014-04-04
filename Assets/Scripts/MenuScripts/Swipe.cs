@@ -8,9 +8,7 @@ public class Swipe : MonoBehaviour {
 	private float diffrence ;
 	private bool Began = false;
 	private bool Moved = false;
-	
-	
-	
+
 	void Update () {
 		//----leest af hoeveel vingers er op het scherm zitten zovaak gaat het hierdoorheen
 		for (var i = 0; i < Input.touchCount; ++i) {
@@ -49,7 +47,6 @@ public class Swipe : MonoBehaviour {
 					jump = false;  
 					
 				}
-
 			}
 			
 		}  
