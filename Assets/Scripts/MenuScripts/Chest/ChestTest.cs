@@ -35,6 +35,7 @@ public class ChestTest : MonoBehaviour {
 		itemComponent = GetComponent<AllItems>();
 		animator = GetComponent<Animator>();
 		radius = transform.localScale.x;
+		Item1 = lootDictionary[0].icon;
 		/*lootDictionary[0] = AllItems.swordIcon1;
 		lootDictionary[1] = AllItems.wandIcon;*/
 	}
@@ -105,11 +106,11 @@ public class ChestTest : MonoBehaviour {
 			Debug.Log(lootDictionary[0].icon);
 		}
 
-		if (GUI.Button(new Rect(0,30, SwPos,ShPos),	lootDictionary[0].icon,GUIStyle.none)){
+		if (GUI.Button(new Rect(0,30, SwPos,ShPos),	Item1,GUIStyle.none)){
 			if(!Obtain1){	
 				for(int i = 0; 0 < 9;i++){
 					if(Inventory.inventoryNameDictionary[i] == null){
-						Inventory.inventoryNameDictionary[i] = lootDictionary[0].icon;
+						Inventory.inventoryNameDictionary[i] = lootDictionary[0];
 						Item1 = null;
 						Obtain1 = true;
 						Debug.Log("Working " + i);
@@ -133,7 +134,7 @@ public class ChestTest : MonoBehaviour {
 			if(!Obtain3){
 				for(int j = 0; 0 < 9;j++){
 					if(Inventory.inventoryNameDictionary[j] == null){
-						Inventory.inventoryNameDictionary[j] =  lootDictionary[2].icon;
+						Inventory.inventoryNameDictionary[j] =  lootDictionary[2];
 						Item3 = null;
 						Obtain3 = true;
 						Debug.Log("Working " + j);
