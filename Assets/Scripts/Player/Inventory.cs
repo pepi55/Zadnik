@@ -142,7 +142,7 @@ public class Inventory : MonoBehaviour {
 		GUILayout.EndHorizontal();
 
 		GUILayout.BeginHorizontal();
-		GUILayout.Button(usingNameDictionary[0],GUIStyle.none, 	GUILayout.Height(SwPos * 2));
+		GUILayout.Button(usingNameDictionary[0],GUIStyle.none, GUILayout.Height(SwPos * 2));
 		GUILayout.Button(usingNameDictionary[1],GUIStyle.none, GUILayout.Height(SwPos * 2));
 		GUILayout.Button(usingNameDictionary[2],GUIStyle.none, GUILayout.Height(SwPos * 2));
 		GUILayout.EndHorizontal();

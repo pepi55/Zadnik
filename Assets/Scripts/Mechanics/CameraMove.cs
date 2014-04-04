@@ -9,10 +9,14 @@ public class CameraMove : MonoBehaviour {
 	private float distX;
 	private float distY;
 	public 	float intensity = 8;
+
+	private Vector2 pos;
 	// Use this for initialization
 	void Start () {
 		Screen.orientation = ScreenOrientation.LandscapeLeft;
 		intensity = intensity  + 1;
+
+		pos = transform.position;
 	}
 	
 	// Update is called once per frame
@@ -47,19 +51,27 @@ public class CameraMove : MonoBehaviour {
 				}
 				/*--- Y pos ---*/
 				if (transform.position.y > 8.74f) {
-					transform.position.y = -9.5f;
+					pos.y = -9.5f;
+
+					transform.position = pos;
 				}
 
 				if (transform.position.y < -9.5f) {
-					transform.position.y = 8.74f;
+					pos.y = 8.74f;
+
+					transform.position = pos;
 				}
 				/*--- X pos ---*/
 				if (transform.position.x > 12.12174f) {
-					transform.position.x = -9.5f;
+					pos.x = -9.5f;
+
+					transform.position = pos;
 				}
 
 				if (transform.position.x < -9.5f) {
-					transform.position.x = 12.12174f;
+					pos.x = 12.12174f;
+
+					transform.position = pos;
 				}
 
 				if(distY > 100){
