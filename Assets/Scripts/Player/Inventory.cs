@@ -142,19 +142,18 @@ public class Inventory : MonoBehaviour {
 			GUILayout.Box("   Uitrusting  ",GUIStyle.none);
 			GUILayout.EndHorizontal();
 
-<<<<<<< HEAD
+/*<<<<<<< HEAD
 		GUILayout.BeginHorizontal();
 		GUILayout.Button(usingNameDictionary[0],GUIStyle.none, GUILayout.Height(SwPos * 2));
 		GUILayout.Button(usingNameDictionary[1],GUIStyle.none, GUILayout.Height(SwPos * 2));
 		GUILayout.Button(usingNameDictionary[2],GUIStyle.none, GUILayout.Height(SwPos * 2));
 		GUILayout.EndHorizontal();
-=======
+=======*/
 			GUILayout.BeginHorizontal();
 			GUILayout.Button(usingNameDictionary[0].naam, 	GUILayout.Height(SwPos * 2));
 			GUILayout.Button(usingNameDictionary[1].naam, 	GUILayout.Height(SwPos * 2));
 			//GUILayout.Button(usingNameDictionary[2].naam, 	GUILayout.Height(SwPos * 2));
 			GUILayout.EndHorizontal();
->>>>>>> origin/master
 
 		GUILayout.EndArea();
 
