@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class PlayerControl : MonoBehaviour {
+	/*---Animations en audio---*/
+	private Animator animator;
+	public AudioClip Playerhit1,Playerhit2,Playerhit3,PlayerDeath;
+
 	/*--- PUBLICS ---*/
 	//list
 	public static List<PathNode> solvedPath = new List<PathNode>();
@@ -15,7 +19,7 @@ public class PlayerControl : MonoBehaviour {
 	private int lastStartIndex;
 	private int lastEndIndex;
 	private int place;
-
+	private int battleRoar;
 	//gameobject
 	private GameObject start;
 	private GameObject end;
@@ -32,7 +36,7 @@ public class PlayerControl : MonoBehaviour {
 	void Start () {
 		sources = HexGrid.sources;
 		start = this.gameObject;
-
+		animator = GetComponent<Animator>();
 		int initPos = Closest(sources, start.transform.position);
 		transform.position = sources[initPos].transform.position;
 
@@ -50,6 +54,7 @@ public class PlayerControl : MonoBehaviour {
 	}
 
 	private IEnumerator Move () {
+		/*--- MOVEMENT ---*/
 		/*List<PathNode> fieldOfView = PathNode.FieldOfView(start, 0.5f);
 
 		foreach (PathNode hex in sources) {
@@ -91,10 +96,26 @@ public class PlayerControl : MonoBehaviour {
 	}
 
 	private void HitPlayer () {
+		/*--- ENEMY ATTACK ---*/
 		if (GlobalValues.playerHP != 0) {
 			GlobalValues.playerHP--;
+			battleRoar = Random.Range(1,10);
+			switch(battleRoar){
+			case 1:
+				AudioSource.PlayClipAtPoint(Playerhit1, transform.position, 1);
+			break;
+			case 2:
+				AudioSource.PlayClipAtPoint(Playerhit2, transform.position, 1);
+				break;
 
+			default:
+				AudioSource.PlayClipAtPoint(Playerhit3, transform.position, 1);
+				break;
+
+			}
 			if(GlobalValues.playerHP == 0){
+				GlobalValues.playerHP = 10;
+				AudioSource.PlayClipAtPoint(PlayerDeath, transform.position, 1);
 				Application.LoadLevel("PeterTest");
 			}
 		}

@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class EnemyControl : MonoBehaviour {
+	public Animator animator;
+	public AudioClip playerHit1,playerHit2,playerHit3,playerDeath;
 	/*--- PUBLICS ---*/
 	//list
 	public static List<PathNode> E_solvedPath = new List<PathNode>();
@@ -21,6 +23,7 @@ public class EnemyControl : MonoBehaviour {
 	private int E_lastStartIndex;
 	private int E_lastEndIndex;
 	private int E_place;
+	private int playerPain;
 
 	private int HitPoints = 5;
 
@@ -40,6 +43,7 @@ public class EnemyControl : MonoBehaviour {
 	/*--- END PRIVATES ---*/
 	
 	void Start () {
+		animator = GetComponent<Animator>();
 		E_sources = HexGrid.sources;
 		E_start = this.gameObject;
 	}
@@ -55,6 +59,7 @@ public class EnemyControl : MonoBehaviour {
 	}
 	
 	private IEnumerator Move () {
+		/*--- MOVEMENT ---*/
 		float dist = Mathf.Pow(transform.position.x - GlobalValues.player.transform.position.x, 2) + Mathf.Pow(transform.position.y - GlobalValues.player.transform.position.y, 2);
 		Mathf.Sqrt(dist);
 
@@ -77,6 +82,7 @@ public class EnemyControl : MonoBehaviour {
 	}
 
 	private void HitEnemy () {
+		/*--- PLAYER HITS ---*/
 		if (HitPoints != 0) {
 			Vector2 mousePos = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			float dist = Mathf.Pow(mousePos.x - transform.position.x,2) + Mathf.Pow(mousePos.y - transform.position.y,2);
@@ -87,8 +93,23 @@ public class EnemyControl : MonoBehaviour {
 			
 			if(dist < radius && ply < (radius + 1.0f)){
 				HitPoints -= GlobalValues.Power + 1;
-				
+				playerPain = Random.Range(1,10);
+				Debug.Log(playerPain);
+				switch(playerPain){
+				case 1:
+					AudioSource.PlayClipAtPoint(playerHit1, transform.position, 1);
+					break;
+				case 2:
+					AudioSource.PlayClipAtPoint(playerHit2, transform.position, 1);
+					break;
+					
+				default:
+					AudioSource.PlayClipAtPoint(playerHit3, transform.position, 1);
+					break;
+					
+				}
 				if(HitPoints == 0){
+					AudioSource.PlayClipAtPoint(playerDeath, transform.position, 1);
 					Destroy(gameObject);
 				}
 			}
