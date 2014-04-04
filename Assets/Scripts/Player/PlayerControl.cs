@@ -116,7 +116,7 @@ public class PlayerControl : MonoBehaviour {
 			if(GlobalValues.playerHP == 0){
 				GlobalValues.playerHP = 10;
 				AudioSource.PlayClipAtPoint(PlayerDeath, transform.position, 1);
-				Application.LoadLevel("PeterTest");
+				Application.LoadLevel("lose");
 			}
 		}
 	}

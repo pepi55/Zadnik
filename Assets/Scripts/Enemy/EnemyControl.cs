@@ -94,7 +94,6 @@ public class EnemyControl : MonoBehaviour {
 			if(dist < radius && ply < (radius + 1.0f)){
 				HitPoints -= GlobalValues.Power + 1;
 				playerPain = Random.Range(1,10);
-				Debug.Log(playerPain);
 				switch(playerPain){
 				case 1:
 					AudioSource.PlayClipAtPoint(playerHit1, transform.position, 1);
@@ -126,13 +125,13 @@ public class EnemyControl : MonoBehaviour {
 			}
 			
 			if (E_start == null) {
-				Debug.LogWarning("No start point!");
+				//Debug.LogWarning("No start point!");
 				
 				E_pathDone = true;
 			}
 			
 			if (E_end == null) {
-				Debug.LogWarning("No end point!");
+				//Debug.LogWarning("No end point!");
 				
 				E_pathDone = true;
 			}
@@ -155,7 +154,7 @@ public class EnemyControl : MonoBehaviour {
 			}
 			
 			if (E_solvedPath == null || E_solvedPath.Count < 1) {
-				Debug.LogWarning("Invalid path!");
+				//Debug.LogWarning("Invalid path!");
 				E_reset = true;
 				
 				break;
@@ -168,7 +167,7 @@ public class EnemyControl : MonoBehaviour {
 					continue;
 				}
 				
-				Debug.DrawLine(E_solvedPath[i].Position, E_solvedPath[i + 1].Position, Color.cyan * new Color(1.0f, 1.0f, 1.0f, 1.0f));
+				//Debug.DrawLine(E_solvedPath[i].Position, E_solvedPath[i + 1].Position, Color.cyan * new Color(1.0f, 1.0f, 1.0f, 1.0f));
 			}
 			
 			if (E_reset) {

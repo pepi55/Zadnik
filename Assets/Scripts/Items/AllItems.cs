@@ -178,7 +178,6 @@ public class AllItems : MonoBehaviour {
 		arrowIcon = eArrowIcon;
 		wandIcon  = eWandIcon;
 		emptyIcon = eEmptyIcon;
-		Debug.Log(swordIcon1);
 
 	}
 
