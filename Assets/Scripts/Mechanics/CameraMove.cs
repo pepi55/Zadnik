@@ -39,11 +39,27 @@ public class CameraMove : MonoBehaviour {
 				distY = touchBegin.y - touch.y ;
 
 				if(distX > 10){
-					Debug.Log("Left");
+					//Debug.Log("Left");
 					transform.Translate(distX / intensity,0,0);
 				}else if(distX < -10){
-					Debug.Log("Right" + distX +"TouchX"+ touchBegin.x +"TouchX2"+ touch.x);
+					//Debug.Log("Right" + distX +"TouchX"+ touchBegin.x +"TouchX2"+ touch.x);
 					transform.Translate(distX / intensity,0,0);
+				}
+				/*--- Y pos ---*/
+				if (transform.position.y > 8.74f) {
+					transform.position.y = -9.5f;
+				}
+
+				if (transform.position.y < -9.5f) {
+					transform.position.y = 8.74f;
+				}
+				/*--- X pos ---*/
+				if (transform.position.x > 12.12174f) {
+					transform.position.x = -9.5f;
+				}
+
+				if (transform.position.x < -9.5f) {
+					transform.position.x = 12.12174f;
 				}
 
 				if(distY > 100){

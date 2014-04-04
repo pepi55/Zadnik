@@ -116,8 +116,6 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 		//Random.seed = 1337;
 		float reset = randomSpace;
 
-		bool endCreated = false;
-
 		for (int x = 0; x < xCount; x++) {
 			float xPos = (x * offsetX/*spacing.x*/) + xStart;
 
