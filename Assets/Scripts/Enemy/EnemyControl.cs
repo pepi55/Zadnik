@@ -149,13 +149,9 @@ public class EnemyControl : MonoBehaviour {
 			}
 			
 			if (E_end == null) {
-<<<<<<< HEAD
 				Debug.LogWarning("No end point!");
 				animator.SetInteger("Choice",0);
-=======
 				//Debug.LogWarning("No end point!");
-				
->>>>>>> FETCH_HEAD
 				E_pathDone = true;
 			}
 			
