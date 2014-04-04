@@ -47,8 +47,8 @@ public static class GlobalValues {
 	public static int Power;
 	public static int DummyKill = 5;
 
-	public static int gridH;
-	public static int gridW;
+	public static int gridH = 20;
+	public static int gridW = 20;
 
 	public static int playerHP = 10;
 	
