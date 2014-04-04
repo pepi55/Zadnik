@@ -109,8 +109,7 @@ public class ScreenBtns : MonoBehaviour {
 		string goldPoints 		= GlobalValues.ExpCount.ToString();
 		string widthPoints 		= Screen.width.ToString();
 		string heightPoints 	= Screen.height.ToString();
-
-
+		GUI.skin.box.fontSize = 20;
 		GUILayout.Box("KillCount = " 	+ killPoints);
 		GUILayout.Box("Exp earned = " 	+ expPoints);
 		GUILayout.Box("Gold earned = " 	+ goldPoints);
