@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class PlayerControl : MonoBehaviour {
 	/*---Animations en audio---*/
-	private Animator animator;
+//	private Animator animator;
 	public AudioClip Playerhit1,Playerhit2,Playerhit3,PlayerDeath;
 
 	/*--- PUBLICS ---*/
@@ -36,7 +36,7 @@ public class PlayerControl : MonoBehaviour {
 	void Start () {
 		sources = HexGrid.sources;
 		start = this.gameObject;
-		animator = GetComponent<Animator>();
+//		animator = GetComponent<Animator>();
 		int initPos = Closest(sources, start.transform.position);
 		transform.position = sources[initPos].transform.position;
 

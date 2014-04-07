@@ -6,7 +6,7 @@ public class ChestTest : MonoBehaviour {
 //	Item itemObject = new Item();
 
 	public Texture2D background, Empty;
-	private string  Item1, Item2, Item3;
+	private Texture2D  Item1, Item2, Item3;
 	
 	private float radius; 
 	private float Luck;
@@ -36,7 +36,7 @@ public class ChestTest : MonoBehaviour {
 		itemComponent = GetComponent<AllItems>();
 		animator = GetComponent<Animator>();
 		radius = transform.localScale.x;
-		Item1 = lootDictionary[0].naam;
+		Item1 = lootDictionary[0].icon;
 		/*lootDictionary[0] = AllItems.swordIcon1;
 		lootDictionary[1] = AllItems.wandIcon;*/
 	}
@@ -106,17 +106,18 @@ public class ChestTest : MonoBehaviour {
 		}
 
 		if (GUI.Button(new Rect(0,30, SwPos,ShPos),	Item1,GUIStyle.none)){
-			if(!Obtain1){	
+			if(!Obtain1){
+				Item1 = AllItems.Item[0].icon;
 				for(int i = 0; 0 < 9;i++){
-					if(Inventory.inventoryNameDictionary[i] == null){
+					if(Inventory.inventoryNameDictionary[i] == AllItems.Item[0]){
 						Inventory.inventoryNameDictionary[i] = lootDictionary[0];
 						Obtain1 = true;
 						break;
 					}
-					Item1 = string.Empty;
+					Item1 = AllItems.Item[0].icon;
 				}
 			}else{
-				Debug.Log("This slot is empty");
+				Debug.Log("This slot is empty number1");
 				
 			}
 		}
@@ -124,22 +125,21 @@ public class ChestTest : MonoBehaviour {
 			if(!Obtain2){
 				Obtain2 = true;
 			}else{
-				Debug.Log("This slot is empty");
+				Debug.Log("This slot is empty number2");
 				
 			}
 		}
 		if (GUI.Button(new Rect(SwPos * 2,30, SwPos,ShPos), Item3,GUIStyle.none)){
 			if(!Obtain3){
 				for(int j = 0; 0 < 9;j++){
-					if(Inventory.inventoryNameDictionary[j] == null){
+					if(Inventory.inventoryNameDictionary[j] == AllItems.Item[0]){
 						Inventory.inventoryNameDictionary[j] =  lootDictionary[2];
-						Item3 = "";
 						Obtain3 = true;
 						break;
 					}
 				}
 			}else{
-				Debug.Log("This slot is empty");
+				Debug.Log("This slot is empty number3");
 				
 			}
 		}
