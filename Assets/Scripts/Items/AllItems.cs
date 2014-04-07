@@ -48,8 +48,8 @@ public class AllItems : MonoBehaviour {
 	static public Texture2D wandIcon;
 
 	static public List<ItemCreate> Item = new List<ItemCreate>{
-		new	ItemCreate(1,"Regular Swords",	swordIcon1,"This sword is pretty basic"),
-		new ItemCreate(1,"Casual Sword  ",	swordIcon2,"Talkin about casual...."),
+		new	ItemCreate(0,"Empty",	emptyIcon,"You've chosen nothing"),
+		new ItemCreate(1,"Casual Sword  ",	swordIcon1,"Talkin about casual...."),
 		new ItemCreate(2,"Basic Sword",		swordIcon3,"Mere basic"),
 		new ItemCreate(3,"Swords",			swordIcon4,"what did you expect?"),
 		new ItemCreate(4,"Toothpick",		swordIcon5,"It cuts through meat...between my teeth"),
@@ -83,6 +83,11 @@ public class AllItems : MonoBehaviour {
 		arrowIcon = eArrowIcon;
 		wandIcon  = eWandIcon;
 		emptyIcon = eEmptyIcon;
+		Item[1].icon = swordIcon1;
+		Item[2].icon = swordIcon2;
+		Item[3].icon = swordIcon3;
+		Item[4].icon = swordIcon4;
+		Debug.Log(Item[1].icon);
 
 	}
 
