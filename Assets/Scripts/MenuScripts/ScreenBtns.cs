@@ -130,10 +130,10 @@ public class ScreenBtns : MonoBehaviour {
 			Application.LoadLevel(LvlName);
 
 		}
-		if (GUILayout.Button(howtoBtn,GUIStyle.none)){
+		/*if (GUILayout.Button(howtoBtn,GUIStyle.none)){
 			clicked = "howToPlay";
 			
-		}
+		}*/
 		if (GUILayout.Button(statBtn,GUIStyle.none)){
 			clicked = "stat";
 
