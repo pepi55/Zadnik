@@ -87,7 +87,6 @@ public class AllItems : MonoBehaviour {
 		Item[2].icon = swordIcon2;
 		Item[3].icon = swordIcon3;
 		Item[4].icon = swordIcon4;
-		Debug.Log(Item[1].icon);
 
 	}
 
