@@ -27,8 +27,8 @@ public class ChestTest : MonoBehaviour {
 
 	public static Dictionary<int,AllItems.ItemCreate> lootDictionary = new Dictionary<int, AllItems.ItemCreate>(){
 		{0,AllItems.Item[1]},
-		{1,AllItems.Item[2]},
-		{2,AllItems.Item[3]},
+		{1,AllItems.Item[0]},
+		{2,AllItems.Item[0]},
 
 	};
 
@@ -37,6 +37,8 @@ public class ChestTest : MonoBehaviour {
 		animator = GetComponent<Animator>();
 		radius = transform.localScale.x;
 		Item1 = lootDictionary[0].icon;
+		Item2 = lootDictionary[1].icon;
+		Item3 = lootDictionary[2].icon;
 		/*lootDictionary[0] = AllItems.swordIcon1;
 		lootDictionary[1] = AllItems.wandIcon;*/
 	}
