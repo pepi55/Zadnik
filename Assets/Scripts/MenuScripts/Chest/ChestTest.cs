@@ -111,6 +111,7 @@ public class ChestTest : MonoBehaviour {
 				for(int i = 0; 0 < 9;i++){
 					if(Inventory.inventoryNameDictionary[i] == AllItems.Item[0]){
 						Inventory.inventoryNameDictionary[i] = lootDictionary[0];
+						Inventory.usingNameDictionary[i] = lootDictionary[0];
 						Obtain1 = true;
 						break;
 					}

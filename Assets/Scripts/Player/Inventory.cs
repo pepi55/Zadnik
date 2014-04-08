@@ -141,7 +141,7 @@ public class Inventory : MonoBehaviour {
 
 	}
 	void EquipmentWindowFunc(int id){
-		GUILayout.BeginArea(new Rect(SwPos,ShPos * 5,SwPos * 6,ShPos * 5));
+		GUILayout.BeginArea(new Rect(SwPos,ShPos,SwPos * 6,ShPos * 5));
 		
 		GUILayout.BeginHorizontal();
 			GUILayout.Button(usingNameDictionary[0].icon, 	GUILayout.Height(SwPos * 2));
