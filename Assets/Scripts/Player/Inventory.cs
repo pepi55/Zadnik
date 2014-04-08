@@ -115,6 +115,7 @@ public class Inventory : MonoBehaviour {
 						for(int q = 0;q < 2;q++){
 							if(usingNameDictionary[q].icon = AllItems.Item[0].icon)
 								usingNameDictionary[q] = inventoryNameDictionary[0];
+								Debug.Log(usingNameDictionary[q].naam);
 								inventoryNameDictionary[0].icon = AllItems.Item[0].icon;
 							break;
 						}
@@ -143,11 +144,11 @@ public class Inventory : MonoBehaviour {
 	void EquipmentWindowFunc(int id){
 		GUILayout.BeginArea(new Rect(SwPos,ShPos,SwPos * 6,ShPos * 5));
 		
-		GUILayout.BeginHorizontal();
-			GUILayout.Button(usingNameDictionary[0].icon, 	GUILayout.Height(SwPos * 2));
-			GUILayout.Button(usingNameDictionary[1].icon, 	GUILayout.Height(SwPos * 2));
-			GUILayout.Button(usingNameDictionary[2].icon, 	GUILayout.Height(SwPos * 2));
-		GUILayout.EndHorizontal();
+		GUILayout.BeginVertical();
+			GUILayout.Button(usingNameDictionary[0].icon,GUIStyle.none, 	GUILayout.Height(SwPos));
+			GUILayout.Button(usingNameDictionary[1].icon,GUIStyle.none, 	GUILayout.Height(SwPos));
+			GUILayout.Button(usingNameDictionary[2].icon,GUIStyle.none, 	GUILayout.Height(SwPos));
+		GUILayout.EndVertical();
 		
 		GUILayout.EndArea();
 
