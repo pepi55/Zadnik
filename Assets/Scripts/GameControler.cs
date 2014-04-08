@@ -34,16 +34,14 @@ public class GameControler : MonoBehaviour {
 	}
 
 	void Update () {
-		/*if (Input.touchCount == 1) {
+		if (Input.touchCount == 1) {
 			selectHexRay = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position), Vector2.zero);
 
-			if (selectHexRay.collider != null) {
+			if (selectHexRay.collider != null && !GlobalValues.invOpen) {
 				if (selectHexRay.collider.tag == GlobalValues.enemyTag) {
-					if (HitEnemy != null && EnemyAction != null) {
-						HitEnemy();
-						EnemyAction();
-					}
-				} else if (selectHexRay.collider.tag == GlobalValues.cellTag) {
+					HitEnemy();
+					EnemyAction();
+				} else if (selectHexRay.collider.tag == GlobalValues.cellTag || selectHexRay.collider.tag == GlobalValues.finishedLevel) {
 					GlobalValues.targetTile = selectHexRay.transform.gameObject;
 					
 					if (PlayerClick != null) {
@@ -55,9 +53,9 @@ public class GameControler : MonoBehaviour {
 					}
 				}
 			}
-		}*/
+		}
 
-		if (Input.GetMouseButtonDown(0) == true) {
+		/*if (Input.GetMouseButtonDown(0) == true) {
 			selectHexRay = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
 			if (selectHexRay.collider != null && !GlobalValues.invOpen) {
@@ -76,6 +74,6 @@ public class GameControler : MonoBehaviour {
 					}
 				}
 			}
-		}
+		}*/
 	}
 }
