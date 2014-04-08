@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Inventory : MonoBehaviour {
-	private AllItems itemComponent;
+//	private AllItems itemComponent;
 
 	private float SwPos = Screen.height / 10;
 	private float ShPos = Screen.width / 10;
@@ -40,20 +40,11 @@ public class Inventory : MonoBehaviour {
 	};
 	
 	void Start(){
-		itemComponent = GetComponent<AllItems>();
+		//itemComponent = GetComponent<AllItems>();
 		animator = GetComponent<Animator>();
 		animator.GetBool("Open");
 		radius = transform.localScale.x;
-
-		/*for(int i = 0;i < 9 ; i++){
-			if(inventoryNameDictionary[i] != null){
-				inventoryNameDictionary[i] = null;
-
-			}
-		}*/
 	
-
-		
 	}
 	void Update () {
 		//transform.position = new Vector2(SwPos * 8, ShPos * 8);
@@ -112,29 +103,31 @@ public class Inventory : MonoBehaviour {
 			GUILayout.BeginHorizontal();
 
 				if(GUILayout.Button(inventoryNameDictionary[0].icon,GUIStyle.none, GUILayout.Width(SwPos * 2))){
-						for(int q = 0;q < 2;q++){
-							if(usingNameDictionary[q].icon = AllItems.Item[0].icon)
-								usingNameDictionary[q] = inventoryNameDictionary[0];
-								Debug.Log(usingNameDictionary[q].naam);
-								inventoryNameDictionary[0].icon = AllItems.Item[0].icon;
-							break;
+					for(int q = 0;q < 2;q++){
+						if(usingNameDictionary[q].naam == "Empty"){
+						usingNameDictionary[q] = inventoryNameDictionary[0];
+						inventoryNameDictionary[0] = AllItems.Item[0];
+						break;
 						}
+					}
 				}
 
 				if(GUILayout.Button(inventoryNameDictionary[1].icon,GUIStyle.none, GUILayout.Width(SwPos * 2))){
-						for(int w = 0;w < 2;w++){
-							if(usingNameDictionary[w].icon = AllItems.Item[0].icon){
-								usingNameDictionary[w] = inventoryNameDictionary[0];
-								inventoryNameDictionary[0].icon = AllItems.Item[0].icon;
-							break;
-							}
+					for(int w = 0;w < 2;w++){
+							if(usingNameDictionary[w].naam == "Empty"){
+							usingNameDictionary[w] = inventoryNameDictionary[0];
+							inventoryNameDictionary[0] = AllItems.Item[0];
+						break;
 						}
+					}
 				}
 				if(GUILayout.Button(inventoryNameDictionary[2].icon,GUIStyle.none, GUILayout.Width(SwPos * 2))){
 					for(int e = 0;e < 2;e++){
-						usingNameDictionary[e] = inventoryNameDictionary[0];
-						inventoryNameDictionary[0].icon = AllItems.Item[0].icon;
-						break;
+						if(usingNameDictionary[e].naam == "Empty"){
+							usingNameDictionary[e] = inventoryNameDictionary[0];
+							inventoryNameDictionary[0] = AllItems.Item[0];
+							break;
+						}
 					}
 				}
 			GUILayout.EndHorizontal();	
