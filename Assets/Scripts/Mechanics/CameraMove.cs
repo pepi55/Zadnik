@@ -53,25 +53,25 @@ public class CameraMove : MonoBehaviour {
 				}
 				/*--- Y pos ---*/
 				if (transform.position.y > 8.74f) {
-					pos.y = -9.5f;
+					pos.y = 0f; //-9.5f;
 
 					transform.position = pos;
 				}
 
 				if (transform.position.y < -9.5f) {
-					pos.y = 8.74f;
+					pos.y = 0f; //8.74f;
 
 					transform.position = pos;
 				}
 				/*--- X pos ---*/
 				if (transform.position.x > 12.12174f) {
-					pos.x = -9.5f;
+					pos.x = 0f; //-9.5f;
 
 					transform.position = pos;
 				}
 
 				if (transform.position.x < -9.5f) {
-					pos.x = 12.12174f;
+					pos.x = 0f; //12.12174f;
 
 					transform.position = pos;
 				}
