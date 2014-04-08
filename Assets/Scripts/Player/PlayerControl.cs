@@ -115,6 +115,7 @@ public class PlayerControl : MonoBehaviour {
 			}
 			if(GlobalValues.playerHP == 0){
 				GlobalValues.playerHP = 10;
+				GlobalValues.screenStance = false;
 				AudioSource.PlayClipAtPoint(PlayerDeath, transform.position, 1);
 				Application.LoadLevel("lose");
 			}
