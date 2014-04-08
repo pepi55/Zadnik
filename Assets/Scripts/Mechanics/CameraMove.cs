@@ -22,6 +22,8 @@ public class CameraMove : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		if (Input.touchCount == 2){
+			GlobalValues.invOpen = true;
+
 			Vector2 touch = new Vector2();
 			Vector2 touchBegin = new Vector2();
 
@@ -81,5 +83,7 @@ public class CameraMove : MonoBehaviour {
 				}
 			}
 		}
+
+		GlobalValues.invOpen = false;
 	}
 }
