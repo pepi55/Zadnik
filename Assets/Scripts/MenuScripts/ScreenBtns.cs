@@ -46,10 +46,10 @@ public class ScreenBtns : MonoBehaviour {
 			WindowRect = GUI.Window(0, HugeRect, menuFunc, "Main Menu" ,GUIStyle.none);
 
 		}
-		else if(clicked == "howToPlay"){
+		/*else if(clicked == "howToPlay"){
 			WindowRect = GUI.Window(1, HugeRect, HowToFunc, "howToPlay" ,GUIStyle.none);
 
-		}
+		}*/
 		else if(clicked == "stat"){
 			WindowRect = GUI.Window(2, HugeRect, StatFunc, "Your Stats" ,GUIStyle.none);
 
@@ -126,6 +126,7 @@ public class ScreenBtns : MonoBehaviour {
 	private void menuFunc(int id)
 	{
 		if (GUILayout.Button(startBtn,GUIStyle.none)){
+			GlobalValues.screenStance = true;
 			Application.LoadLevel(LvlName);
 
 		}
@@ -138,10 +139,10 @@ public class ScreenBtns : MonoBehaviour {
 
 		}
 
-		if (GUILayout.Button(optionBtn,GUIStyle.none)){
+		/*if (GUILayout.Button(optionBtn,GUIStyle.none)){
 			clicked = "options";
 
-		}
+		}*/
 		if (GUILayout.Button(creditBtn,GUIStyle.none)){
 			clicked = "credits";
 
