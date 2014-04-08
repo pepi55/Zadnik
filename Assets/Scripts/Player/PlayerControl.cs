@@ -84,7 +84,23 @@ public class PlayerControl : MonoBehaviour {
 
 				solvedPath[i].tag = GlobalValues.cellTag;
 
-				if (solvedPath[i].tag == GlobalValues.finishedLevel) {
+				/*if (transform.position.y > 6f) {
+					Application.LoadLevel("PeterTest");
+				}*/
+
+				if (transform.position.y > 7f) {
+					Application.LoadLevel("PeterTest");
+				}
+			
+				if (transform.position.y < -7f) {
+					Application.LoadLevel("PeterTest");
+				}
+
+				if (transform.position.x > 7f) {
+					Application.LoadLevel("PeterTest");
+				}
+
+				if (transform.position.x < -7f) {
 					Application.LoadLevel("PeterTest");
 				}
 			} else {
