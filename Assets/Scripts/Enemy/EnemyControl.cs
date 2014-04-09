@@ -113,20 +113,20 @@ public class EnemyControl : MonoBehaviour {
 				playerPain = Random.Range(1,10);
 				switch(playerPain){
 				case 1:
-					AudioSource.PlayClipAtPoint(playerHit1, transform.position, 1);
+					AudioSource.PlayClipAtPoint(playerHit1, transform.position, 10);
 					break;
 				case 2:
-					AudioSource.PlayClipAtPoint(playerHit2, transform.position, 1);
+					AudioSource.PlayClipAtPoint(playerHit2, transform.position, 10);
 					break;
 					
 				default:
-					AudioSource.PlayClipAtPoint(playerHit3, transform.position, 1);
+					AudioSource.PlayClipAtPoint(playerHit3, transform.position, 10);
 					break;
 					
 				}
 
 				if(HitPoints == 0){
-					AudioSource.PlayClipAtPoint(playerDeath, transform.position, 1);
+					AudioSource.PlayClipAtPoint(playerDeath, transform.position, 10);
 					Destroy(gameObject);
 				}
 			}
