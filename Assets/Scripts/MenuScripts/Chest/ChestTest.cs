@@ -73,6 +73,7 @@ public class ChestTest : MonoBehaviour {
 					animator.SetBool("Open", true);
 					clickable = false;
 					PopBool = true;
+					GlobalValues.invOpen = true;
 				}
 			}
 
@@ -150,12 +151,14 @@ public class ChestTest : MonoBehaviour {
 			animator.SetBool("Open", false);
 			PopBool = false;
 			clickable = false;
+			GlobalValues.invOpen = false;
 			
 		}
 		if(GUI.Button(new Rect(200 - 20, 0, 20, 20), "X",GUIStyle.none)){
 			animator.SetBool("Open", false);
 			PopBool = false;
 			clickable = false;
+			GlobalValues.invOpen = false;
 			
 		}
 	}

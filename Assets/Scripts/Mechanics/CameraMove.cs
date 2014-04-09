@@ -13,17 +13,16 @@ public class CameraMove : MonoBehaviour {
 	private Vector2 pos;
 	// Use this for initialization
 	void Start () {
-		Screen.orientation = ScreenOrientation.LandscapeLeft;
 		intensity = intensity  + 1;
 
 		pos = transform.position;
 	}
+
+
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 		if (Input.touchCount == 2){
-			GlobalValues.invOpen = true;
-
 			Vector2 touch = new Vector2();
 			Vector2 touchBegin = new Vector2();
 
@@ -83,7 +82,5 @@ public class CameraMove : MonoBehaviour {
 				}
 			}
 		}
-
-		GlobalValues.invOpen = false;
 	}
 }
