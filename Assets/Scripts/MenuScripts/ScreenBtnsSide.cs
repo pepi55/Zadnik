@@ -147,10 +147,10 @@ public class ScreenBtnsSide : MonoBehaviour {
 			clicked = "credits";
 
 		}
-		if (GUILayout.Button(quitbtn,GUIStyle.none)){
+		/*if (GUILayout.Button(quitbtn,GUIStyle.none)){
 			Application.Quit();
 
-		}
+		}*/
 	}
 	//----------------------------------------overige functies die buiten de menu gebeuren-----------------------//
 	private void Update()
