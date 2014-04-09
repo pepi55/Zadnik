@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class ScreenBtns : MonoBehaviour {
-	
+		
 	public Texture2D background, LOGO, startBtn, howtoBtn, statBtn, controllsBtn;
 	public Texture2D optionBtn, creditBtn, quitbtn, volumeBox, brightBox, backBtn;
 	public Texture2D controlBtn,tutBtn;

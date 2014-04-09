@@ -125,7 +125,7 @@ public class EnemyControl : MonoBehaviour {
 					
 				}
 
-				if(HitPoints == 0){
+				if(HitPoints <= 0){
 					AudioSource.PlayClipAtPoint(playerDeath, transform.position, 10);
 					Destroy(gameObject);
 				}
