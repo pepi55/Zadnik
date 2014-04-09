@@ -27,7 +27,7 @@ public class EnemyControl : MonoBehaviour {
 
 	private int strikeInt;
 	private int beingHitInt;
-	private int HitPoints = 5;
+	public int HitPoints = 5;
 
 	//float
 	private float radius = 0.5f;
@@ -44,7 +44,7 @@ public class EnemyControl : MonoBehaviour {
 	private List<PathNode> E_sources;
 	/*--- END PRIVATES ---*/
 
-	void Update(){
+	void Update () {
 		if(strikeInt != 0){
 			strikeInt -= 1;
 		}else{
@@ -125,7 +125,7 @@ public class EnemyControl : MonoBehaviour {
 					
 				}
 
-				if(HitPoints == 0){
+				if (HitPoints <= 0) {
 					AudioSource.PlayClipAtPoint(playerDeath, transform.position, 10);
 					Destroy(gameObject);
 				}
