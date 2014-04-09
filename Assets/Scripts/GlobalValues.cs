@@ -27,6 +27,7 @@ public static class GlobalValues {
 	public static string enemyTag = "enemy";
 	public static string enemyName = "enemy";
 	public static string enemyPath = "Enemies/Enemy1";
+	public static string enemyPath2 = "Enemies/Enemy2";
 
 	public static string gameControllerTag = "GameController";
 	public static string playerTag = "Player";

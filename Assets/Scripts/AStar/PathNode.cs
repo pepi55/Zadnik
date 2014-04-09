@@ -143,15 +143,26 @@ public class PathNode : MonoBehaviour, IPathNode<PathNode> {
 					if (randomSpace > 0.2f && randomSpace < 0.21f) { /*Random.value > 0.15 && Random.value < 0.1*/
 						GameObject enemy;
 
-						enemy = (GameObject)Instantiate(Resources.Load(GlobalValues.enemyPath), newPos, Quaternion.identity);
-						enemy.tag = GlobalValues.enemyTag;
-						enemy.name = GlobalValues.enemyName;
-						enemy.transform.parent = enemies.transform;
+						if (randomSpace > 0.2f && randomSpace < 0.205f) {
+							enemy = (GameObject)Instantiate(Resources.Load(GlobalValues.enemyPath), newPos, Quaternion.identity);
 
-						//newNode.tag = GlobalValues.enemyTag;
-						//newNode.enabled = false;
+							enemy.tag = GlobalValues.enemyTag;
+							enemy.name = GlobalValues.enemyName;
+							enemy.transform.parent = enemies.transform;
+							
+							//newNode.tag = GlobalValues.enemyTag;
+							//newNode.enabled = false;
+							
+							GlobalValues.enemies.Add(enemy);
+						} else if (randomSpace > 0.205f && randomSpace < 0.21f) {
+							enemy = (GameObject)Instantiate(Resources.Load(GlobalValues.enemyPath2), newPos, Quaternion.identity);
 
-						GlobalValues.enemies.Add(enemy);
+							enemy.tag = GlobalValues.enemyTag;
+							enemy.name = GlobalValues.enemyName;
+							enemy.transform.parent = enemies.transform;
+
+							GlobalValues.enemies.Add(enemy);
+						}
 					} else if (randomSpace > 0.05f && randomSpace < 0.2f) { /*Random.value > 0.05f && Random.value < 0.15f*/
 						GameObject wall;
 
