@@ -10,10 +10,10 @@ public class Inventory : MonoBehaviour {
 	private float radius;
 
 
-	private Rect invertoryRect 			= new Rect(Screen.height / 10,Screen.width / 10,Screen.height / 10 * 7,Screen.width / 10 * 6);
-	private Rect invertoryRectWindow 	= new Rect(Screen.height / 10,Screen.width / 10,Screen.height / 10 * 7,Screen.width / 10 * 6);
-	private Rect equipmentRect 			= new Rect(Screen.height / 10 * 6,Screen.width / 10,Screen.height / 10 * 4,Screen.width / 10 * 4);
-	private Rect equipmentRectWindow 	= new Rect(Screen.height / 10 * 6,Screen.width / 10 * 1.15f,Screen.height / 10 * 4,Screen.width / 10 * 4);
+	private Rect invertoryRect 			= new Rect(Screen.height / 10,Screen.width / 10,Screen.width / 10 * 7,Screen.height / 10 * 6);
+	private Rect invertoryRectWindow 	= new Rect(Screen.height / 10,Screen.width / 10,Screen.width / 10 * 7,Screen.height / 10 * 6);
+	private Rect equipmentRect 			= new Rect(Screen.width / 10 * 6,Screen.height / 10,Screen.height / 10 * 4,Screen.width / 10 * 4);
+	private Rect equipmentRectWindow 	= new Rect(Screen.width / 10 * 6,Screen.height / 10 * 1.15f,Screen.height / 10 * 4,Screen.width / 10 * 4);
 
 	private bool inventoryWindowShow = false;
 	private bool clickable = true;
