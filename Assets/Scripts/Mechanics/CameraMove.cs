@@ -10,7 +10,7 @@ public class CameraMove : MonoBehaviour {
 	private float distY;
 	public 	float intensity = 8;
 
-	private Vector2 pos;
+	private Vector3 pos;
 	// Use this for initialization
 	void Start () {
 		intensity = intensity  + 1;
@@ -28,6 +28,7 @@ public class CameraMove : MonoBehaviour {
 
 			//---------------------- De begin van de aanraking op het scherm----------------------------//
 			if(Input.GetTouch(0).phase == TouchPhase.Began){
+				GlobalValues.invOpen = true;
 				mousePos = Input.GetTouch(0).position;
 			}
 
@@ -35,7 +36,9 @@ public class CameraMove : MonoBehaviour {
 			if(Input.GetTouch(0).phase == TouchPhase.Stationary){
 				mousePos = Input.GetTouch(0).position;
 			}
-
+			if(Input.GetTouch(0).phase == TouchPhase.Canceled || Input.GetTouch(0).phase == TouchPhase.Ended ){
+				GlobalValues.invOpen = false;
+			}
 			//----------------------- Wanneer de beweging gebeurt ---------------------------//
 			if(Input.GetTouch(0).phase == TouchPhase.Moved){
 				touchBegin = mousePos;
@@ -52,25 +55,27 @@ public class CameraMove : MonoBehaviour {
 				}
 				/*--- Y pos ---*/
 				if (transform.position.y > 8.74f) {
-					pos.y = 0f; //-9.5f;
+					pos.y = -9.5f;
+					//pos.z = -10;
 
 					transform.position = pos;
 				}
 
 				if (transform.position.y < -9.5f) {
-					pos.y = 0f; //8.74f;
+					pos.y = 8.74f;
+
 
 					transform.position = pos;
 				}
 				/*--- X pos ---*/
 				if (transform.position.x > 12.12174f) {
-					pos.x = 0f; //-9.5f;
+					pos.x = -9.5f;
 
 					transform.position = pos;
 				}
 
 				if (transform.position.x < -9.5f) {
-					pos.x = 0f; //12.12174f;
+					pos.x = 12.12174f;
 
 					transform.position = pos;
 				}

@@ -64,7 +64,7 @@ public class ChestTest : MonoBehaviour {
 	
 	void Update(){
 		if(clickable){
-			if(Input.GetMouseButtonDown(0)){
+			/*if(Input.GetMouseButtonDown(0)){
 				Vector3 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 				float dist = Mathf.Pow(MousePos.x - transform.position.x,2) + Mathf.Pow(MousePos.y - transform.position.y,2);
 				dist = Mathf.Sqrt(dist);	
@@ -75,13 +75,11 @@ public class ChestTest : MonoBehaviour {
 					PopBool = true;
 					GlobalValues.invOpen = true;
 				}
-			}
-
-
-			/*if(Input.GetMouseButtonDown(0)){
-				Vector3 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-				float dist = Mathf.Pow(MousePos.x - transform.position.x,2) + Mathf.Pow(MousePos.y - transform.position.y,2);
-				float ply = Mathf.Pow(MousePos.x - GlobalValues.player.transform.position.x, 2) + Mathf.Pow(MousePos.y - GlobalValues.player.transform.position.y, 2);
+			}*/
+			if(Input.GetMouseButtonDown(0)){
+				Vector2 mousePos = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+				float dist = Mathf.Pow(mousePos.x - transform.position.x,2) + Mathf.Pow(mousePos.y - transform.position.y,2);
+				float ply = Mathf.Pow(mousePos.x - GlobalValues.player.transform.position.x, 2) + Mathf.Pow(mousePos.y - GlobalValues.player.transform.position.y, 2);
 				
 				ply = Mathf.Sqrt(ply);
 				dist = Mathf.Sqrt(dist);
@@ -90,13 +88,13 @@ public class ChestTest : MonoBehaviour {
 					animator.SetBool("Open", true);
 					clickable = false;
 					PopBool = true;
+					GlobalValues.invOpen = true;
 				}
 		
-			}*
-		}*/
-			if(Input.GetMouseButtonUp(0)){
-				clickable = true;
 			}
+		}
+		if(Input.GetMouseButtonUp(0)){
+			clickable = true;
 		}
 		//	Destroy(gameObject);*
 	}

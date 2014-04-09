@@ -8,6 +8,7 @@ public class DummyAnimation : MonoBehaviour {
 	private Animator animator;
 	private int HitAnim = 0;
 	private int HitPoints = 5;
+	private bool clickable = true;
 	void OnEnable () {
 		GameControler.EnemyAction += HitDummy;
 	}
@@ -24,8 +25,10 @@ public class DummyAnimation : MonoBehaviour {
 	void Update () {
 		animator.SetInteger("Lives",HitPoints);
 
-		if(HitPoints == 0 || HitPoints < 0){	
+		if(HitPoints == 0 || HitPoints < 0){
+
 			animator.SetBool("Alive",false);
+			clickable = false;
 		}
 
 		if(HitAnim != 0){
@@ -55,6 +58,9 @@ public class DummyAnimation : MonoBehaviour {
 	}
 
 	private void HitDummy () {
+		if(HitPoints < 0){
+			HitPoints = 0;
+		}
 		if (HitPoints != 0) {
 			Vector2 mousePos = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			float dist = Mathf.Pow(mousePos.x - transform.position.x,2) + Mathf.Pow(mousePos.y - transform.position.y,2);
@@ -69,11 +75,12 @@ public class DummyAnimation : MonoBehaviour {
 				HitAnim = 20;
 				animator.SetInteger("Hit",HitAnim);
 				
-				if(HitPoints == 0){
+				if(HitPoints == 0 && clickable){
+					GlobalValues.playerHP += 3;
 					GlobalValues.DummyKill -= 1;
 					Debug.Log(GlobalValues.DummyKill);
 					AudioSource.PlayClipAtPoint(dummyDeath, transform.position, 1);
-					GlobalValues.playerHP += 1;
+
 				}
 			}
 		}
