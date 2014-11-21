@@ -33,7 +33,6 @@ public class Fader : MonoBehaviour {
 		if(Input.GetMouseButtonDown(0) && !sceneStart){
 			GlobalValues.screenStance = false;
 			EndScene();
-			Debug.Log("FUCK YEAH");
 		}
 	}
 	void StartScene(){

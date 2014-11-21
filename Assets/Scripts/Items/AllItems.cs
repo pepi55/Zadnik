@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System;
 
 public class AllItems : MonoBehaviour {
+
 	private float randomChoice;
 
 	public Texture2D eSwordIcon1;
@@ -48,7 +49,7 @@ public class AllItems : MonoBehaviour {
 	static public Texture2D wandIcon;
 
 	static public List<ItemCreate> Item = new List<ItemCreate>{
-		new	ItemCreate(0,"Empty",	emptyIcon,"You've chosen nothing"),
+		new	ItemCreate(0,"Empty",			emptyIcon,"You've chosen nothing"),
 		new ItemCreate(1,"Casual Sword  ",	swordIcon1,"Talkin about casual...."),
 		new ItemCreate(2,"Basic Sword",		swordIcon3,"Mere basic"),
 		new ItemCreate(3,"Swords",			swordIcon4,"what did you expect?"),
